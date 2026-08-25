@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="ko" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>초보자를 위한 맞춤 유리 완벽 주문 가이드북 | 글래스팩토리</title>
+  <meta name="description" content="처음 맞춤 유리를 주문하는 분들을 위한 1mm 실측법, 동전 모서리 R값 측정법, 화이트 식탁 백유리 선택법, 두께별 공식, 냄비받침 사용법 완벽 가이드.">
+
+  <!-- Tailwind CSS & Lucide Icons -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Noto Sans KR"', 'Inter', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#f0f9ff',
+              100: '#e0f2fe',
+              200: '#bae6fd',
+              500: '#0ea5e9',
+              600: '#0284c7',
+              700: '#0369a1',
+              800: '#075985',
+              900: '#0c4a6e',
+            },
+            warm: {
+              50: '#fafaf9',
+              100: '#f5f5f4',
+              200: '#e7e5e4',
+              800: '#292524',
+              900: '#1c1917',
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-warm-50 text-slate-800 font-sans antialiased selection:bg-brand-500 selection:text-white">
+
+  <!-- 헤더 -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-xs">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2.5">
+        <div class="w-9 h-9 rounded-xl bg-brand-600 flex items-center justify-center text-white shadow-xs">
+          <i data-lucide="sparkles" class="w-5 h-5"></i>
+        </div>
+        <span class="text-lg font-black text-slate-900">글래스팩토리</span>
+        <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-brand-100 text-brand-700">초보자 가이드북</span>
+      </a>
+
+      <div class="flex items-center gap-3">
+        <a href="index.html" class="text-xs font-semibold text-slate-600 hover:text-slate-900 flex items-center gap-1">
+          <i data-lucide="arrow-left" class="w-4 h-4"></i> 메인으로 돌아가기
+        </a>
+        <a href="index.html#calculator" class="px-3.5 py-1.5 bg-brand-600 hover:bg-brand-700 text-white text-xs font-bold rounded-xl shadow-xs transition-colors flex items-center gap-1">
+          <i data-lucide="calculator" class="w-3.5 h-3.5"></i>
+          <span>견적내러 가기</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+
+  <!-- 가이드북 히어로 -->
+  <section class="py-12 bg-gradient-to-b from-brand-50/60 to-warm-50 border-b border-slate-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center space-y-4">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-brand-200 text-brand-800 text-xs font-bold shadow-xs">
+        <i data-lucide="book-open" class="w-3.5 h-3.5 text-brand-600"></i> BEGINNER ORDER GUIDE
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-black text-slate-900 leading-tight">
+        "처음 맞춤 유리 주문하는 분을 위한<br>
+        <span class="text-brand-600">실패 제로 완벽 가이드북</span>"
+      </h1>
+      <p class="text-sm sm:text-base text-slate-600 max-w-xl mx-auto leading-relaxed">
+        어려운 용어 없이 사진과 일러스트로 쉽게 설명해 드립니다. 
+        이 6가지만 확인하시면 누구나 오차 없이 완벽하게 맞는 유리를 주문하실 수 있습니다.
+      </p>
+
+      <!-- 목차 뱃지 -->
+      <div class="pt-4 flex flex-wrap justify-center gap-2 text-xs font-semibold">
+        <a href="#ch1" class="px-3 py-1.5 bg-white rounded-full border border-slate-200 hover:border-brand-500 hover:text-brand-600 shadow-xs">1. 줄자 1mm 실측법</a>
+        <a href="#ch2" class="px-3 py-1.5 bg-white rounded-full border border-slate-200 hover:border-brand-500 hover:text-brand-600 shadow-xs">2. 동전 모서리 R 측정</a>
+        <a href="#ch3" class="px-3 py-1.5 bg-white rounded-full border border-slate-200 hover:border-brand-500 hover:text-brand-600 shadow-xs">3. 백유리 vs 일반유리</a>
+        <a href="#ch4" class="px-3 py-1.5 bg-white rounded-full border border-slate-200 hover:border-brand-500 hover:text-brand-600 shadow-xs">4. 두께(T) 선택 공식</a>
+        <a href="#ch5" class="px-3 py-1.5 bg-white rounded-full border border-slate-200 hover:border-brand-500 hover:text-brand-600 shadow-xs">5. 냄비받침 & 안전</a>
+        <a href="#ch6" class="px-3 py-1.5 bg-white rounded-full border border-slate-200 hover:border-brand-500 hover:text-brand-600 shadow-xs">6. 셀프 설치 요령</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- 본문 챕터들 -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 py-12 space-y-16">
+
+    <!-- Chapter 1. 줄자 1mm 실측법 -->
+    <section id="ch1" class="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-sm space-y-6 scroll-mt-20">
+      <div class="flex items-center gap-3">
+        <span class="w-8 h-8 rounded-xl bg-brand-600 text-white font-bold flex items-center justify-center text-sm">1</span>
+        <div>
+          <span class="text-xs font-bold text-brand-600">CHAPTER 01</span>
+          <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900">실패 없는 줄자 1mm 정밀 실측법</h2>
+        </div>
+      </div>
+
+      <p class="text-sm text-slate-600 leading-relaxed">
+        유리는 밀리미터(mm) 단위로 CNC 기계에서 정밀 가공됩니다. 센티미터(cm)로 어림잡지 마시고, 철제 줄자로 정확히 끝에서 끝까지 측정하세요.
+      </p>
+
+      <div class="grid sm:grid-cols-2 gap-4 text-xs">
+        <div class="p-4 bg-warm-50 rounded-2xl border border-slate-200 space-y-2">
+          <div class="font-bold text-slate-900 flex items-center gap-1.5 text-emerald-700">
+            <i data-lucide="check-circle" class="w-4 h-4"></i> 올바른 실측 방법
+          </div>
+          <ul class="space-y-1.5 text-slate-600 list-disc list-inside">
+            <li>가구 상판의 <strong>최외곽 가로(W)와 세로(H)</strong>를 잽니다.</li>
+            <li>줄자가 꺾이거나 처지지 않도록 <strong>팽팽하게 수평</strong>을 유지합니다.</li>
+            <li>가구 테두리에 턱이 있는 경우, <strong>안쪽 내경 치수에서 -1~2mm</strong>를 빼고 주문해야 쏙 들어갑니다.</li>
+          </ul>
+        </div>
+
+        <div class="p-4 bg-warm-50 rounded-2xl border border-slate-200 space-y-2">
+          <div class="font-bold text-slate-900 flex items-center gap-1.5 text-red-700">
+            <i data-lucide="alert-triangle" class="w-4 h-4"></i> 초보자가 자주 하는 실수
+          </div>
+          <ul class="space-y-1.5 text-slate-600 list-disc list-inside">
+            <li>상세페이지에 적힌 가구 스펙 치수만 믿고 실측을 생략하는 경우 (실제 제품과 5~10mm 차이 날 수 있음)</li>
+            <li>천 줄자나 스마트폰 측정 앱을 사용하는 경우 (오차 발생 위험)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Chapter 2. 동전 모서리 R 측정법 -->
+    <section id="ch2" class="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-sm space-y-6 scroll-mt-20">
+      <div class="flex items-center gap-3">
+        <span class="w-8 h-8 rounded-xl bg-brand-600 text-white font-bold flex items-center justify-center text-sm">2</span>
+        <div>
+          <span class="text-xs font-bold text-brand-600">CHAPTER 02</span>
+          <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900">동전 하나로 끝내는 모서리 R값 측정법</h2>
+        </div>
+      </div>
+
+      <p class="text-sm text-slate-600 leading-relaxed">
+        'R'은 모서리의 둥근 곡률 반경(Radius mm)을 의미합니다. 동전을 모서리에 올려보면 10초 만에 일치하는 R값을 찾을 수 있습니다.
+      </p>
+
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center text-xs">
+        <div class="p-3.5 bg-warm-50 rounded-2xl border border-slate-200">
+          <div class="text-slate-500 mb-1">직각 모서리</div>
+          <div class="font-black text-sm text-slate-900">R 0 (직각)</div>
+          <div class="text-[11px] text-slate-400 mt-1">곡선이 전혀 없는 일반 가구</div>
+        </div>
+        <div class="p-3.5 bg-brand-50 rounded-2xl border border-brand-200">
+          <div class="text-brand-600 font-bold mb-1">100원 동전</div>
+          <div class="font-black text-sm text-brand-800">R 10 ~ R 12</div>
+          <div class="text-[11px] text-brand-700 mt-1">가장 흔한 식탁 라운딩</div>
+        </div>
+        <div class="p-3.5 bg-warm-50 rounded-2xl border border-slate-200">
+          <div class="text-slate-500 mb-1">500원 동전</div>
+          <div class="font-black text-sm text-slate-900">R 15 ~ R 20</div>
+          <div class="text-[11px] text-slate-400 mt-1">완만한 곡면의 원목 식탁</div>
+        </div>
+        <div class="p-3.5 bg-warm-50 rounded-2xl border border-slate-200">
+          <div class="text-slate-500 mb-1">종이컵 바닥</div>
+          <div class="font-black text-sm text-slate-900">R 30 ~ R 35</div>
+          <div class="text-[11px] text-slate-400 mt-1">큰 라운드 카페 테이블</div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Chapter 3. 백유리 vs 일반유리 비교 -->
+    <section id="ch3" class="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-sm space-y-6 scroll-mt-20">
+      <div class="flex items-center gap-3">
+        <span class="w-8 h-8 rounded-xl bg-brand-600 text-white font-bold flex items-center justify-center text-sm">3</span>
+        <div>
+          <span class="text-xs font-bold text-brand-600">CHAPTER 03</span>
+          <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900">화이트 식탁엔 왜 저철분 백유리를 써야 할까?</h2>
+        </div>
+      </div>
+
+      <div class="grid sm:grid-cols-2 gap-6 items-center">
+        <div class="space-y-3 text-xs sm:text-sm text-slate-600 leading-relaxed">
+          <p>
+            일반 유리는 유리 원료 속 미량의 철분 성분 때문에 <strong>측면과 표면에 은은한 청록빛(녹색)</strong>이 돕니다.
+          </p>
+          <p>
+            원목이나 어두운 가구에서는 티가 안 나지만, <strong>하얀색 세라믹 식탁이나 화이트 도장 가구</strong> 위에 올리면 식탁 전체가 칙칙한 민트색으로 변해 보입니다.
+          </p>
+          <div class="p-3 bg-brand-50 rounded-xl border border-brand-200 text-brand-900 text-xs font-bold">
+            💡 결론: 화이트·아이보리·밝은 세라믹 가구에는 반드시 <span class="text-brand-600 underline">저철분 울트라백유리(디아망)</span>를 선택하세요!
+          </div>
+        </div>
+
+        <div class="rounded-2xl overflow-hidden shadow-md border border-slate-200">
+          <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=600&q=80" alt="화이트 세라믹 식탁 백유리" class="w-full h-48 object-cover">
+          <div class="p-3 bg-slate-900 text-white text-center text-xs">
+            저철분 백유리 시공 시 화이트 상판 본래의 맑은 색상 100% 유지
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Chapter 4. 용도별 두께(T) 선택 공식 -->
+    <section id="ch4" class="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-sm space-y-6 scroll-mt-20">
+      <div class="flex items-center gap-3">
+        <span class="w-8 h-8 rounded-xl bg-brand-600 text-white font-bold flex items-center justify-center text-sm">4</span>
+        <div>
+          <span class="text-xs font-bold text-brand-600">CHAPTER 04</span>
+          <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900">용도별 유리 두께(T) 선택 공식</h2>
+        </div>
+      </div>
+
+      <div class="space-y-3 text-xs">
+        <div class="p-4 bg-warm-50 rounded-2xl border border-slate-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+          <div class="space-y-0.5">
+            <div class="font-bold text-slate-900 text-sm">5T (5.0mm) - [가장 대중적인 표준 규격]</div>
+            <div class="text-slate-500">4인/6인 식탁, 컴퓨터 책상, 화장대, 서랍장 상판 커버용</div>
+          </div>
+          <span class="px-2.5 py-1 bg-brand-100 text-brand-700 font-bold rounded-lg whitespace-nowrap">가정용 95% 선택</span>
+        </div>
+
+        <div class="p-4 bg-warm-50 rounded-2xl border border-slate-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+          <div class="space-y-0.5">
+            <div class="font-bold text-slate-900 text-sm">8T (8.0mm) - [중후한 고급 원목용]</div>
+            <div class="text-slate-500">6~8인용 이상 대형 원목 식탁, 유리 단독 선반, 카페용 테이블</div>
+          </div>
+          <span class="px-2.5 py-1 bg-slate-200 text-slate-700 font-bold rounded-lg whitespace-nowrap">고급 대형용</span>
+        </div>
+
+        <div class="p-4 bg-warm-50 rounded-2xl border border-slate-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+          <div class="space-y-0.5">
+            <div class="font-bold text-slate-900 text-sm">10T / 12T (10~12mm) - [통유리 / 상업용]</div>
+            <div class="text-slate-500">프레임 없이 다리 위에 바로 얹는 통유리 상판, 계단 난간, 샤워 파티션</div>
+          </div>
+          <span class="px-2.5 py-1 bg-slate-200 text-slate-700 font-bold rounded-lg whitespace-nowrap">초중량 상판</span>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Chapter 5. 냄비받침 & 안전 관리법 -->
+    <section id="ch5" class="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-sm space-y-6 scroll-mt-20">
+      <div class="flex items-center gap-3">
+        <span class="w-8 h-8 rounded-xl bg-brand-600 text-white font-bold flex items-center justify-center text-sm">5</span>
+        <div>
+          <span class="text-xs font-bold text-brand-600">CHAPTER 05</span>
+          <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900">강화유리와 냄비받침의 올바른 사용법</h2>
+        </div>
+      </div>
+
+      <div class="space-y-3 text-xs sm:text-sm text-slate-600 leading-relaxed">
+        <p>
+          700℃ 열강화 유리는 일반 유리보다 5배 강하지만, <strong>펄펄 끓는 뚝배기나 냄비의 급격한 국소 열충격(온도차 200℃ 이상)</strong>에는 깨질 수 있습니다.
+        </p>
+        <div class="p-4 bg-amber-50 rounded-2xl border border-amber-200 text-amber-900 text-xs space-y-1">
+          <div class="font-bold flex items-center gap-1.5 text-amber-800">
+            <i data-lucide="flame" class="w-4 h-4"></i> 안전 사용 3대 수칙
+          </div>
+          <p>1. 뜨거운 냄비나 뚝배기를 올릴 때는 <strong>반드시 두툼한 실리콘/코르크 냄비받침</strong>을 사용하세요.</p>
+          <p>2. 유리가 가구 위에서 미끄러지지 않도록 <strong>투명 실리콘 범폰(눈물패드)</strong>을 네 귀퉁이에 꼭 부착하세요.</p>
+          <p>3. 유리 모서리에 강한 쇠붙이 충격을 주지 않도록 주의하세요.</p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- CTA 배너 -->
+    <section class="p-8 sm:p-10 bg-slate-900 text-white rounded-3xl text-center space-y-5 shadow-xl">
+      <h3 class="text-2xl sm:text-3xl font-black">
+        이제 우리집 맞춤 유리를 직접 견적내 보세요!
+      </h3>
+      <p class="text-xs sm:text-sm text-slate-300 max-w-md mx-auto">
+        질문 3개로 10초 만에 최적의 유리를 찾아주는 스마트 도우미가 준비되어 있습니다.
+      </p>
+      <div class="pt-2 flex flex-col sm:flex-row justify-center gap-3">
+        <a href="index.html#calculator" class="px-8 py-4 bg-brand-500 hover:bg-brand-600 text-white font-bold text-sm rounded-2xl shadow-lg transition-all flex items-center justify-center gap-2">
+          <i data-lucide="calculator" class="w-4 h-4"></i>
+          <span>실시간 비주얼 견적내기</span>
+        </a>
+        <a href="index.html" class="px-6 py-4 bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold text-sm rounded-2xl transition-all">
+          메인 페이지로 이동
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- 푸터 -->
+  <footer class="bg-slate-950 text-slate-400 py-8 text-xs border-t border-slate-900 text-center">
+    <div class="max-w-4xl mx-auto px-4 space-y-2">
+      <div class="text-white font-bold">글래스팩토리 (GlassFactory) 맞춤 유리 전문 제작소</div>
+      <p class="text-[11px] text-slate-500">© 2026 GlassFactory. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    if (window.lucide) {
+      lucide.createIcons();
+    }
+  </script>
+</body>
+</html>
