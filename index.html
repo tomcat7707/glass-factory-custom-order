@@ -82,12 +82,12 @@
 <body class="bg-warm-50 text-slate-800 font-sans antialiased selection:bg-brand-500 selection:text-white">
 
   <!-- ================================================================= -->
-  <!-- 1. GNB 헤더 (네비게이션 & 관리자 모드 진입) -->
+  <!-- 1. GNB 헤더 (네비게이션 & 초보자 가이드 & 관리자 모드) -->
   <!-- ================================================================= -->
   <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-xs transition-all">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
       <!-- 로고 -->
-      <a href="#" class="flex items-center gap-3 group">
+      <a href="index.html" class="flex items-center gap-3 group">
         <div class="w-10 h-10 rounded-2xl bg-gradient-to-br from-brand-500 to-sky-700 flex items-center justify-center text-white shadow-md group-hover:scale-105 transition-transform">
           <i data-lucide="sparkles" class="w-5 h-5"></i>
         </div>
@@ -101,28 +101,30 @@
       </a>
 
       <!-- 네비게이션 메뉴 -->
-      <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-slate-600">
+      <nav class="hidden lg:flex items-center gap-7 text-sm font-medium text-slate-600">
         <a href="#calculator" class="hover:text-brand-600 transition-colors flex items-center gap-1.5 font-bold text-brand-600">
           <i data-lucide="calculator" class="w-4 h-4"></i> 사진 견적내기
         </a>
+        <a href="guide.html" class="hover:text-brand-600 transition-colors flex items-center gap-1.5 text-brand-700 font-extrabold bg-brand-50 px-2.5 py-1 rounded-lg border border-brand-200 shadow-xs">
+          <i data-lucide="book-open" class="w-4 h-4 text-brand-600"></i> 초보자 완벽 가이드
+        </a>
         <a href="#r-guide" class="hover:text-brand-600 transition-colors flex items-center gap-1">
-          <i data-lucide="coins" class="w-4 h-4 text-amber-500"></i> 동전 실측 가이드
+          <i data-lucide="coins" class="w-4 h-4 text-amber-500"></i> 동전 실측법
         </a>
         <a href="#gallery" class="hover:text-brand-600 transition-colors">실제 시공 갤러리</a>
         <a href="#safety-guarantee" class="hover:text-brand-600 transition-colors">100% 파손보상</a>
         <a href="#reviews" class="hover:text-brand-600 transition-colors">고객 후기</a>
-        <a href="#b2b-contact" class="hover:text-brand-600 transition-colors">대량/도면 문의</a>
       </nav>
 
       <!-- 우측 버튼 -->
-      <div class="flex items-center gap-3">
+      <div class="flex items-center gap-2.5">
         <!-- 관리자 설정 버튼 -->
-        <button onclick="openAdminModal()" class="px-3 py-1.5 text-slate-600 hover:text-brand-600 hover:bg-slate-100 rounded-xl transition-colors flex items-center gap-1.5 text-xs font-bold border border-slate-200 shadow-xs">
-          <i data-lucide="settings-2" class="w-4 h-4 text-slate-500"></i>
-          <span>관리자 모드</span>
+        <button onclick="openAdminModal()" class="px-3 py-1.5 text-slate-600 hover:text-brand-600 hover:bg-slate-100 rounded-xl transition-colors flex items-center gap-1 text-xs font-bold border border-slate-200 shadow-xs">
+          <i data-lucide="settings-2" class="w-3.5 h-3.5 text-slate-500"></i>
+          <span>관리자</span>
         </button>
 
-        <a href="#calculator" class="bg-brand-600 hover:bg-brand-700 text-white text-xs sm:text-sm font-bold px-4 py-2 rounded-xl shadow-md shadow-brand-500/20 hover:shadow-lg transition-all flex items-center gap-1.5">
+        <a href="#calculator" class="bg-brand-600 hover:bg-brand-700 text-white text-xs sm:text-sm font-bold px-3.5 py-2 rounded-xl shadow-md shadow-brand-500/20 hover:shadow-lg transition-all flex items-center gap-1.5">
           <i data-lucide="calculator" class="w-4 h-4"></i>
           <span>실시간 견적</span>
         </a>
@@ -180,14 +182,14 @@
             </div>
           </div>
 
-          <div class="flex flex-col sm:flex-row items-center gap-4 pt-3 justify-center lg:justify-start">
-            <a href="#calculator" class="w-full sm:w-auto px-8 py-4 bg-brand-600 hover:bg-brand-700 text-white font-bold text-base rounded-2xl shadow-lg shadow-brand-500/25 hover:shadow-brand-500/40 transition-all flex items-center justify-center gap-2">
+          <div class="flex flex-col sm:flex-row items-center gap-3.5 pt-3 justify-center lg:justify-start">
+            <a href="#calculator" class="w-full sm:w-auto px-7 py-4 bg-brand-600 hover:bg-brand-700 text-white font-bold text-base rounded-2xl shadow-lg shadow-brand-500/25 hover:shadow-brand-500/40 transition-all flex items-center justify-center gap-2">
               <i data-lucide="calculator" class="w-5 h-5"></i>
-              <span>내 맞춤 유리 사진으로 견적내기</span>
+              <span>내 맞춤 유리 견적내기</span>
             </a>
-            <a href="#r-guide" class="w-full sm:w-auto px-6 py-4 bg-white hover:bg-slate-100 text-slate-700 font-semibold text-base rounded-2xl border border-slate-200 shadow-sm transition-all flex items-center justify-center gap-2">
-              <i data-lucide="help-circle" class="w-5 h-5 text-slate-400"></i>
-              <span>모서리 둥근 정도 재는 법</span>
+            <a href="guide.html" class="w-full sm:w-auto px-6 py-4 bg-white hover:bg-slate-50 text-slate-800 font-bold text-base rounded-2xl border border-brand-300 shadow-sm transition-all flex items-center justify-center gap-2">
+              <i data-lucide="book-open" class="w-5 h-5 text-brand-600"></i>
+              <span>초보자 완벽 가이드북</span>
             </a>
           </div>
         </div>
@@ -230,7 +232,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <!-- 섹션 타이틀 -->
-      <div class="text-center max-w-3xl mx-auto mb-10">
+      <div class="text-center max-w-3xl mx-auto mb-8">
         <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-600 text-white text-xs font-bold mb-2 shadow-xs">
           <i data-lucide="image" class="w-3.5 h-3.5"></i> VISUAL ESTIMATOR
         </span>
@@ -240,6 +242,26 @@
         <p class="mt-2 text-slate-600 text-xs sm:text-sm">
           사진 카드를 클릭하면 오른쪽 프리뷰에서 실제 가구 모습과 실시간 금액이 즉시 계산됩니다.
         </p>
+      </div>
+
+      <!-- 초보자 전용 스마트 10초 맞춤 추천 위저드 배너 -->
+      <div class="max-w-5xl mx-auto mb-8 p-4 sm:p-5 bg-gradient-to-r from-brand-600 via-sky-600 to-indigo-600 rounded-3xl text-white shadow-lg flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-3 text-center sm:text-left">
+          <div class="w-11 h-11 rounded-2xl bg-white/20 backdrop-blur-sm flex items-center justify-center flex-shrink-0 text-amber-300">
+            <i data-lucide="wand-2" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <div class="text-sm sm:text-base font-black flex items-center gap-1.5 justify-center sm:justify-start">
+              <span>선택이 막막하신가요?</span>
+              <span class="bg-amber-400 text-slate-950 text-[10px] font-extrabold px-2 py-0.2 rounded-full">초보자 추천</span>
+            </div>
+            <p class="text-xs text-sky-100 mt-0.5">3가지 질문으로 우리집 가구에 딱 맞는 유리와 두께를 10초 만에 자동 세팅해 드립니다.</p>
+          </div>
+        </div>
+        <button type="button" onclick="openWizardModal()" class="px-5 py-3 bg-white hover:bg-slate-100 text-brand-700 font-extrabold text-xs sm:text-sm rounded-2xl shadow-md transition-all whitespace-nowrap flex items-center gap-1.5">
+          <i data-lucide="sparkles" class="w-4 h-4 text-brand-600"></i>
+          <span>10초 맞춤 추천 시작하기</span>
+        </button>
       </div>
 
       <div class="grid lg:grid-cols-12 gap-8 items-start">
@@ -268,7 +290,9 @@
                 <span class="w-6 h-6 rounded-full bg-brand-600 text-white flex items-center justify-center text-xs">2</span>
                 <span>사이즈 입력 (단위: mm)</span>
               </h3>
-              <span class="text-xs text-brand-600 font-medium">10cm = 100mm (줄자로 측정)</span>
+              <a href="guide.html#ch1" class="text-xs text-brand-600 font-semibold hover:underline flex items-center gap-1">
+                <i data-lucide="help-circle" class="w-3.5 h-3.5"></i> 줄자 1mm 실측법 가이드
+              </a>
             </div>
 
             <div class="grid sm:grid-cols-2 gap-4">
@@ -320,7 +344,9 @@
                 <span class="w-6 h-6 rounded-full bg-brand-600 text-white flex items-center justify-center text-xs">3</span>
                 <span>유리 종류 및 색상 선택 (Texture)</span>
               </h3>
-              <span class="text-xs text-brand-600 font-medium">관리자 모드에서 실시간 추가/수정 가능</span>
+              <a href="guide.html#ch3" class="text-xs text-brand-600 font-semibold hover:underline flex items-center gap-1">
+                <i data-lucide="help-circle" class="w-3.5 h-3.5"></i> 백유리 vs 일반유리 차이점
+              </a>
             </div>
             <div class="grid grid-cols-2 sm:grid-cols-4 gap-3" id="glassCardsContainer">
               <!-- JS 동적 렌더링 -->
@@ -617,9 +643,9 @@
               </div>
             </div>
 
-            <p class="text-[11px] text-slate-400 text-center leading-relaxed">
-              🔒 주문 접수 시 담당 엔지니어가 1:1 도면 최종 확인 후 안전하게 제작합니다.
-            </p>
+            <div class="p-3 bg-slate-800/80 rounded-2xl border border-slate-700 text-[11px] text-slate-300 text-center leading-relaxed">
+              🛡️ <strong>실측 실수 걱정 ZERO</strong>: 주문 접수 후 전문 엔지니어가 1:1 도면과 사진을 무료로 사전 검수해 드립니다.
+            </div>
           </div>
 
         </div>
@@ -962,76 +988,6 @@
 
 
   <!-- ================================================================= -->
-  <!-- S11. B2B 대량 발주 / 도면 견적 문의 폼 -->
-  <!-- ================================================================= -->
-  <section id="b2b-contact" class="py-16 bg-white scroll-mt-12">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <div class="bg-warm-50 p-8 sm:p-10 rounded-3xl border border-slate-200 shadow-sm">
-        <div class="text-center max-w-xl mx-auto mb-8">
-          <span class="inline-flex items-center gap-1 text-xs font-bold text-brand-600 bg-white px-2.5 py-1 rounded-full mb-2 border border-brand-200">
-            <i data-lucide="building" class="w-3.5 h-3.5"></i> B2B & SPECIAL ORDER
-          </span>
-          <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">
-            대량 발주 / 인테리어 CAD 도면 견적 문의
-          </h2>
-          <p class="text-xs sm:text-sm text-slate-600 mt-1">
-            공방, 가구사, 인테리어 시공업체, 관공서 납품 등 도면 첨부 견적 및 세금계산서 발행을 지원합니다.
-          </p>
-        </div>
-
-        <form onsubmit="handleB2BSubmit(event)" class="space-y-4">
-          <div class="grid sm:grid-cols-2 gap-4">
-            <div>
-              <label class="block text-xs font-bold text-slate-700 mb-1">상호명 / 담당자명 *</label>
-              <input type="text" required placeholder="예: (주)디자인스튜디오 홍길동" class="w-full px-3.5 py-2.5 bg-white border border-slate-300 rounded-xl text-xs focus:ring-2 focus:ring-brand-500">
-            </div>
-            <div>
-              <label class="block text-xs font-bold text-slate-700 mb-1">연락처 *</label>
-              <input type="tel" required placeholder="예: 010-1234-5678" class="w-full px-3.5 py-2.5 bg-white border border-slate-300 rounded-xl text-xs focus:ring-2 focus:ring-brand-500">
-            </div>
-          </div>
-
-          <div class="grid sm:grid-cols-2 gap-4">
-            <div>
-              <label class="block text-xs font-bold text-slate-700 mb-1">이메일 (견적서 수신용) *</label>
-              <input type="email" required placeholder="example@company.com" class="w-full px-3.5 py-2.5 bg-white border border-slate-300 rounded-xl text-xs focus:ring-2 focus:ring-brand-500">
-            </div>
-            <div>
-              <label class="block text-xs font-bold text-slate-700 mb-1">납기 희망일</label>
-              <input type="date" class="w-full px-3.5 py-2.5 bg-white border border-slate-300 rounded-xl text-xs focus:ring-2 focus:ring-brand-500">
-            </div>
-          </div>
-
-          <div>
-            <label class="block text-xs font-bold text-slate-700 mb-1">문의 내용 및 사양 (규격, 수량, 가공 요구사항) *</label>
-            <textarea rows="3" required placeholder="예: 8T 브론즈 강화유리 1200x2000 15장, 테두리 CNC 엣지 가공, 부가세 포함 견적 요청합니다." class="w-full px-3.5 py-2.5 bg-white border border-slate-300 rounded-xl text-xs focus:ring-2 focus:ring-brand-500"></textarea>
-          </div>
-
-          <div class="p-3.5 bg-white rounded-2xl border border-dashed border-slate-300 text-center">
-            <i data-lucide="upload-cloud" class="w-6 h-6 text-slate-400 mx-auto mb-1"></i>
-            <div class="text-xs text-slate-600 font-semibold">CAD 도면 / 스케치 사진 첨부 (선택)</div>
-            <div class="text-[10px] text-slate-400 mt-0.5">DWG, DXF, PDF, JPG, PNG (최대 20MB)</div>
-            <input type="file" class="hidden" id="b2bFile" onchange="updateFileName(this)">
-            <button type="button" onclick="document.getElementById('b2bFile').click()" class="mt-2 px-3 py-1 bg-warm-50 border border-slate-300 rounded-lg text-xs font-semibold text-slate-700 hover:bg-slate-100">
-              파일 선택
-            </button>
-            <span id="fileNameDisplay" class="text-xs text-brand-600 ml-2 font-medium"></span>
-          </div>
-
-          <button type="submit" class="w-full py-4 bg-slate-900 hover:bg-slate-800 text-white font-bold text-sm rounded-2xl shadow-md transition-all flex items-center justify-center gap-2">
-            <i data-lucide="send" class="w-4 h-4"></i>
-            <span>도면 견적 문의 접수하기</span>
-          </button>
-        </form>
-
-      </div>
-
-    </div>
-  </section>
-
-
-  <!-- ================================================================= -->
   <!-- S12. 푸터 (Footer) -->
   <!-- ================================================================= -->
   <footer class="bg-slate-950 text-slate-400 py-12 text-xs border-t border-slate-900">
@@ -1059,13 +1015,13 @@
         </div>
 
         <div>
-          <div class="text-white font-bold text-xs mb-3">공장 및 사업장 정보</div>
-          <p class="text-[11px] leading-relaxed">
-            상호: 글래스팩토리 정밀유리공업(주)<br>
-            대표자: 홍길동 | 사업자등록번호: 123-45-67890<br>
-            통신판매업신고: 제2026-서울강남-0000호<br>
-            공장: 경기도 포천시 가산면 유리가공단지로 88
-          </p>
+          <div class="text-white font-bold text-xs mb-3">가이드 & 바로가기</div>
+          <ul class="space-y-1.5 text-[11px]">
+            <li><a href="guide.html" class="hover:text-brand-400 font-bold text-white flex items-center gap-1"><i data-lucide="book-open" class="w-3 h-3"></i> 초보자 맞춤 유리 가이드북</a></li>
+            <li><a href="guide.html#ch1" class="hover:text-slate-300">줄자 1mm 정밀 실측법</a></li>
+            <li><a href="guide.html#ch2" class="hover:text-slate-300">동전 모서리 R값 가이드</a></li>
+            <li><a href="guide.html#ch3" class="hover:text-slate-300">저철분 백유리 vs 일반유리 비교</a></li>
+          </ul>
         </div>
 
         <div>
@@ -1083,6 +1039,7 @@
       <div class="pt-6 border-t border-slate-900 flex flex-col sm:flex-row items-center justify-between text-[11px] text-slate-500">
         <div>© 2026 GlassFactory. All Rights Reserved.</div>
         <div class="flex gap-4 mt-2 sm:mt-0">
+          <a href="guide.html" class="hover:text-slate-400">초보자 가이드</a>
           <a href="#" class="hover:text-slate-400">이용약관</a>
           <a href="#" class="hover:text-slate-400">개인정보처리방침</a>
           <a href="#" class="hover:text-slate-400">안심보상규정</a>
@@ -1094,8 +1051,97 @@
 
 
   <!-- ================================================================= -->
-  <!-- 모달 1. 주문 신청 팝업 (Order Modal) -->
+  <!-- 모달 0. [10초 초보자 스마트 추천 위저드 모달] -->
   <!-- ================================================================= -->
+  <div id="wizardModal" class="fixed inset-0 z-50 bg-black/75 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl border border-slate-200 relative max-h-[90vh] overflow-y-auto">
+      <button onclick="closeWizardModal()" class="absolute right-5 top-5 text-slate-400 hover:text-slate-600 p-1">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <div class="text-center mb-6">
+        <div class="w-12 h-12 rounded-2xl bg-brand-100 text-brand-600 flex items-center justify-center mx-auto mb-2">
+          <i data-lucide="wand-2" class="w-6 h-6"></i>
+        </div>
+        <h3 class="text-xl font-bold text-slate-900">10초 맞춤 유리 스마트 도우미</h3>
+        <p class="text-xs text-slate-500">3가지 질문에 답변하시면 우리집 가구에 꼭 맞는 최적 옵션을 자동 세팅합니다.</p>
+      </div>
+
+      <div class="space-y-5 text-xs">
+        
+        <!-- 질문 1 -->
+        <div class="space-y-2">
+          <label class="block font-extrabold text-slate-900 text-sm">Q1. 어디에 올려 사용하실 건가요?</label>
+          <div class="grid grid-cols-2 gap-2">
+            <label class="p-3 bg-warm-50 border border-slate-200 rounded-2xl cursor-pointer hover:border-brand-500 flex items-center gap-2 font-bold text-slate-800">
+              <input type="radio" name="wizUsage" value="dining" checked class="text-brand-600">
+              <span>식탁 / 다이닝 테이블</span>
+            </label>
+            <label class="p-3 bg-warm-50 border border-slate-200 rounded-2xl cursor-pointer hover:border-brand-500 flex items-center gap-2 font-bold text-slate-800">
+              <input type="radio" name="wizUsage" value="desk" class="text-brand-600">
+              <span>컴퓨터 책상 / 서재</span>
+            </label>
+            <label class="p-3 bg-warm-50 border border-slate-200 rounded-2xl cursor-pointer hover:border-brand-500 flex items-center gap-2 font-bold text-slate-800">
+              <input type="radio" name="wizUsage" value="dresser" class="text-brand-600">
+              <span>화장대 / 서랍장 상판</span>
+            </label>
+            <label class="p-3 bg-warm-50 border border-slate-200 rounded-2xl cursor-pointer hover:border-brand-500 flex items-center gap-2 font-bold text-slate-800">
+              <input type="radio" name="wizUsage" value="round_cafe" class="text-brand-600">
+              <span>카페 원형 테이블</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- 질문 2 -->
+        <div class="space-y-2">
+          <label class="block font-extrabold text-slate-900 text-sm">Q2. 가구 상판의 색상/재질은 무엇인가요?</label>
+          <div class="grid grid-cols-3 gap-2">
+            <label class="p-3 bg-warm-50 border border-slate-200 rounded-2xl cursor-pointer hover:border-brand-500 flex flex-col items-center text-center gap-1 font-bold text-slate-800">
+              <input type="radio" name="wizColor" value="white" checked class="text-brand-600">
+              <span>화이트 / 세라믹</span>
+              <span class="text-[10px] text-brand-600 font-normal">백유리 필수</span>
+            </label>
+            <label class="p-3 bg-warm-50 border border-slate-200 rounded-2xl cursor-pointer hover:border-brand-500 flex flex-col items-center text-center gap-1 font-bold text-slate-800">
+              <input type="radio" name="wizColor" value="wood" class="text-brand-600">
+              <span>원목 / 내추럴</span>
+              <span class="text-[10px] text-slate-400 font-normal">투명/브론즈</span>
+            </label>
+            <label class="p-3 bg-warm-50 border border-slate-200 rounded-2xl cursor-pointer hover:border-brand-500 flex flex-col items-center text-center gap-1 font-bold text-slate-800">
+              <input type="radio" name="wizColor" value="dark" class="text-brand-600">
+              <span>블랙 / 다크그레이</span>
+              <span class="text-[10px] text-slate-400 font-normal">그레이/사틴</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- 질문 3 -->
+        <div class="space-y-2">
+          <label class="block font-extrabold text-slate-900 text-sm">Q3. 어린이나 반려동물이 함께 생활하나요?</label>
+          <div class="grid grid-cols-2 gap-2">
+            <label class="p-3 bg-warm-50 border border-slate-200 rounded-2xl cursor-pointer hover:border-brand-500 flex items-center gap-2 font-bold text-slate-800">
+              <input type="radio" name="wizChild" value="yes" checked class="text-brand-600">
+              <span>네 (안전 강화 & 둥근 모서리)</span>
+            </label>
+            <label class="p-3 bg-warm-50 border border-slate-200 rounded-2xl cursor-pointer hover:border-brand-500 flex items-center gap-2 font-bold text-slate-800">
+              <input type="radio" name="wizChild" value="no" class="text-brand-600">
+              <span>성인 전용 (표준 세팅)</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="pt-3">
+          <button type="button" onclick="applySmartRecommendation()" class="w-full py-4 bg-brand-600 hover:bg-brand-700 text-white font-black text-sm rounded-2xl shadow-lg transition-all flex items-center justify-center gap-2">
+            <i data-lucide="check" class="w-4 h-4"></i>
+            <span>내 가구 맞춤 옵션 자동 적용하기</span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <!-- 모달 1. 주문 신청 팝업 (Order Modal) -->
   <div id="orderModal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden items-center justify-center p-4">
     <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl border border-slate-200 relative max-h-[90vh] overflow-y-auto">
       <button onclick="closeOrderModal()" class="absolute right-5 top-5 text-slate-400 hover:text-slate-600 p-1">
@@ -1153,9 +1199,7 @@
   </div>
 
 
-  <!-- ================================================================= -->
   <!-- 모달 2. 완전한 동적 CRUD 관리자 마스터 대시보드 (Admin Dashboard) -->
-  <!-- ================================================================= -->
   <div id="adminModal" class="fixed inset-0 z-50 bg-black/75 backdrop-blur-sm hidden items-center justify-center p-4">
     <div class="bg-white rounded-3xl max-w-3xl w-full p-6 sm:p-8 shadow-2xl border border-slate-200 relative max-h-[90vh] overflow-y-auto">
       
@@ -1333,7 +1377,7 @@
 
 
   <!-- ================================================================= -->
-  <!-- JavaScript: 지능형 조건부 UI & 완전한 동적 CRUD 엔진 -->
+  <!-- JavaScript: 지능형 조건부 UI & 완전한 동적 CRUD & 스마트 위저드 엔진 -->
   <!-- ================================================================= -->
   <script>
     // 1. 기본 마스터 데이터 (동적 CRUD 지원)
@@ -1519,8 +1563,87 @@
     }
 
     // -------------------------------------------------------------
-    // 3. 지능형 조건부 UI & 선택 핸들러
+    // 3. 지능형 조건부 UI & 스마트 추천 위저드 핸들러
     // -------------------------------------------------------------
+    function openWizardModal() {
+      const modal = document.getElementById('wizardModal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeWizardModal() {
+      const modal = document.getElementById('wizardModal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    function applySmartRecommendation() {
+      const usage = document.querySelector('input[name="wizUsage"]:checked').value;
+      const color = document.querySelector('input[name="wizColor"]:checked').value;
+      const child = document.querySelector('input[name="wizChild"]:checked').value;
+
+      // 1) 용도에 따른 기본 세팅
+      if (usage === 'dining') {
+        selectShape('rectangle');
+        setQuickSize(850, 1600);
+        state.thickness = '5';
+        state.tempered = true;
+        state.cornerR = (child === 'yes') ? 20 : 12;
+        state.cornerType = 'r';
+        state.edgeType = 'cnc_flat';
+        state.cableHole = 'none';
+        state.bumpons = 4;
+      } else if (usage === 'desk') {
+        selectShape('rectangle');
+        setQuickSize(600, 1200);
+        state.thickness = '5';
+        state.tempered = true;
+        state.cornerR = 12;
+        state.cornerType = 'r';
+        state.edgeType = 'cnc_flat';
+        state.cableHole = 'top_right';
+        state.bumpons = 4;
+      } else if (usage === 'dresser') {
+        selectShape('rectangle');
+        setQuickSize(500, 1000);
+        state.thickness = '5';
+        state.tempered = false;
+        state.cornerR = 0;
+        state.cornerType = 'r';
+        state.edgeType = 'cnc_flat';
+        state.cableHole = 'none';
+        state.bumpons = 4;
+      } else if (usage === 'round_cafe') {
+        selectShape('round');
+        document.getElementById('inputWidth').value = 900;
+        state.thickness = '8';
+        state.tempered = true;
+        state.cornerR = 0;
+        state.edgeType = 'cnc_flat';
+        state.cableHole = 'none';
+        state.bumpons = 4;
+      }
+
+      // 2) 가구 색상에 따른 유리 품종 매핑
+      if (color === 'white') {
+        state.glassType = 'ultra_clear'; // 저철분 백유리
+      } else if (color === 'wood') {
+        state.glassType = 'clear'; // 투명유리
+      } else if (color === 'dark') {
+        state.glassType = 'gray'; // 다크 그레이
+      }
+
+      // 3) UI 갱신 & 알림
+      document.getElementById('optTempered').checked = state.tempered;
+      document.getElementById('optCableHole').value = state.cableHole;
+      document.getElementById('optBumpons').value = state.bumpons;
+
+      renderAllCards();
+      calculateEstimate();
+      closeWizardModal();
+      alert('우리집 가구에 최적화된 맞춤 옵션(유리 품종, 두께, 모서리 가공 등)이 자동 세팅되었습니다!');
+    }
+
     function selectShape(shapeId) {
       state.shape = shapeId;
       renderShapeCards();
@@ -1956,7 +2079,6 @@
       document.getElementById('admTabBtnPrices').className = tab === 'prices' ? 'px-4 py-2 border-b-2 border-brand-600 text-brand-700 font-bold text-xs whitespace-nowrap' : 'px-4 py-2 border-b-2 border-transparent text-slate-500 hover:text-slate-800 font-semibold text-xs whitespace-nowrap';
     }
 
-    // 관리자 유리 목록 렌더링 (CRUD 버튼 탑재)
     function renderAdminGlassList() {
       const container = document.getElementById('admGlassListContainer');
       document.getElementById('admGlassCount').textContent = masterData.glasses.length;
@@ -1976,15 +2098,12 @@
           </div>
 
           <div class="flex items-center gap-2 justify-end">
-            <!-- 품절 토글 -->
             <button type="button" onclick="toggleSoldOut('${g.id}')" class="px-2.5 py-1 rounded-lg text-xs font-bold ${g.isSoldOut ? 'bg-red-100 text-red-700' : 'bg-emerald-100 text-emerald-700'}">
               ${g.isSoldOut ? '품절중' : '판매중'}
             </button>
-            <!-- 수정 버튼 -->
             <button type="button" onclick="openEditGlassModal('${g.id}')" class="p-1.5 bg-white border border-slate-200 hover:bg-slate-100 rounded-lg text-slate-700" title="수정">
               <i data-lucide="edit-2" class="w-3.5 h-3.5"></i>
             </button>
-            <!-- 삭제 버튼 -->
             <button type="button" onclick="deleteGlassItem('${g.id}')" class="p-1.5 bg-white border border-slate-200 hover:bg-red-50 text-red-600 rounded-lg" title="삭제">
               <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
             </button>
@@ -1994,7 +2113,6 @@
       if (window.lucide) lucide.createIcons();
     }
 
-    // 유리 추가/수정 모달 핸들러
     function openAddGlassModal() {
       document.getElementById('glassEditModalTitle').textContent = '새 유리 품종 등록';
       document.getElementById('editGlassId').value = '';
@@ -2037,7 +2155,6 @@
       const img = document.getElementById('editGlassImg').value.trim() || 'https://images.unsplash.com/photo-1577140917170-285929fb55b7?auto=format&fit=crop&w=800&q=80';
 
       if (id) {
-        // 기존 수정
         const g = masterData.glasses.find(item => item.id === id);
         if (g) {
           g.name = name;
@@ -2047,7 +2164,6 @@
           g.img = img;
         }
       } else {
-        // 신규 추가
         const newId = 'custom_' + Date.now();
         masterData.glasses.push({
           id: newId,
