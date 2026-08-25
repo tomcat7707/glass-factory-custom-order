@@ -67,11 +67,11 @@
       border-radius: 4px;
     }
     .clean-cad-bg {
-      background-color: #ffffff;
-      background-size: 24px 24px;
+      background-color: #f8fafc;
+      background-size: 20px 20px;
       background-image: 
-        linear-gradient(to right, rgba(226, 232, 240, 0.7) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(226, 232, 240, 0.7) 1px, transparent 1px);
+        linear-gradient(to right, rgba(203, 213, 225, 0.4) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(203, 213, 225, 0.4) 1px, transparent 1px);
     }
     .card-selected {
       border-color: #0284c7 !important;
@@ -337,7 +337,7 @@
             </div>
           </div>
 
-          <!-- Step 3. 유리 종류 및 색상 (실물 인테리어 사진 카드 - 2열 와이드 고도화) -->
+          <!-- Step 3. 유리 종류 및 색상 (실물 인테리어 사진 카드 - 2열 와이드) -->
           <div class="bg-warm-50/90 p-6 rounded-3xl border border-slate-200 shadow-xs">
             <div class="flex items-center justify-between mb-4">
               <h3 class="text-base sm:text-lg font-bold text-slate-900 flex items-center gap-2.5">
@@ -348,7 +348,6 @@
                 <i data-lucide="help-circle" class="w-4 h-4"></i> 백유리 vs 일반유리 차이점
               </a>
             </div>
-            <!-- 가독성을 위해 2열 와이드 그리드로 전면 개편 -->
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4" id="glassCardsContainer">
               <!-- JS 동적 렌더링 -->
             </div>
@@ -599,11 +598,22 @@
               </div>
             </div>
 
-            <!-- (2) 2D 정밀 도면 뷰: 깔끔한 라이트 배경 + 모서리 5배 확대 인스펙터 -->
+            <!-- (2) 2D 정밀 도면 뷰: 모서리 R20 뱃지 핀 & 직각 90도 기호 명확화 -->
             <div id="viewModeCad" class="hidden space-y-3.5">
               
+              <!-- 상단: 모서리 가공 상태 요약 안내 바 -->
+              <div class="p-2.5 bg-slate-100 rounded-xl border border-slate-200 flex items-center justify-between text-xs font-bold text-slate-700">
+                <div class="flex items-center gap-1.5">
+                  <i data-lucide="info" class="w-4 h-4 text-brand-600"></i>
+                  <span>모서리 적용 현황</span>
+                </div>
+                <div class="flex gap-2" id="cadCornerStatusBadges">
+                  <!-- JS 동적 뱃지 생성 -->
+                </div>
+              </div>
+
               <!-- 상단: 전체 상판 정밀 치수 도면 캔버스 -->
-              <div class="w-full h-64 clean-cad-bg rounded-2xl border border-slate-300 relative flex items-center justify-center p-2 overflow-hidden shadow-inner">
+              <div class="w-full h-72 clean-cad-bg rounded-2xl border border-slate-300 relative flex items-center justify-center p-2 overflow-hidden shadow-inner">
                 <canvas id="previewCanvas" class="w-full h-full"></canvas>
               </div>
 
@@ -1129,9 +1139,7 @@
   </footer>
 
 
-  <!-- ================================================================= -->
   <!-- 모달 0. [10초 초보자 스마트 추천 위저드 모달] -->
-  <!-- ================================================================= -->
   <div id="wizardModal" class="fixed inset-0 z-50 bg-black/75 backdrop-blur-sm hidden items-center justify-center p-4">
     <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl border border-slate-200 relative max-h-[90vh] overflow-y-auto">
       <button onclick="closeWizardModal()" class="absolute right-5 top-5 text-slate-400 hover:text-slate-600 p-1">
@@ -1278,7 +1286,7 @@
   </div>
 
 
-  <!-- 모달 2. 완전한 동적 CRUD 관리자 마스터 대시보드 (Admin Dashboard) -->
+  <!-- 모달 2. 관리자 마스터 대시보드 -->
   <div id="adminModal" class="fixed inset-0 z-50 bg-black/75 backdrop-blur-sm hidden items-center justify-center p-4">
     <div class="bg-white rounded-3xl max-w-3xl w-full p-6 sm:p-8 shadow-2xl border border-slate-200 relative max-h-[90vh] overflow-y-auto">
       
@@ -1286,7 +1294,6 @@
         <i data-lucide="x" class="w-6 h-6"></i>
       </button>
 
-      <!-- 관리자 로그인 폼 -->
       <div id="adminAuthSection" class="text-center py-8">
         <div class="w-14 h-14 rounded-2xl bg-slate-100 text-slate-800 flex items-center justify-center mx-auto mb-3">
           <i data-lucide="lock" class="w-7 h-7"></i>
@@ -1302,10 +1309,7 @@
         </form>
       </div>
 
-      <!-- 관리자 설정 패널 -->
       <div id="adminConfigSection" class="hidden space-y-6">
-        
-        <!-- 헤더 -->
         <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b border-slate-200 pb-4 gap-3">
           <div>
             <h3 class="text-lg font-bold text-slate-900 flex items-center gap-2">
@@ -1319,13 +1323,11 @@
           </div>
         </div>
 
-        <!-- 탭 네비게이션 -->
         <div class="flex border-b border-slate-200 gap-2 overflow-x-auto">
           <button type="button" onclick="switchAdminTab('glasses')" id="admTabBtnGlasses" class="px-4 py-2 border-b-2 border-brand-600 text-brand-700 font-bold text-sm whitespace-nowrap">1. 유리 품종 마스터</button>
           <button type="button" onclick="switchAdminTab('prices')" id="admTabBtnPrices" class="px-4 py-2 border-b-2 border-transparent text-slate-500 hover:text-slate-800 font-semibold text-sm whitespace-nowrap">2. 두께 계수 & 가공비/배송비</button>
         </div>
 
-        <!-- 탭 1: 유리 품종 동적 CRUD 관리 -->
         <div id="admTabGlasses" class="space-y-4">
           <div class="flex items-center justify-between">
             <span class="text-sm font-bold text-slate-800">현재 등록된 유리 품종 (<span id="admGlassCount">8</span>종)</span>
@@ -1334,17 +1336,13 @@
               <span>새 유리 품종 추가</span>
             </button>
           </div>
-
-          <!-- 유리 목록 리스트 -->
           <div class="space-y-3 max-h-96 overflow-y-auto pr-1" id="admGlassListContainer">
             <!-- JS 동적 렌더링 -->
           </div>
         </div>
 
-        <!-- 탭 2: 두께 계수 & 가공비/배송비 관리 -->
         <div id="admTabPrices" class="hidden space-y-4">
           <form onsubmit="saveAdminPrices(event)" class="space-y-4">
-            
             <div class="bg-warm-50 p-4 rounded-2xl border border-slate-200 space-y-3">
               <h4 class="text-sm font-bold text-slate-800">두께별 가격 배율 계수</h4>
               <div class="grid grid-cols-5 gap-2 text-xs sm:text-sm text-center">
@@ -1398,17 +1396,14 @@
                 단가 설정 저장
               </button>
             </div>
-
           </form>
         </div>
-
       </div>
-
     </div>
   </div>
 
 
-  <!-- 모달 3. 유리 품종 추가/수정 모달 (Add/Edit Glass Modal) -->
+  <!-- 모달 3. 유리 품종 추가/수정 모달 -->
   <div id="glassEditModal" class="fixed inset-0 z-50 bg-black/75 backdrop-blur-sm hidden items-center justify-center p-4">
     <div class="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl border border-slate-200 relative">
       <button onclick="closeGlassEditModal()" class="absolute right-4 top-4 text-slate-400 hover:text-slate-600">
@@ -1456,7 +1451,7 @@
 
 
   <!-- ================================================================= -->
-  <!-- JavaScript: 전문 타이포그래피 & 와이드 카드 렌더링 & 2D CAD -->
+  <!-- JavaScript -->
   <!-- ================================================================= -->
   <script>
     // 1. 기본 마스터 데이터
@@ -1580,7 +1575,6 @@
       if (window.lucide) lucide.createIcons();
     }
 
-    // [핵심 개선] 유리 종류 카드: 2열 와이드 배치, 16px 볼드 제목, 13.5px 고명도 설명
     function renderGlassCards() {
       const container = document.getElementById('glassCardsContainer');
       if (!container) return;
@@ -1725,6 +1719,25 @@
         let coinDesc = state.cornerR === 12 ? '100원 동전 크기' : (state.cornerR === 20 ? '500원 동전 크기' : (state.cornerR === 35 ? '종이컵 바닥 크기' : '사선 C컷'));
         if (cutDepthText) cutDepthText.textContent = `원래 직각 꼭짓점에서 가로 ${state.cornerR}mm, 세로 ${state.cornerR}mm 깎아냅니다. (${coinDesc})`;
       }
+
+      // 도면 상단 상태 뱃지 갱신
+      updateCadTopBadges();
+    }
+
+    function updateCadTopBadges() {
+      const container = document.getElementById('cadCornerStatusBadges');
+      if (!container) return;
+      if (state.shape !== 'rectangle') {
+        container.innerHTML = `<span class="bg-brand-100 text-brand-800 px-2 py-0.5 rounded-md text-xs font-bold">외곽 곡선 일체형</span>`;
+        return;
+      }
+      
+      const badgeTL = (state.corners.TL && state.cornerR > 0) ? `<span class="bg-brand-600 text-white px-2 py-0.5 rounded-md text-xs font-bold">좌상 R${state.cornerR}</span>` : `<span class="bg-slate-200 text-slate-600 px-2 py-0.5 rounded-md text-xs font-bold">좌상 직각</span>`;
+      const badgeTR = (state.corners.TR && state.cornerR > 0) ? `<span class="bg-brand-600 text-white px-2 py-0.5 rounded-md text-xs font-bold">우상 R${state.cornerR}</span>` : `<span class="bg-slate-200 text-slate-600 px-2 py-0.5 rounded-md text-xs font-bold">우상 직각</span>`;
+      const badgeBR = (state.corners.BR && state.cornerR > 0) ? `<span class="bg-brand-600 text-white px-2 py-0.5 rounded-md text-xs font-bold">우하 R${state.cornerR}</span>` : `<span class="bg-slate-200 text-slate-600 px-2 py-0.5 rounded-md text-xs font-bold">우하 직각</span>`;
+      const badgeBL = (state.corners.BL && state.cornerR > 0) ? `<span class="bg-brand-600 text-white px-2 py-0.5 rounded-md text-xs font-bold">좌하 R${state.cornerR}</span>` : `<span class="bg-slate-200 text-slate-600 px-2 py-0.5 rounded-md text-xs font-bold">좌하 직각</span>`;
+
+      container.innerHTML = `${badgeTL} ${badgeTR} ${badgeBR} ${badgeBL}`;
     }
 
     function getActiveCornerCount() {
@@ -1961,7 +1974,8 @@
     }
 
     // -------------------------------------------------------------
-    // [개선된 깔끔한 2D CAD 전체 도면 렌더러 (Light Minimal Theme)]
+    // [직관적 2D CAD 도면 렌더러]
+    // 4개 모서리에 선명한 [R20] / [직각 90°] 핀 뱃지 & 곡면 하이라이트
     // -------------------------------------------------------------
     function drawPreviewCanvas() {
       const canvas = document.getElementById('previewCanvas');
@@ -1978,7 +1992,7 @@
       const h = rect.height;
       ctx.clearRect(0, 0, w, h);
 
-      const padding = 42;
+      const padding = 50;
       const availW = w - padding * 2;
       const availH = h - padding * 2;
 
@@ -1993,12 +2007,18 @@
 
       const currentGlass = masterData.glasses.find(g => g.id === state.glassType) || masterData.glasses[0];
 
-      // 1) 유리 그림자 & 본체
-      ctx.save();
-      ctx.shadowColor = 'rgba(15, 23, 42, 0.08)';
-      ctx.shadowBlur = 12;
-      ctx.shadowOffsetY = 4;
+      // 1) 직사각형일 때: R가공된 모서리의 원래 직각 꼭짓점 주황 가상선
+      if (state.shape === 'rectangle' && state.cornerR > 0) {
+        ctx.save();
+        ctx.setLineDash([3, 3]);
+        ctx.strokeStyle = '#f59e0b'; // Amber 500
+        ctx.lineWidth = 1.5;
+        ctx.strokeRect(startX, startY, drawW, drawH);
+        ctx.restore();
+      }
 
+      // 2) 실제 유리 바디 렌더링
+      ctx.save();
       ctx.beginPath();
       if (state.shape === 'round') {
         const radius = drawW / 2;
@@ -2011,12 +2031,13 @@
         ctx.arc(startX + r, startY + r, r, Math.PI / 2, -Math.PI / 2);
         ctx.closePath();
       } else {
-        // 직사각형 - 모서리별 독립 R값 적용
+        // 직사각형 - 모서리별 독립 곡률 (도면에서 시인성을 위해 R 스케일 증폭 3.5배)
         const maxR = Math.min(drawW / 2, drawH / 2);
-        const rTL = (state.corners.TL && state.cornerR > 0) ? Math.min(state.cornerR * scale * 2.5, maxR) : 0;
-        const rTR = (state.corners.TR && state.cornerR > 0) ? Math.min(state.cornerR * scale * 2.5, maxR) : 0;
-        const rBR = (state.corners.BR && state.cornerR > 0) ? Math.min(state.cornerR * scale * 2.5, maxR) : 0;
-        const rBL = (state.corners.BL && state.cornerR > 0) ? Math.min(state.cornerR * scale * 2.5, maxR) : 0;
+        const rVisual = Math.min(state.cornerR * scale * 3.5, maxR);
+        const rTL = (state.corners.TL && state.cornerR > 0) ? rVisual : 0;
+        const rTR = (state.corners.TR && state.cornerR > 0) ? rVisual : 0;
+        const rBR = (state.corners.BR && state.cornerR > 0) ? rVisual : 0;
+        const rBL = (state.corners.BL && state.cornerR > 0) ? rVisual : 0;
 
         if (state.cornerType === 'c') {
           ctx.moveTo(startX + rTL, startY);
@@ -2043,17 +2064,17 @@
       }
 
       ctx.fillStyle = currentGlass.color ? currentGlass.color : '#e0f2fe';
-      ctx.globalAlpha = 0.65;
+      ctx.globalAlpha = 0.7;
       ctx.fill();
       ctx.restore();
 
-      // 2) 정밀 CNC 외곽선
+      // CNC 외곽 실선
       ctx.save();
       ctx.strokeStyle = '#0284c7';
-      ctx.lineWidth = 2.2;
+      ctx.lineWidth = 2.5;
       ctx.stroke();
 
-      // 전선 타공
+      // 전선캡 타공
       if (state.cableHole !== 'none' && state.shape === 'rectangle') {
         ctx.fillStyle = '#334155';
         const holeR = Math.max(25 * scale, 5);
@@ -2078,14 +2099,14 @@
       // 3) 외곽 가로/세로 CAD 치수선
       ctx.save();
       ctx.strokeStyle = '#64748b';
-      ctx.fillStyle = '#1e293b';
+      ctx.fillStyle = '#0f172a';
       ctx.lineWidth = 1.0;
       ctx.font = 'bold 12px "Inter", "Noto Sans KR", sans-serif';
       ctx.textAlign = 'center';
       ctx.textBaseline = 'middle';
 
       // 상단 가로 치수선
-      const dimOffsetY = 18;
+      const dimOffsetY = 24;
       ctx.beginPath();
       ctx.moveTo(startX, startY - dimOffsetY);
       ctx.lineTo(startX + drawW, startY - dimOffsetY);
@@ -2098,11 +2119,11 @@
       ctx.stroke();
 
       const labelW = state.shape === 'round' ? `지름 Ø ${state.width} mm` : `${state.width} mm`;
-      ctx.fillText(labelW, startX + drawW / 2, startY - dimOffsetY - 9);
+      ctx.fillText(labelW, startX + drawW / 2, startY - dimOffsetY - 10);
 
-      // 우측 세로 치수선 (원형 제외)
+      // 우측 세로 치수선
       if (state.shape !== 'round') {
-        const dimOffsetX = 18;
+        const dimOffsetX = 24;
         ctx.beginPath();
         ctx.moveTo(startX + drawW + dimOffsetX, startY);
         ctx.lineTo(startX + drawW + dimOffsetX, startY + drawH);
@@ -2120,10 +2141,82 @@
         ctx.fillText(`${state.height} mm`, 0, 0);
         ctx.restore();
       }
+      ctx.restore();
 
-      // 중앙 간결 스펙 뱃지
+      // 4) [핵심 혁신] 4개 모서리 직관적 뱃지 핀 오버레이 (R20 vs 직각 90°)
+      if (state.shape === 'rectangle') {
+        const cornerPins = [
+          { key: 'TL', x: startX, y: startY, active: state.corners.TL && state.cornerR > 0, offX: -18, offY: -18 },
+          { key: 'TR', x: startX + drawW, y: startY, active: state.corners.TR && state.cornerR > 0, offX: 18, offY: -18 },
+          { key: 'BR', x: startX + drawW, y: startY + drawH, active: state.corners.BR && state.cornerR > 0, offX: 18, offY: 18 },
+          { key: 'BL', x: startX, y: startY + drawH, active: state.corners.BL && state.cornerR > 0, offX: -18, offY: 18 }
+        ];
+
+        cornerPins.forEach(p => {
+          ctx.save();
+          if (p.active) {
+            // [R 가공된 모서리] : 선명한 블루 캡슐 뱃지
+            const typeLabel = state.cornerType === 'c' ? `C${state.cornerR}` : `R${state.cornerR}`;
+            
+            // 모서리 원형 하이라이트 링
+            ctx.strokeStyle = '#0284c7';
+            ctx.lineWidth = 2.5;
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, 6, 0, Math.PI * 2);
+            ctx.stroke();
+
+            // 뱃지 배경
+            ctx.fillStyle = '#0284c7';
+            ctx.shadowColor = 'rgba(2, 132, 199, 0.35)';
+            ctx.shadowBlur = 6;
+            const badgeW = 38;
+            const badgeH = 18;
+            const bx = p.x + p.offX - (p.offX < 0 ? badgeW - 8 : 8);
+            const by = p.y + p.offY - (p.offY < 0 ? badgeH - 6 : 6);
+            
+            ctx.beginPath();
+            ctx.roundRect(bx, by, badgeW, badgeH, 6);
+            ctx.fill();
+
+            // 뱃지 텍스트
+            ctx.shadowColor = 'transparent';
+            ctx.fillStyle = '#ffffff';
+            ctx.font = 'bold 10px "Inter", sans-serif';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText(typeLabel, bx + badgeW / 2, by + badgeH / 2);
+
+          } else {
+            // [직각 모서리] : 깔끔한 그레이 직각 90° 뱃지
+            const badgeW = 34;
+            const badgeH = 18;
+            const bx = p.x + p.offX - (p.offX < 0 ? badgeW - 8 : 8);
+            const by = p.y + p.offY - (p.offY < 0 ? badgeH - 6 : 6);
+
+            ctx.fillStyle = '#e2e8f0';
+            ctx.strokeStyle = '#cbd5e1';
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.roundRect(bx, by, badgeW, badgeH, 6);
+            ctx.fill();
+            ctx.stroke();
+
+            ctx.fillStyle = '#475569';
+            ctx.font = 'bold 9px "Noto Sans KR", sans-serif';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText('직각 90°', bx + badgeW / 2, by + badgeH / 2);
+          }
+          ctx.restore();
+        });
+      }
+
+      // 중앙 간결 품종 라벨
+      ctx.save();
       ctx.fillStyle = '#0369a1';
-      ctx.font = 'bold 12px "Noto Sans KR", sans-serif';
+      ctx.font = 'bold 13px "Noto Sans KR", sans-serif';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
       ctx.fillText(`${state.thickness}T ${currentGlass.name}`, startX + drawW / 2, startY + drawH / 2);
       ctx.restore();
     }
@@ -2156,7 +2249,6 @@
         if (zoomDesc) zoomDesc.textContent = state.shape !== 'rectangle' ? '외곽 전체가 CNC로 유광 연마됩니다.' : '모서리가 깎이지 않은 표준 직각 사각형입니다.';
         if (zoomTag) zoomTag.textContent = state.shape !== 'rectangle' ? '곡선 연마' : '직각 마감';
 
-        // 직각 모서리 그리기
         ctx.save();
         ctx.fillStyle = '#e0f2fe';
         ctx.fillRect(8, 8, w - 8, h - 8);
