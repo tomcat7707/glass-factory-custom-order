@@ -96,7 +96,7 @@
             <span class="text-lg sm:text-xl font-black tracking-tight text-slate-900">마린글래스</span>
             <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-brand-100 text-brand-700">공장직영</span>
           </div>
-          <p class="text-[10px] text-slate-400 font-medium">우리집 맞춤 유리 전문 제작소</p>
+          <p class="text-[10px] text-slate-400 font-medium">MarinGlass 맞춤 유리 전문 제작소</p>
         </div>
       </a>
 
@@ -367,12 +367,12 @@
             </div>
           </div>
 
-          <!-- Step 5. 모서리 가공 형태 (지능형 조건부 UI) -->
-          <div class="bg-warm-50/80 p-5 sm:p-6 rounded-3xl border border-slate-200 shadow-xs" id="cornerWorkSection">
-            <div class="flex items-center justify-between mb-4">
+          <!-- Step 5. 모서리 가공 형태 (지능형 인터랙티브 모서리 맵 & 직관적 R값 가이드) -->
+          <div class="bg-warm-50/80 p-5 sm:p-6 rounded-3xl border border-slate-200 shadow-xs space-y-4" id="cornerWorkSection">
+            <div class="flex items-center justify-between">
               <h3 class="text-sm font-bold text-slate-900 flex items-center gap-2">
                 <span class="w-6 h-6 rounded-full bg-brand-600 text-white flex items-center justify-center text-xs">5</span>
-                <span>모서리 형태 (동전 실측 R값 / C컷)</span>
+                <span>모서리 형태 및 가공 위치 (Corner R / C컷)</span>
               </h3>
               <a href="#r-guide" class="text-xs text-brand-600 font-semibold hover:underline flex items-center gap-1">
                 <i data-lucide="help-circle" class="w-3.5 h-3.5"></i> 동전 실측 가이드
@@ -380,25 +380,78 @@
             </div>
 
             <!-- 원형/타원형일 때 노출되는 지능형 안내 박스 -->
-            <div id="cornerShapeNotice" class="hidden p-4 bg-sky-50 rounded-2xl border border-sky-200 text-xs text-sky-900 mb-3 flex items-center gap-3">
+            <div id="cornerShapeNotice" class="hidden p-4 bg-sky-50 rounded-2xl border border-sky-200 text-xs text-sky-900 flex items-center gap-3">
               <i data-lucide="info" class="w-5 h-5 text-brand-600 flex-shrink-0"></i>
               <span><strong>선택하신 형태(원형/타원형)는 외곽 전체가 매끄러운 곡선으로 자동 가공</strong>되므로 별도의 모서리 R 가공비가 발생하지 않습니다. (0원 자동 처리)</span>
             </div>
 
-            <!-- 모서리 카드 목록 (직사각형일 때 활성화) -->
+            <!-- (1) 모서리 R값 크기 선택 카드 -->
             <div class="grid grid-cols-2 sm:grid-cols-5 gap-2.5" id="cornerCardsContainer">
               <!-- JS 동적 렌더링 -->
             </div>
 
-            <!-- 모서리 적용 면수 선택 -->
-            <div class="mt-4 pt-3 border-t border-slate-200/80 flex items-center justify-between text-xs text-slate-700 bg-white p-3 rounded-2xl" id="cornerCountRow">
-              <span class="font-semibold">가공할 모서리 위치</span>
-              <select id="cornerCount" onchange="calculateEstimate()" class="bg-slate-50 border border-slate-300 rounded-xl px-3 py-1.5 text-xs font-bold text-slate-800">
-                <option value="4" selected>4개 모서리 전체 (기본)</option>
-                <option value="2">바깥쪽 2개 모서리만 (벽 밀착 가구용)</option>
-                <option value="1">1개 모서리만</option>
-              </select>
+            <!-- (2) 모서리 적용 위치 인터랙티브 맵 & 직관적 프리뷰 위젯 -->
+            <div id="cornerInteractiveBox" class="bg-white p-4 rounded-2xl border border-slate-200/90 space-y-3.5">
+              
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 pb-2.5">
+                <div class="text-xs font-bold text-slate-800 flex items-center gap-1.5">
+                  <i data-lucide="mouse-pointer-click" class="w-4 h-4 text-brand-600"></i>
+                  <span>가공할 모서리 위치 선택 (클릭하여 켜고 끄기)</span>
+                </div>
+                <div class="flex gap-1.5 text-[11px] font-semibold">
+                  <button type="button" onclick="setCornerPreset('all')" class="px-2.5 py-1 bg-slate-100 hover:bg-brand-50 hover:text-brand-700 rounded-lg transition-colors border border-slate-200">4면 전체</button>
+                  <button type="button" onclick="setCornerPreset('top2')" class="px-2.5 py-1 bg-slate-100 hover:bg-brand-50 hover:text-brand-700 rounded-lg transition-colors border border-slate-200">바깥 2면(벽밀착)</button>
+                  <button type="button" onclick="setCornerPreset('none')" class="px-2.5 py-1 bg-slate-100 hover:bg-brand-50 hover:text-brand-700 rounded-lg transition-colors border border-slate-200">직각 (0면)</button>
+                </div>
+              </div>
+
+              <!-- 인터랙티브 4모서리 다이어그램 맵 -->
+              <div class="grid sm:grid-cols-12 gap-4 items-center">
+                
+                <!-- 미니 가구 평면도 UI -->
+                <div class="sm:col-span-5 flex justify-center">
+                  <div class="relative w-48 h-32 bg-slate-100 border-2 border-dashed border-slate-300 rounded-xl p-2 flex items-center justify-center shadow-inner">
+                    <span class="text-[11px] font-bold text-slate-400">가구 상판</span>
+
+                    <!-- 좌상 TL -->
+                    <button type="button" onclick="toggleCorner('TL')" id="btnCornerTL" class="absolute -top-3 -left-3 w-8 h-8 rounded-full bg-brand-600 text-white font-bold text-xs flex items-center justify-center shadow-md hover:scale-110 transition-transform">
+                      TL
+                    </button>
+                    <!-- 우상 TR -->
+                    <button type="button" onclick="toggleCorner('TR')" id="btnCornerTR" class="absolute -top-3 -right-3 w-8 h-8 rounded-full bg-brand-600 text-white font-bold text-xs flex items-center justify-center shadow-md hover:scale-110 transition-transform">
+                      TR
+                    </button>
+                    <!-- 우하 BR -->
+                    <button type="button" onclick="toggleCorner('BR')" id="btnCornerBR" class="absolute -bottom-3 -right-3 w-8 h-8 rounded-full bg-brand-600 text-white font-bold text-xs flex items-center justify-center shadow-md hover:scale-110 transition-transform">
+                      BR
+                    </button>
+                    <!-- 좌하 BL -->
+                    <button type="button" onclick="toggleCorner('BL')" id="btnCornerBL" class="absolute -bottom-3 -left-3 w-8 h-8 rounded-full bg-brand-600 text-white font-bold text-xs flex items-center justify-center shadow-md hover:scale-110 transition-transform">
+                      BL
+                    </button>
+                  </div>
+                </div>
+
+                <!-- 실시간 모서리 적용 설명 & 깎이는 치수 안내 -->
+                <div class="sm:col-span-7 space-y-2 text-xs">
+                  <div class="p-3 bg-brand-50 rounded-xl border border-brand-200/80 text-brand-900 space-y-1">
+                    <div class="font-extrabold flex items-center gap-1.5">
+                      <i data-lucide="check-circle" class="w-4 h-4 text-brand-600"></i>
+                      <span id="cornerStatusText">4개 모서리 전체 가공 (R20)</span>
+                    </div>
+                    <p class="text-[11px] text-slate-600 leading-tight" id="cornerCutDepthText">
+                      원래 직각 꼭짓점에서 가로 20mm, 세로 20mm 곡면으로 깎아냅니다. (500원 동전 크기)
+                    </p>
+                  </div>
+                  <div class="text-[10px] text-slate-400 leading-tight">
+                    💡 <strong>벽에 붙이는 책상/식탁 팁</strong>: 벽 쪽 모서리 2개(BL, BR)를 끄시면 벽면에 틈 없이 칼같이 밀착됩니다.
+                  </div>
+                </div>
+
+              </div>
+
             </div>
+
           </div>
 
           <!-- Step 6. 단면 엣지 가공 -->
@@ -506,7 +559,7 @@
         </div>
 
 
-        <!-- 우측: 친근한 룸 포토 뷰 & 실시간 견적서 (5 cols - Sticky) -->
+        <!-- 우측: 친근한 룸 포토 뷰 & 2D 정밀 도면 뷰 & 실시간 견적서 (5 cols - Sticky) -->
         <div class="lg:col-span-5 sticky top-20 space-y-6">
           
           <!-- 실시간 뷰어 (룸 셋업 뷰 <-> 2D 도면 뷰) -->
@@ -521,7 +574,7 @@
                 </button>
                 <button type="button" onclick="switchPreviewTab('cad')" id="tabBtnCad" class="px-3 py-1.5 rounded-lg text-xs font-bold text-slate-600 hover:text-slate-900 flex items-center gap-1.5 transition-all">
                   <i data-lucide="drafting-compass" class="w-3.5 h-3.5"></i>
-                  <span>2D 도면 뷰</span>
+                  <span>2D 도면 뷰 (R값 정밀)</span>
                 </button>
               </div>
               <span class="text-[10px] text-emerald-600 font-bold bg-emerald-50 px-2 py-0.5 rounded-md">실시간 연동</span>
@@ -545,10 +598,20 @@
               </div>
             </div>
 
-            <!-- (2) 2D CNC 도면 뷰 -->
+            <!-- (2) 2D CNC 정밀 도면 뷰 (R값 가공선, 직각 점선, 치수선 표기) -->
             <div id="viewModeCad" class="hidden space-y-3">
-              <div class="w-full h-64 bg-slate-50 canvas-grid rounded-2xl border border-slate-200 relative flex items-center justify-center p-2 overflow-hidden">
+              <div class="w-full h-72 bg-slate-900 canvas-grid rounded-2xl border border-slate-800 relative flex items-center justify-center p-2 overflow-hidden shadow-inner">
                 <canvas id="previewCanvas" class="w-full h-full"></canvas>
+              </div>
+              <div class="flex items-center justify-between text-[11px] text-slate-500 bg-slate-50 p-2 rounded-xl border border-slate-200">
+                <div class="flex items-center gap-2">
+                  <span class="inline-block w-2.5 h-2.5 rounded-full bg-amber-400"></span>
+                  <span><strong>주황 점선</strong>: 가공 전 직각 모서리</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="inline-block w-2.5 h-2.5 rounded-full bg-sky-400"></span>
+                  <span><strong>하늘색 실선</strong>: 실제 CNC 절삭 곡면</span>
+                </div>
               </div>
             </div>
 
@@ -665,7 +728,7 @@
       <div class="text-center max-w-3xl mx-auto mb-10">
         <span class="text-xs font-bold text-brand-600 uppercase tracking-widest">REAL INSTALLATION GALLERY</span>
         <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1">
-          마린글래스 실제 맞춤 시공 갤러리
+          마린글래스(MarinGlass) 실제 맞춤 시공 갤러리
         </h2>
         <p class="mt-2 text-slate-600 text-xs sm:text-sm">
           우리집 가구에 꼭 맞는 유리를 시공한 고객님들의 실제 공간을 확인해 보세요.
@@ -1377,10 +1440,10 @@
 
 
   <!-- ================================================================= -->
-  <!-- JavaScript: 지능형 조건부 UI & 완전한 동적 CRUD & 스마트 위저드 엔진 -->
+  <!-- JavaScript: 지능형 조건부 UI & 2D 정밀 도면 & 인터랙티브 모서리 맵 -->
   <!-- ================================================================= -->
   <script>
-    // 1. 기본 마스터 데이터 (동적 CRUD 지원)
+    // 1. 기본 마스터 데이터
     const DEFAULT_MASTER_DATA = {
       glasses: [
         { id: 'clear', name: '일반 투명유리', tag: '표준', price: 22000, desc: '가장 대중적인 표준 플로트 판유리 (원목/어두운 가구 추천)', img: 'https://images.unsplash.com/photo-1577140917170-285929fb55b7?auto=format&fit=crop&w=800&q=80', color: '#e0f2fe', isSoldOut: false },
@@ -1436,7 +1499,7 @@
       { id: 'rough', name: '절단면 실선 면취', badge: '틀 매립용', desc: '날카로운 날만 죽인 상태 (창틀이나 가구 프레임 삽입용)' }
     ];
 
-    // 사용자 선택 상태
+    // 사용자 선택 상태 (4개 모서리 개별 활성화 상태 포함)
     let state = {
       shape: 'rectangle',
       glassType: 'ultra_clear',
@@ -1447,7 +1510,13 @@
       tempered: true,
       cornerR: 20,
       cornerType: 'r',
-      cornerCount: 4,
+      // 개별 모서리 활성화 상태
+      corners: {
+        TL: true, // Top-Left (좌상)
+        TR: true, // Top-Right (우상)
+        BR: true, // Bottom-Right (우하)
+        BL: true  // Bottom-Left (좌하)
+      },
       edgeType: 'cnc_flat',
       cableHole: 'none',
       bumpons: 4,
@@ -1463,6 +1532,7 @@
         lucide.createIcons();
       }
       renderAllCards();
+      updateCornerMapUI();
       calculateEstimate();
     }
 
@@ -1563,85 +1633,101 @@
     }
 
     // -------------------------------------------------------------
-    // 3. 지능형 조건부 UI & 스마트 추천 위저드 핸들러
+    // 3. 모서리 인터랙티브 맵 & 지능형 핸들러
     // -------------------------------------------------------------
-    function openWizardModal() {
-      const modal = document.getElementById('wizardModal');
-      modal.classList.remove('hidden');
-      modal.classList.add('flex');
-    }
-
-    function closeWizardModal() {
-      const modal = document.getElementById('wizardModal');
-      modal.classList.add('hidden');
-      modal.classList.remove('flex');
-    }
-
-    function applySmartRecommendation() {
-      const usage = document.querySelector('input[name="wizUsage"]:checked').value;
-      const color = document.querySelector('input[name="wizColor"]:checked').value;
-      const child = document.querySelector('input[name="wizChild"]:checked').value;
-
-      // 1) 용도에 따른 기본 세팅
-      if (usage === 'dining') {
-        selectShape('rectangle');
-        setQuickSize(850, 1600);
-        state.thickness = '5';
-        state.tempered = true;
-        state.cornerR = (child === 'yes') ? 20 : 12;
-        state.cornerType = 'r';
-        state.edgeType = 'cnc_flat';
-        state.cableHole = 'none';
-        state.bumpons = 4;
-      } else if (usage === 'desk') {
-        selectShape('rectangle');
-        setQuickSize(600, 1200);
-        state.thickness = '5';
-        state.tempered = true;
-        state.cornerR = 12;
-        state.cornerType = 'r';
-        state.edgeType = 'cnc_flat';
-        state.cableHole = 'top_right';
-        state.bumpons = 4;
-      } else if (usage === 'dresser') {
-        selectShape('rectangle');
-        setQuickSize(500, 1000);
-        state.thickness = '5';
-        state.tempered = false;
-        state.cornerR = 0;
-        state.cornerType = 'r';
-        state.edgeType = 'cnc_flat';
-        state.cableHole = 'none';
-        state.bumpons = 4;
-      } else if (usage === 'round_cafe') {
-        selectShape('round');
-        document.getElementById('inputWidth').value = 900;
-        state.thickness = '8';
-        state.tempered = true;
-        state.cornerR = 0;
-        state.edgeType = 'cnc_flat';
-        state.cableHole = 'none';
-        state.bumpons = 4;
-      }
-
-      // 2) 가구 색상에 따른 유리 품종 매핑
-      if (color === 'white') {
-        state.glassType = 'ultra_clear'; // 저철분 백유리
-      } else if (color === 'wood') {
-        state.glassType = 'clear'; // 투명유리
-      } else if (color === 'dark') {
-        state.glassType = 'gray'; // 다크 그레이
-      }
-
-      // 3) UI 갱신 & 알림
-      document.getElementById('optTempered').checked = state.tempered;
-      document.getElementById('optCableHole').value = state.cableHole;
-      document.getElementById('optBumpons').value = state.bumpons;
-
-      renderAllCards();
+    function toggleCorner(cornerKey) {
+      if (state.shape !== 'rectangle' || state.cornerR === 0) return;
+      state.corners[cornerKey] = !state.corners[cornerKey];
+      updateCornerMapUI();
       calculateEstimate();
-      closeWizardModal();
-      alert('우리집 가구에 최적화된 맞춤 옵션(유리 품종, 두께, 모서리 가공 등)이 자동 세팅되었습니다!');
+    }
+
+    function setCornerPreset(preset) {
+      if (state.shape !== 'rectangle') return;
+      if (preset === 'all') {
+        state.corners = { TL: true, TR: true, BR: true, BL: true };
+        if (state.cornerR === 0) state.cornerR = 20;
+      } else if (preset === 'top2') {
+        state.corners = { TL: true, TR: true, BR: false, BL: false };
+        if (state.cornerR === 0) state.cornerR = 20;
+      } else if (preset === 'none') {
+        state.corners = { TL: false, TR: false, BR: false, BL: false };
+        state.cornerR = 0;
+      }
+      renderCornerCards();
+      updateCornerMapUI();
+      calculateEstimate();
+    }
+
+    function updateCornerMapUI() {
+      const isRect = state.shape === 'rectangle';
+      const isCurve = !isRect;
+      const cornerBox = document.getElementById('cornerInteractiveBox');
+      const cornerNotice = document.getElementById('cornerShapeNotice');
+
+      if (isCurve) {
+        if (cornerBox) cornerBox.classList.add('hidden');
+        if (cornerNotice) cornerNotice.classList.remove('hidden');
+        return;
+      } else {
+        if (cornerBox) cornerBox.classList.remove('hidden');
+        if (cornerNotice) cornerNotice.classList.add('hidden');
+      }
+
+      ['TL', 'TR', 'BR', 'BL'].forEach(k => {
+        const btn = document.getElementById('btnCorner' + k);
+        if (!btn) return;
+        const isActive = state.corners[k] && state.cornerR > 0;
+        if (isActive) {
+          btn.className = 'absolute w-8 h-8 rounded-full bg-brand-600 text-white font-black text-xs flex items-center justify-center shadow-lg ring-2 ring-brand-300 hover:scale-110 transition-transform';
+          if (k === 'TL') btn.style = 'top:-12px; left:-12px;';
+          if (k === 'TR') btn.style = 'top:-12px; right:-12px;';
+          if (k === 'BR') btn.style = 'bottom:-12px; right:-12px;';
+          if (k === 'BL') btn.style = 'bottom:-12px; left:-12px;';
+        } else {
+          btn.className = 'absolute w-8 h-8 rounded-full bg-slate-300 text-slate-700 font-bold text-xs flex items-center justify-center shadow-xs hover:bg-slate-400 hover:scale-110 transition-transform';
+          if (k === 'TL') btn.style = 'top:-12px; left:-12px;';
+          if (k === 'TR') btn.style = 'top:-12px; right:-12px;';
+          if (k === 'BR') btn.style = 'bottom:-12px; right:-12px;';
+          if (k === 'BL') btn.style = 'bottom:-12px; left:-12px;';
+        }
+      });
+
+      const activeCount = getActiveCornerCount();
+      const statusText = document.getElementById('cornerStatusText');
+      const cutDepthText = document.getElementById('cornerCutDepthText');
+
+      if (state.cornerR === 0 || activeCount === 0) {
+        if (statusText) statusText.textContent = '모서리 가공 없음 (4면 전체 직각)';
+        if (cutDepthText) cutDepthText.textContent = '모서리가 90도 직각으로 유지되며 절삭 가공비가 발생하지 않습니다.';
+      } else {
+        const typeLabel = state.cornerType === 'c' ? `C${state.cornerR} 사선 모따기` : `R${state.cornerR} 둥근 곡면`;
+        if (statusText) statusText.textContent = `${activeCount}개 모서리 가공 적용 (${typeLabel})`;
+        
+        let coinDesc = state.cornerR === 12 ? '100원 동전 크기' : (state.cornerR === 20 ? '500원 동전 크기' : (state.cornerR === 35 ? '종이컵 바닥 크기' : '사선 C컷'));
+        if (cutDepthText) cutDepthText.textContent = `원래 직각 꼭짓점에서 가로 ${state.cornerR}mm, 세로 ${state.cornerR}mm 깎아냅니다. (${coinDesc})`;
+      }
+    }
+
+    function getActiveCornerCount() {
+      if (state.shape !== 'rectangle' || state.cornerR === 0) return 0;
+      let cnt = 0;
+      if (state.corners.TL) cnt++;
+      if (state.corners.TR) cnt++;
+      if (state.corners.BR) cnt++;
+      if (state.corners.BL) cnt++;
+      return cnt;
+    }
+
+    function selectCornerOption(r, type) {
+      state.cornerR = r;
+      state.cornerType = type;
+      if (r > 0 && getActiveCornerCount() === 0) {
+        state.corners = { TL: true, TR: true, BR: true, BL: true };
+      }
+      renderCornerCards();
+      updateCornerMapUI();
+      calculateEstimate();
     }
 
     function selectShape(shapeId) {
@@ -1649,30 +1735,15 @@
       renderShapeCards();
       
       const colHeight = document.getElementById('colDimHeight');
-      const cornerNotice = document.getElementById('cornerShapeNotice');
-      const cornerCountRow = document.getElementById('cornerCountRow');
-
       if (shapeId === 'round') {
         if (colHeight) colHeight.style.display = 'none';
         document.getElementById('labelDimWidth').textContent = '원형 지름 (Diameter mm)';
-        if (cornerNotice) cornerNotice.classList.remove('hidden');
-        if (cornerCountRow) cornerCountRow.style.display = 'none';
-        state.cornerR = 0;
-      } else if (shapeId === 'oval' || shapeId === 'stadium') {
-        if (colHeight) colHeight.style.display = 'block';
-        document.getElementById('labelDimWidth').textContent = '가로 너비 (W mm)';
-        if (cornerNotice) cornerNotice.classList.remove('hidden');
-        if (cornerCountRow) cornerCountRow.style.display = 'none';
-        state.cornerR = 0;
       } else {
         if (colHeight) colHeight.style.display = 'block';
         document.getElementById('labelDimWidth').textContent = '가로 너비 (W mm)';
-        if (cornerNotice) cornerNotice.classList.add('hidden');
-        if (cornerCountRow) cornerCountRow.style.display = 'flex';
-        state.cornerR = 20;
       }
 
-      renderCornerCards();
+      updateCornerMapUI();
       calculateEstimate();
     }
 
@@ -1687,15 +1758,6 @@
       state.thickness = t;
       renderThicknessCards();
       updateRoomPreview();
-      calculateEstimate();
-    }
-
-    function selectCornerOption(r, type) {
-      state.cornerR = r;
-      state.cornerType = type;
-      renderCornerCards();
-      const countRow = document.getElementById('cornerCountRow');
-      if (countRow) countRow.style.display = r === 0 ? 'none' : 'flex';
       calculateEstimate();
     }
 
@@ -1771,12 +1833,11 @@
       state.height = h;
       state.quantity = parseInt(document.getElementById('inputQuantity').value) || 1;
       state.tempered = document.getElementById('optTempered').checked;
-      
-      const cornerCountElem = document.getElementById('cornerCount');
-      state.cornerCount = (state.cornerR === 0 || state.shape !== 'rectangle' || !cornerCountElem) ? 0 : parseInt(cornerCountElem.value);
       state.cableHole = document.getElementById('optCableHole').value;
       state.bumpons = parseInt(document.getElementById('optBumpons').value);
       state.deliveryMethod = document.getElementById('optDeliveryMethod').value;
+
+      const activeCornerCount = getActiveCornerCount();
 
       // 1) 면적 계산
       let areaSqm = (w * h) / 1000000;
@@ -1805,7 +1866,7 @@
       const adjustedGlassPrice = Math.max(rawGlassCost, 15000);
 
       const temperPrice = state.tempered ? Math.round(Math.max(areaSqm * masterData.temperingPricePerSqm, 4000)) : 0;
-      const cornerPrice = (state.cornerR > 0 && state.shape === 'rectangle') ? (state.cornerCount * masterData.cornerRPricePerItem) : 0;
+      const cornerPrice = (activeCornerCount > 0 && state.shape === 'rectangle') ? (activeCornerCount * masterData.cornerRPricePerItem) : 0;
 
       let edgeMult = state.edgeType === 'beveled' ? 2.5 : (state.edgeType === 'cnc_flat' ? 1.0 : 0.5);
       const edgePrice = Math.round(perimeterM * masterData.edgePolishPricePerMeter * edgeMult);
@@ -1847,7 +1908,7 @@
       document.getElementById('costGlassBase').textContent = (adjustedGlassPrice * state.quantity).toLocaleString() + '원';
       document.getElementById('costTempered').textContent = (temperPrice * state.quantity).toLocaleString() + '원';
       
-      const cornerText = state.shape !== 'rectangle' ? '곡선 일체형 (0원)' : (state.cornerR > 0 ? `${state.cornerType.toUpperCase()}${state.cornerR} x ${state.cornerCount * state.quantity}개` : '직각 (R0)');
+      const cornerText = state.shape !== 'rectangle' ? '곡선 일체형 (0원)' : (activeCornerCount > 0 ? `${state.cornerType.toUpperCase()}${state.cornerR} x ${activeCornerCount * state.quantity}개` : '직각 (R0)');
       document.getElementById('summaryCornerR').textContent = cornerText;
       document.getElementById('costCornerR').textContent = (cornerPrice * state.quantity).toLocaleString() + '원';
       document.getElementById('costEdge').textContent = (edgePrice * state.quantity).toLocaleString() + '원';
@@ -1879,6 +1940,10 @@
       }
     }
 
+    // -------------------------------------------------------------
+    // [2D CNC 정밀 도면 렌더링 엔진]
+    // 4개 모서리 개별 R값, 원래 직각 가상 점선, 치수 지시선 완벽 렌더링
+    // -------------------------------------------------------------
     function drawPreviewCanvas() {
       const canvas = document.getElementById('previewCanvas');
       if (!canvas) return;
@@ -1894,7 +1959,7 @@
       const h = rect.height;
       ctx.clearRect(0, 0, w, h);
 
-      const padding = 45;
+      const padding = 55;
       const availW = w - padding * 2;
       const availH = h - padding * 2;
 
@@ -1909,95 +1974,248 @@
 
       const currentGlass = masterData.glasses.find(g => g.id === state.glassType) || masterData.glasses[0];
 
-      ctx.save();
-      ctx.shadowColor = 'rgba(0, 0, 0, 0.15)';
-      ctx.shadowBlur = 16;
-      ctx.shadowOffsetY = 8;
+      // 1) 직사각형일 때: 원래 직각 모서리 주황색 점선(Phantom Lines) 렌더링
+      if (state.shape === 'rectangle' && state.cornerR > 0) {
+        ctx.save();
+        ctx.setLineDash([4, 4]);
+        ctx.strokeStyle = '#f59e0b'; // Amber 500
+        ctx.lineWidth = 1.5;
+        ctx.strokeRect(startX, startY, drawW, drawH);
+        ctx.restore();
+      }
 
+      // 2) 실제 유리 본체 패스 생성 (모서리별 독립 곡률)
+      ctx.save();
       ctx.beginPath();
+
       if (state.shape === 'round') {
         const radius = drawW / 2;
         ctx.arc(startX + radius, startY + radius, radius, 0, Math.PI * 2);
       } else if (state.shape === 'oval') {
         ctx.ellipse(startX + drawW / 2, startY + drawH / 2, drawW / 2, drawH / 2, 0, 0, Math.PI * 2);
+      } else if (state.shape === 'stadium') {
+        const r = drawH / 2;
+        ctx.arc(startX + drawW - r, startY + r, r, -Math.PI / 2, Math.PI / 2);
+        ctx.arc(startX + r, startY + r, r, Math.PI / 2, -Math.PI / 2);
+        ctx.closePath();
       } else {
-        const rVal = Math.min(state.cornerR * scale, drawW / 2, drawH / 2);
-        ctx.roundRect(startX, startY, drawW, drawH, rVal);
+        // 직사각형 - 4개 모서리 개별 R/C 적용 패스
+        const maxR = Math.min(drawW / 2, drawH / 2);
+        const rTL = (state.corners.TL && state.cornerR > 0) ? Math.min(state.cornerR * scale, maxR) : 0;
+        const rTR = (state.corners.TR && state.cornerR > 0) ? Math.min(state.cornerR * scale, maxR) : 0;
+        const rBR = (state.corners.BR && state.cornerR > 0) ? Math.min(state.cornerR * scale, maxR) : 0;
+        const rBL = (state.corners.BL && state.cornerR > 0) ? Math.min(state.cornerR * scale, maxR) : 0;
+
+        if (state.cornerType === 'c') {
+          // C컷 모따기
+          ctx.moveTo(startX + rTL, startY);
+          ctx.lineTo(startX + drawW - rTR, startY);
+          ctx.lineTo(startX + drawW, startY + rTR);
+          ctx.lineTo(startX + drawW, startY + drawH - rBR);
+          ctx.lineTo(startX + drawW - rBR, startY + drawH);
+          ctx.lineTo(startX + rBL, startY + drawH);
+          ctx.lineTo(startX, startY + drawH - rBL);
+          ctx.lineTo(startX, startY + rTL);
+          ctx.closePath();
+        } else {
+          // R 곡면 라운딩
+          ctx.moveTo(startX + rTL, startY);
+          ctx.lineTo(startX + drawW - rTR, startY);
+          ctx.arcTo(startX + drawW, startY, startX + drawW, startY + rTR, rTR);
+          ctx.lineTo(startX + drawW, startY + drawH - rBR);
+          ctx.arcTo(startX + drawW, startY + drawH, startX + drawW - rBR, startY + drawH, rBR);
+          ctx.lineTo(startX + rBL, startY + drawH);
+          ctx.arcTo(startX, startY + drawH, startX, startY + drawH - rBL, rBL);
+          ctx.lineTo(startX, startY + rTL);
+          ctx.arcTo(startX, startY, startX + rTL, startY, rTL);
+          ctx.closePath();
+        }
       }
 
-      ctx.fillStyle = currentGlass.color;
-      ctx.globalAlpha = 0.45;
+      // 유리 본체 색상 및 테두리 채우기
+      ctx.fillStyle = currentGlass.color || '#bae6fd';
+      ctx.globalAlpha = 0.55;
       ctx.fill();
-      ctx.restore();
 
-      // 테두리
-      ctx.save();
-      ctx.beginPath();
-      if (state.shape === 'round') {
-        const radius = drawW / 2;
-        ctx.arc(startX + radius, startY + radius, radius, 0, Math.PI * 2);
-      } else if (state.shape === 'oval') {
-        ctx.ellipse(startX + drawW / 2, startY + drawH / 2, drawW / 2, drawH / 2, 0, 0, Math.PI * 2);
-      } else {
-        const rVal = Math.min(state.cornerR * scale, drawW / 2, drawH / 2);
-        ctx.roundRect(startX, startY, drawW, drawH, rVal);
-      }
-      ctx.strokeStyle = state.tempered ? '#0284c7' : '#64748b';
-      ctx.lineWidth = Math.max(parseFloat(state.thickness) * 0.4, 1.8);
+      ctx.globalAlpha = 1.0;
+      ctx.strokeStyle = state.tempered ? '#38bdf8' : '#94a3b8'; // 강화(하늘색) / 일반(회색)
+      ctx.lineWidth = Math.max(parseFloat(state.thickness) * 0.4, 2.2);
       ctx.stroke();
 
-      // 빛 반사
-      const grad = ctx.createLinearGradient(startX, startY, startX + drawW, startY + drawH);
-      grad.addColorStop(0, 'rgba(255, 255, 255, 0.7)');
-      grad.addColorStop(0.3, 'rgba(255, 255, 255, 0.1)');
-      grad.addColorStop(1, 'rgba(255, 255, 255, 0.35)');
-      ctx.fillStyle = grad;
-      ctx.fill();
-
-      // 전선 타공
+      // 전선캡 타공 렌더링
       if (state.cableHole !== 'none' && state.shape === 'rectangle') {
-        ctx.fillStyle = '#1e293b';
-        const holeR = Math.max(30 * scale, 5);
+        ctx.fillStyle = '#0f172a';
+        const holeR = Math.max(30 * scale, 6);
         if (state.cableHole === 'top_right' || state.cableHole === 'both') {
           ctx.beginPath();
-          ctx.arc(startX + drawW - 25, startY + 25, holeR, 0, Math.PI * 2);
+          ctx.arc(startX + drawW - 24, startY + 24, holeR, 0, Math.PI * 2);
           ctx.fill();
+          ctx.strokeStyle = '#38bdf8';
+          ctx.stroke();
         }
         if (state.cableHole === 'top_left' || state.cableHole === 'both') {
           ctx.beginPath();
-          ctx.arc(startX + 25, startY + 25, holeR, 0, Math.PI * 2);
+          ctx.arc(startX + 24, startY + 24, holeR, 0, Math.PI * 2);
           ctx.fill();
+          ctx.strokeStyle = '#38bdf8';
+          ctx.stroke();
         }
         if (state.cableHole === 'top_center') {
           ctx.beginPath();
-          ctx.arc(startX + drawW / 2, startY + 25, holeR, 0, Math.PI * 2);
+          ctx.arc(startX + drawW / 2, startY + 24, holeR, 0, Math.PI * 2);
           ctx.fill();
+          ctx.strokeStyle = '#38bdf8';
+          ctx.stroke();
         }
       }
       ctx.restore();
 
-      // 치수 텍스트
+      // 3) 각 모서리별 치수선 및 안내 라벨 표기 (지시선 Callout)
+      if (state.shape === 'rectangle') {
+        const cornersData = [
+          { key: 'TL', x: startX, y: startY, active: state.corners.TL && state.cornerR > 0, alignX: 'right', alignY: 'bottom', dx: -8, dy: -8, label: 'TL' },
+          { key: 'TR', x: startX + drawW, y: startY, active: state.corners.TR && state.cornerR > 0, alignX: 'left', alignY: 'bottom', dx: 8, dy: -8, label: 'TR' },
+          { key: 'BR', x: startX + drawW, y: startY + drawH, active: state.corners.BR && state.cornerR > 0, alignX: 'left', alignY: 'top', dx: 8, dy: 8, label: 'BR' },
+          { key: 'BL', x: startX, y: startY + drawH, active: state.corners.BL && state.cornerR > 0, alignX: 'right', alignY: 'top', dx: -8, dy: 8, label: 'BL' }
+        ];
+
+        cornersData.forEach(c => {
+          ctx.save();
+          if (c.active) {
+            // R 가공 모서리 하이라이트 배지 & 화살표
+            ctx.fillStyle = '#0284c7';
+            ctx.beginPath();
+            ctx.arc(c.x, c.y, 3.5, 0, Math.PI * 2);
+            ctx.fill();
+
+            // 지시선 텍스트
+            const typeLabel = state.cornerType === 'c' ? `C${state.cornerR}` : `R${state.cornerR}`;
+            ctx.font = 'bold 10px "Inter", sans-serif';
+            ctx.fillStyle = '#38bdf8';
+            ctx.textAlign = c.alignX === 'right' ? 'right' : 'left';
+            ctx.textBaseline = c.alignY === 'bottom' ? 'bottom' : 'top';
+            ctx.fillText(`${c.label}: ${typeLabel} (${state.cornerR}mm)`, c.x + c.dx * 1.5, c.y + c.dy * 1.5);
+          } else {
+            // 직각 유지 모서리 (벽면 밀착 라벨)
+            ctx.fillStyle = '#94a3b8';
+            ctx.beginPath();
+            ctx.arc(c.x, c.y, 2.5, 0, Math.PI * 2);
+            ctx.fill();
+
+            ctx.font = '500 9px "Noto Sans KR", sans-serif';
+            ctx.fillStyle = '#64748b';
+            ctx.textAlign = c.alignX === 'right' ? 'right' : 'left';
+            ctx.textBaseline = c.alignY === 'bottom' ? 'bottom' : 'top';
+            ctx.fillText(`${c.label}: 직각(R0)`, c.x + c.dx * 1.2, c.y + c.dy * 1.2);
+          }
+          ctx.restore();
+        });
+      }
+
+      // 4) 중앙 치수 텍스트 & 가구 정보
       ctx.save();
-      ctx.fillStyle = '#0f172a';
-      ctx.font = 'bold 11px "Noto Sans KR", sans-serif';
+      ctx.fillStyle = '#f8fafc';
+      ctx.font = 'bold 12px "Noto Sans KR", sans-serif';
       ctx.textAlign = 'center';
       ctx.textBaseline = 'middle';
 
       const dimText = state.shape === 'round' ? `지름 Ø ${state.width} mm` : `${state.width} × ${state.height} mm`;
-      ctx.fillText(dimText, w / 2, h / 2 - 8);
-      ctx.font = '600 9px "Noto Sans KR", sans-serif';
-      ctx.fillStyle = '#0284c7';
-      ctx.fillText(`${state.thickness}T ${currentGlass.name} ${state.tempered ? '(강화)' : ''}`, w / 2, h / 2 + 8);
+      ctx.fillText(dimText, w / 2, h / 2 - 10);
+      
+      ctx.font = '600 10px "Noto Sans KR", sans-serif';
+      ctx.fillStyle = '#38bdf8';
+      ctx.fillText(`${state.thickness}T ${currentGlass.name} ${state.tempered ? '(700℃ 열강화)' : ''}`, w / 2, h / 2 + 8);
       ctx.restore();
     }
 
     // -------------------------------------------------------------
-    // 5. 모달 및 액션 핸들러
+    // 5. 모달 및 추천 위저드
     // -------------------------------------------------------------
+    function openWizardModal() {
+      const modal = document.getElementById('wizardModal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeWizardModal() {
+      const modal = document.getElementById('wizardModal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    function applySmartRecommendation() {
+      const usage = document.querySelector('input[name="wizUsage"]:checked').value;
+      const color = document.querySelector('input[name="wizColor"]:checked').value;
+      const child = document.querySelector('input[name="wizChild"]:checked').value;
+
+      if (usage === 'dining') {
+        selectShape('rectangle');
+        setQuickSize(850, 1600);
+        state.thickness = '5';
+        state.tempered = true;
+        state.cornerR = (child === 'yes') ? 20 : 12;
+        state.cornerType = 'r';
+        state.corners = { TL: true, TR: true, BR: true, BL: true };
+        state.edgeType = 'cnc_flat';
+        state.cableHole = 'none';
+        state.bumpons = 4;
+      } else if (usage === 'desk') {
+        selectShape('rectangle');
+        setQuickSize(600, 1200);
+        state.thickness = '5';
+        state.tempered = true;
+        state.cornerR = 12;
+        state.cornerType = 'r';
+        state.corners = { TL: true, TR: true, BR: false, BL: false }; // 벽 밀착 2면
+        state.edgeType = 'cnc_flat';
+        state.cableHole = 'top_right';
+        state.bumpons = 4;
+      } else if (usage === 'dresser') {
+        selectShape('rectangle');
+        setQuickSize(500, 1000);
+        state.thickness = '5';
+        state.tempered = false;
+        state.cornerR = 0;
+        state.cornerType = 'r';
+        state.corners = { TL: false, TR: false, BR: false, BL: false };
+        state.edgeType = 'cnc_flat';
+        state.cableHole = 'none';
+        state.bumpons = 4;
+      } else if (usage === 'round_cafe') {
+        selectShape('round');
+        document.getElementById('inputWidth').value = 900;
+        state.thickness = '8';
+        state.tempered = true;
+        state.cornerR = 0;
+        state.edgeType = 'cnc_flat';
+        state.cableHole = 'none';
+        state.bumpons = 4;
+      }
+
+      if (color === 'white') {
+        state.glassType = 'ultra_clear';
+      } else if (color === 'wood') {
+        state.glassType = 'clear';
+      } else if (color === 'dark') {
+        state.glassType = 'gray';
+      }
+
+      document.getElementById('optTempered').checked = state.tempered;
+      document.getElementById('optCableHole').value = state.cableHole;
+      document.getElementById('optBumpons').value = state.bumpons;
+
+      renderAllCards();
+      updateCornerMapUI();
+      calculateEstimate();
+      closeWizardModal();
+      alert('우리집 가구에 최적화된 맞춤 옵션이 자동 세팅되었습니다!');
+    }
+
     function openOrderModal() {
       const currentGlass = masterData.glasses.find(g => g.id === state.glassType) || masterData.glasses[0];
+      const activeCount = getActiveCornerCount();
       document.getElementById('orderModalSpec').textContent = `${state.width} x ${state.height} mm / ${state.thickness}T ${currentGlass.name}`;
-      document.getElementById('orderModalProcess').textContent = `${state.tempered ? '700℃ 열강화' : '일반유리'} / R${state.cornerR} (${state.cornerCount}면)`;
+      document.getElementById('orderModalProcess').textContent = `${state.tempered ? '700℃ 열강화' : '일반유리'} / R${state.cornerR} (${activeCount}면 가공)`;
       
       const totalPrice = document.getElementById('totalEstimatePrice').innerText;
       document.getElementById('orderModalPrice').textContent = totalPrice;
@@ -2019,19 +2237,6 @@
       closeOrderModal();
     }
 
-    function handleB2BSubmit(e) {
-      e.preventDefault();
-      alert('B2B 도면 견적 문의가 접수되었습니다. 당일 내로 정식 견적서를 발송해 드리겠습니다.');
-      e.target.reset();
-      document.getElementById('fileNameDisplay').textContent = '';
-    }
-
-    function updateFileName(input) {
-      if (input.files && input.files[0]) {
-        document.getElementById('fileNameDisplay').textContent = '선택됨: ' + input.files[0].name;
-      }
-    }
-
     function printEstimateSheet() {
       window.print();
     }
@@ -2041,7 +2246,7 @@
     }
 
     // -------------------------------------------------------------
-    // 6. 완전한 동적 CRUD 관리자 마스터 대시보드
+    // 6. 관리자 마스터 대시보드
     // -------------------------------------------------------------
     function openAdminModal() {
       const modal = document.getElementById('adminModal');
