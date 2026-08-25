@@ -18,17 +18,17 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
   
-  <!-- Google Fonts: Noto Sans KR, Inter -->
+  <!-- Google Fonts: Pretendard / Noto Sans KR -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <script>
     tailwind.config = {
       theme: {
         extend: {
           fontFamily: {
-            sans: ['"Noto Sans KR"', 'Inter', 'sans-serif'],
+            sans: ['"Noto Sans KR"', 'Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
           },
           colors: {
             brand: {
@@ -67,16 +67,16 @@
       border-radius: 4px;
     }
     .clean-cad-bg {
-      background-color: #f8fafc;
+      background-color: #ffffff;
       background-size: 24px 24px;
       background-image: 
-        linear-gradient(to right, rgba(226, 232, 240, 0.6) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(226, 232, 240, 0.6) 1px, transparent 1px);
+        linear-gradient(to right, rgba(226, 232, 240, 0.7) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(226, 232, 240, 0.7) 1px, transparent 1px);
     }
     .card-selected {
       border-color: #0284c7 !important;
       background-color: #f0f9ff !important;
-      box-shadow: 0 0 0 2px rgba(2, 132, 199, 0.35);
+      box-shadow: 0 0 0 2.5px rgba(2, 132, 199, 0.45);
     }
   </style>
 </head>
@@ -94,19 +94,19 @@
         </div>
         <div>
           <div class="flex items-center gap-1.5">
-            <span class="text-lg sm:text-xl font-black tracking-tight text-slate-900">마린글래스</span>
-            <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-brand-100 text-brand-700">공장직영</span>
+            <span class="text-xl font-black tracking-tight text-slate-900">마린글래스</span>
+            <span class="text-xs font-bold px-2 py-0.5 rounded-full bg-brand-100 text-brand-700">공장직영</span>
           </div>
-          <p class="text-[10px] text-slate-400 font-medium">MarinGlass 맞춤 유리 전문 제작소</p>
+          <p class="text-xs text-slate-500 font-medium">MarinGlass 맞춤 유리 전문 제작소</p>
         </div>
       </a>
 
       <!-- 네비게이션 메뉴 -->
-      <nav class="hidden lg:flex items-center gap-7 text-sm font-medium text-slate-600">
+      <nav class="hidden lg:flex items-center gap-7 text-sm font-semibold text-slate-600">
         <a href="#calculator" class="hover:text-brand-600 transition-colors flex items-center gap-1.5 font-bold text-brand-600">
           <i data-lucide="calculator" class="w-4 h-4"></i> 사진 견적내기
         </a>
-        <a href="guide.html" class="hover:text-brand-600 transition-colors flex items-center gap-1.5 text-brand-700 font-extrabold bg-brand-50 px-2.5 py-1 rounded-lg border border-brand-200 shadow-xs">
+        <a href="guide.html" class="hover:text-brand-600 transition-colors flex items-center gap-1.5 text-brand-700 font-extrabold bg-brand-50 px-3 py-1 rounded-xl border border-brand-200 shadow-xs">
           <i data-lucide="book-open" class="w-4 h-4 text-brand-600"></i> 초보자 완벽 가이드
         </a>
         <a href="#r-guide" class="hover:text-brand-600 transition-colors flex items-center gap-1">
@@ -119,13 +119,12 @@
 
       <!-- 우측 버튼 -->
       <div class="flex items-center gap-2.5">
-        <!-- 관리자 설정 버튼 -->
-        <button onclick="openAdminModal()" class="px-3 py-1.5 text-slate-600 hover:text-brand-600 hover:bg-slate-100 rounded-xl transition-colors flex items-center gap-1 text-xs font-bold border border-slate-200 shadow-xs">
-          <i data-lucide="settings-2" class="w-3.5 h-3.5 text-slate-500"></i>
+        <button onclick="openAdminModal()" class="px-3.5 py-2 text-slate-700 hover:text-brand-600 hover:bg-slate-100 rounded-xl transition-colors flex items-center gap-1.5 text-xs font-bold border border-slate-300 shadow-xs">
+          <i data-lucide="settings-2" class="w-4 h-4 text-slate-500"></i>
           <span>관리자</span>
         </button>
 
-        <a href="#calculator" class="bg-brand-600 hover:bg-brand-700 text-white text-xs sm:text-sm font-bold px-3.5 py-2 rounded-xl shadow-md shadow-brand-500/20 hover:shadow-lg transition-all flex items-center gap-1.5">
+        <a href="#calculator" class="bg-brand-600 hover:bg-brand-700 text-white text-sm font-bold px-4 py-2.5 rounded-xl shadow-md shadow-brand-500/20 hover:shadow-lg transition-all flex items-center gap-1.5">
           <i data-lucide="calculator" class="w-4 h-4"></i>
           <span>실시간 견적</span>
         </a>
@@ -135,15 +134,15 @@
 
 
   <!-- ================================================================= -->
-  <!-- S1. 히어로 섹션 (감성 라이프스타일 인테리어 비주얼) -->
+  <!-- S1. 히어로 섹션 -->
   <!-- ================================================================= -->
-  <section class="relative pt-8 pb-16 overflow-hidden bg-gradient-to-b from-brand-50/60 via-white to-warm-50">
+  <section class="relative pt-10 pb-16 overflow-hidden bg-gradient-to-b from-brand-50/60 via-white to-warm-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid lg:grid-cols-12 gap-10 items-center">
         
         <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
-          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-brand-200 text-brand-800 text-xs font-bold shadow-xs">
-            <span class="flex h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
+          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-brand-200 text-brand-800 text-sm font-bold shadow-xs">
+            <span class="flex h-2.5 w-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
             어려운 도면 대신 사진으로 보고 고르는 쉬운 유리 주문
           </div>
           
@@ -153,68 +152,68 @@
             맞춤 주문하세요!
           </h1>
 
-          <p class="text-base sm:text-lg text-slate-600 max-w-2xl leading-relaxed">
+          <p class="text-base sm:text-lg text-slate-600 max-w-2xl leading-relaxed font-normal">
             복잡한 전문 용어나 어려운 치수 계산 때문에 고민하지 마세요.<br class="hidden sm:block">
             <strong>실제 가구 사진과 동전 실측 가이드</strong>로 누구나 실패 없이 완벽하게 맞는 유리를 공장 직영 가격으로 제작해 드립니다.
           </p>
 
           <!-- 3대 안심 특장점 -->
-          <div class="grid grid-cols-3 gap-3 pt-2 max-w-lg mx-auto lg:mx-0">
-            <div class="bg-white p-3.5 rounded-2xl border border-slate-200/90 shadow-sm text-center">
-              <div class="w-8 h-8 rounded-xl bg-sky-100 text-brand-600 flex items-center justify-center mx-auto mb-1.5">
-                <i data-lucide="image" class="w-4 h-4"></i>
+          <div class="grid grid-cols-3 gap-3.5 pt-2 max-w-lg mx-auto lg:mx-0">
+            <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm text-center">
+              <div class="w-9 h-9 rounded-xl bg-sky-100 text-brand-600 flex items-center justify-center mx-auto mb-2">
+                <i data-lucide="image" class="w-5 h-5"></i>
               </div>
-              <div class="text-xs font-bold text-slate-800">사진 보고 선택</div>
-              <div class="text-[10px] text-slate-500">실물 예시 카드 제공</div>
+              <div class="text-sm font-bold text-slate-800">사진 보고 선택</div>
+              <div class="text-xs text-slate-500 mt-0.5">실물 예시 카드 제공</div>
             </div>
-            <div class="bg-white p-3.5 rounded-2xl border border-slate-200/90 shadow-sm text-center">
-              <div class="w-8 h-8 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center mx-auto mb-1.5">
-                <i data-lucide="coins" class="w-4 h-4"></i>
+            <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm text-center">
+              <div class="w-9 h-9 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center mx-auto mb-2">
+                <i data-lucide="coins" class="w-5 h-5"></i>
               </div>
-              <div class="text-xs font-bold text-slate-800">동전으로 실측</div>
-              <div class="text-[10px] text-slate-500">100원·500원으로 R값 측정</div>
+              <div class="text-sm font-bold text-slate-800">동전으로 실측</div>
+              <div class="text-xs text-slate-500 mt-0.5">100원·500원 R값 측정</div>
             </div>
-            <div class="bg-white p-3.5 rounded-2xl border border-slate-200/90 shadow-sm text-center">
-              <div class="w-8 h-8 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto mb-1.5">
-                <i data-lucide="shield-check" class="w-4 h-4"></i>
+            <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm text-center">
+              <div class="w-9 h-9 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto mb-2">
+                <i data-lucide="shield-check" class="w-5 h-5"></i>
               </div>
-              <div class="text-xs font-bold text-slate-800">파손 100% 보상</div>
-              <div class="text-[10px] text-slate-500">배송 중 파손 시 당일 재제작</div>
+              <div class="text-sm font-bold text-slate-800">파손 100% 보상</div>
+              <div class="text-xs text-slate-500 mt-0.5">배송 중 파손 시 당일 재제작</div>
             </div>
           </div>
 
           <div class="flex flex-col sm:flex-row items-center gap-3.5 pt-3 justify-center lg:justify-start">
-            <a href="#calculator" class="w-full sm:w-auto px-7 py-4 bg-brand-600 hover:bg-brand-700 text-white font-bold text-base rounded-2xl shadow-lg shadow-brand-500/25 hover:shadow-brand-500/40 transition-all flex items-center justify-center gap-2">
+            <a href="#calculator" class="w-full sm:w-auto px-8 py-4 bg-brand-600 hover:bg-brand-700 text-white font-bold text-base rounded-2xl shadow-lg shadow-brand-500/25 hover:shadow-brand-500/40 transition-all flex items-center justify-center gap-2">
               <i data-lucide="calculator" class="w-5 h-5"></i>
               <span>내 맞춤 유리 견적내기</span>
             </a>
-            <a href="guide.html" class="w-full sm:w-auto px-6 py-4 bg-white hover:bg-slate-50 text-slate-800 font-bold text-base rounded-2xl border border-brand-300 shadow-sm transition-all flex items-center justify-center gap-2">
+            <a href="guide.html" class="w-full sm:w-auto px-7 py-4 bg-white hover:bg-slate-50 text-slate-800 font-bold text-base rounded-2xl border border-brand-300 shadow-sm transition-all flex items-center justify-center gap-2">
               <i data-lucide="book-open" class="w-5 h-5 text-brand-600"></i>
               <span>초보자 완벽 가이드북</span>
             </a>
           </div>
         </div>
 
-        <!-- 우측: 감성 인테리어 사진 콜라주 -->
+        <!-- 우측 인테리어 룸 뷰 카드 -->
         <div class="lg:col-span-5 relative">
-          <div class="relative mx-auto max-w-md bg-white p-4 rounded-3xl border border-slate-200 shadow-xl space-y-3">
+          <div class="relative mx-auto max-w-md bg-white p-4 rounded-3xl border border-slate-200 shadow-xl space-y-3.5">
             <div class="relative h-64 rounded-2xl overflow-hidden shadow-inner group">
               <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80" alt="감성 인테리어 식탁 유리" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent flex items-end p-4">
-                <div class="text-white">
-                  <span class="text-[10px] font-bold bg-brand-500 px-2 py-0.5 rounded-full mb-1 inline-block">시공 사례</span>
-                  <div class="text-sm font-bold">화이트 세라믹 식탁 + 저철분 백유리</div>
-                  <div class="text-[11px] text-slate-300">초록빛 없는 100% 맑은 투과율로 식탁 본래의 색상 완벽 유지</div>
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent flex items-end p-4">
+                <div class="text-white space-y-1">
+                  <span class="text-xs font-bold bg-brand-500 px-2.5 py-0.5 rounded-full inline-block">시공 사례</span>
+                  <div class="text-base font-bold">화이트 세라믹 식탁 + 저철분 백유리</div>
+                  <div class="text-xs text-slate-300 leading-relaxed">초록빛 없는 100% 맑은 투과율로 식탁 본래의 색상 완벽 유지</div>
                 </div>
               </div>
             </div>
 
-            <div class="p-3.5 bg-slate-900 rounded-2xl text-white flex items-center justify-between">
+            <div class="p-4 bg-slate-900 rounded-2xl text-white flex items-center justify-between">
               <div>
-                <div class="text-[10px] text-slate-400 font-medium">예상 공장 출고가</div>
-                <div class="text-lg font-black text-amber-400">46,500원 <span class="text-xs font-normal text-slate-300">(부가세포함)</span></div>
+                <div class="text-xs text-slate-400 font-medium">예상 공장 출고가</div>
+                <div class="text-xl font-black text-amber-400">46,500원 <span class="text-xs font-normal text-slate-300">(부가세포함)</span></div>
               </div>
-              <a href="#calculator" class="text-xs font-bold bg-brand-500 hover:bg-brand-600 text-white px-3.5 py-2 rounded-xl transition-colors">
+              <a href="#calculator" class="text-xs sm:text-sm font-bold bg-brand-500 hover:bg-brand-600 text-white px-4 py-2.5 rounded-xl transition-colors">
                 직접 견적내기 &rarr;
               </a>
             </div>
@@ -234,33 +233,33 @@
       
       <!-- 섹션 타이틀 -->
       <div class="text-center max-w-3xl mx-auto mb-8">
-        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-600 text-white text-xs font-bold mb-2 shadow-xs">
-          <i data-lucide="image" class="w-3.5 h-3.5"></i> VISUAL ESTIMATOR
+        <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-brand-600 text-white text-xs font-bold mb-2.5 shadow-xs">
+          <i data-lucide="image" class="w-4 h-4"></i> VISUAL ESTIMATOR
         </span>
         <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900">
           사진 보고 쉽게 선택하는 실시간 자동 견적기
         </h2>
-        <p class="mt-2 text-slate-600 text-xs sm:text-sm">
+        <p class="mt-2 text-slate-600 text-sm sm:text-base">
           사진 카드를 클릭하면 오른쪽 프리뷰에서 실제 가구 모습과 실시간 금액이 즉시 계산됩니다.
         </p>
       </div>
 
       <!-- 초보자 전용 스마트 10초 맞춤 추천 위저드 배너 -->
-      <div class="max-w-5xl mx-auto mb-8 p-4 sm:p-5 bg-gradient-to-r from-brand-600 via-sky-600 to-indigo-600 rounded-3xl text-white shadow-lg flex flex-col sm:flex-row items-center justify-between gap-4">
-        <div class="flex items-center gap-3 text-center sm:text-left">
-          <div class="w-11 h-11 rounded-2xl bg-white/20 backdrop-blur-sm flex items-center justify-center flex-shrink-0 text-amber-300">
-            <i data-lucide="wand-2" class="w-6 h-6"></i>
+      <div class="max-w-5xl mx-auto mb-10 p-5 sm:p-6 bg-gradient-to-r from-brand-600 via-sky-600 to-indigo-600 rounded-3xl text-white shadow-lg flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-4 text-center sm:text-left">
+          <div class="w-12 h-12 rounded-2xl bg-white/20 backdrop-blur-sm flex items-center justify-center flex-shrink-0 text-amber-300">
+            <i data-lucide="wand-2" class="w-7 h-7"></i>
           </div>
           <div>
-            <div class="text-sm sm:text-base font-black flex items-center gap-1.5 justify-center sm:justify-start">
+            <div class="text-base sm:text-lg font-black flex items-center gap-2 justify-center sm:justify-start">
               <span>선택이 막막하신가요?</span>
-              <span class="bg-amber-400 text-slate-950 text-[10px] font-extrabold px-2 py-0.2 rounded-full">초보자 추천</span>
+              <span class="bg-amber-400 text-slate-950 text-xs font-extrabold px-2.5 py-0.5 rounded-full">초보자 추천</span>
             </div>
-            <p class="text-xs text-sky-100 mt-0.5">3가지 질문으로 우리집 가구에 딱 맞는 유리와 두께를 10초 만에 자동 세팅해 드립니다.</p>
+            <p class="text-sm text-sky-100 mt-1">3가지 질문으로 우리집 가구에 딱 맞는 유리와 두께를 10초 만에 자동 세팅해 드립니다.</p>
           </div>
         </div>
-        <button type="button" onclick="openWizardModal()" class="px-5 py-3 bg-white hover:bg-slate-100 text-brand-700 font-extrabold text-xs sm:text-sm rounded-2xl shadow-md transition-all whitespace-nowrap flex items-center gap-1.5">
-          <i data-lucide="sparkles" class="w-4 h-4 text-brand-600"></i>
+        <button type="button" onclick="openWizardModal()" class="px-6 py-3.5 bg-white hover:bg-slate-100 text-brand-700 font-extrabold text-sm rounded-2xl shadow-md transition-all whitespace-nowrap flex items-center gap-2">
+          <i data-lucide="sparkles" class="w-5 h-5 text-brand-600"></i>
           <span>10초 맞춤 추천 시작하기</span>
         </button>
       </div>
@@ -268,183 +267,184 @@
       <div class="grid lg:grid-cols-12 gap-8 items-start">
         
         <!-- 좌측: 비주얼 선택 카드들 (7 cols) -->
-        <div class="lg:col-span-7 space-y-6">
+        <div class="lg:col-span-7 space-y-7">
 
           <!-- Step 1. 유리 형태 (Shape) -->
-          <div class="bg-warm-50/80 p-5 sm:p-6 rounded-3xl border border-slate-200 shadow-xs">
+          <div class="bg-warm-50/90 p-6 rounded-3xl border border-slate-200 shadow-xs">
             <div class="flex items-center justify-between mb-4">
-              <h3 class="text-sm font-bold text-slate-900 flex items-center gap-2">
-                <span class="w-6 h-6 rounded-full bg-brand-600 text-white flex items-center justify-center text-xs">1</span>
+              <h3 class="text-base sm:text-lg font-bold text-slate-900 flex items-center gap-2.5">
+                <span class="w-7 h-7 rounded-full bg-brand-600 text-white flex items-center justify-center text-xs font-black">1</span>
                 <span>가구 형태 선택 (Shape)</span>
               </h3>
-              <span class="text-xs text-brand-600 font-medium">우리집 가구 모양 클릭</span>
+              <span class="text-xs sm:text-sm text-brand-600 font-bold">우리집 가구 모양 클릭</span>
             </div>
-            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3" id="shapeCardsContainer">
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3.5" id="shapeCardsContainer">
               <!-- JS 렌더링 -->
             </div>
           </div>
 
           <!-- Step 2. 치수 입력 (mm) -->
-          <div class="bg-warm-50/80 p-5 sm:p-6 rounded-3xl border border-slate-200 shadow-xs">
+          <div class="bg-warm-50/90 p-6 rounded-3xl border border-slate-200 shadow-xs">
             <div class="flex items-center justify-between mb-4">
-              <h3 class="text-sm font-bold text-slate-900 flex items-center gap-2">
-                <span class="w-6 h-6 rounded-full bg-brand-600 text-white flex items-center justify-center text-xs">2</span>
+              <h3 class="text-base sm:text-lg font-bold text-slate-900 flex items-center gap-2.5">
+                <span class="w-7 h-7 rounded-full bg-brand-600 text-white flex items-center justify-center text-xs font-black">2</span>
                 <span>사이즈 입력 (단위: mm)</span>
               </h3>
-              <a href="guide.html#ch1" class="text-xs text-brand-600 font-semibold hover:underline flex items-center gap-1">
-                <i data-lucide="help-circle" class="w-3.5 h-3.5"></i> 줄자 1mm 실측법 가이드
+              <a href="guide.html#ch1" class="text-xs sm:text-sm text-brand-600 font-bold hover:underline flex items-center gap-1">
+                <i data-lucide="help-circle" class="w-4 h-4"></i> 줄자 1mm 실측법 가이드
               </a>
             </div>
 
             <div class="grid sm:grid-cols-2 gap-4">
               <div>
-                <div class="flex justify-between items-center text-xs font-semibold text-slate-700 mb-1.5">
+                <div class="flex justify-between items-center text-xs sm:text-sm font-bold text-slate-700 mb-1.5">
                   <span id="labelDimWidth">가로 너비 (W)</span>
-                  <span class="text-slate-400 font-normal">최소 100 ~ 2,400mm</span>
+                  <span class="text-slate-400 font-normal text-xs">최소 100 ~ 2,400mm</span>
                 </div>
                 <div class="relative">
-                  <input type="number" id="inputWidth" value="800" min="100" max="2400" step="10" oninput="calculateEstimate()" class="w-full px-4 py-3 bg-white border border-slate-300 rounded-2xl text-slate-900 font-bold text-base focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-all shadow-xs">
-                  <span class="absolute right-4 top-3.5 text-xs text-slate-400 font-bold">mm</span>
+                  <input type="number" id="inputWidth" value="800" min="100" max="2400" step="10" oninput="calculateEstimate()" class="w-full px-4 py-3 bg-white border border-slate-300 rounded-2xl text-slate-900 font-bold text-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-all shadow-xs">
+                  <span class="absolute right-4 top-3.5 text-sm text-slate-400 font-bold">mm</span>
                 </div>
               </div>
 
               <div id="colDimHeight">
-                <div class="flex justify-between items-center text-xs font-semibold text-slate-700 mb-1.5">
+                <div class="flex justify-between items-center text-xs sm:text-sm font-bold text-slate-700 mb-1.5">
                   <span id="labelDimHeight">세로 길이 (H)</span>
-                  <span class="text-slate-400 font-normal">최소 100 ~ 2,400mm</span>
+                  <span class="text-slate-400 font-normal text-xs">최소 100 ~ 2,400mm</span>
                 </div>
                 <div class="relative">
-                  <input type="number" id="inputHeight" value="1400" min="100" max="2400" step="10" oninput="calculateEstimate()" class="w-full px-4 py-3 bg-white border border-slate-300 rounded-2xl text-slate-900 font-bold text-base focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-all shadow-xs">
-                  <span class="absolute right-4 top-3.5 text-xs text-slate-400 font-bold">mm</span>
+                  <input type="number" id="inputHeight" value="1400" min="100" max="2400" step="10" oninput="calculateEstimate()" class="w-full px-4 py-3 bg-white border border-slate-300 rounded-2xl text-slate-900 font-bold text-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-all shadow-xs">
+                  <span class="absolute right-4 top-3.5 text-sm text-slate-400 font-bold">mm</span>
                 </div>
               </div>
             </div>
 
             <!-- 빠른 크기 선택 & 수량 -->
-            <div class="mt-4 pt-3 border-t border-slate-200/80 flex flex-wrap items-center justify-between gap-3">
-              <div class="flex items-center gap-1.5 text-xs flex-wrap">
-                <span class="text-slate-500 font-medium">자주 찾는 규격:</span>
-                <button type="button" onclick="setQuickSize(800, 1400)" class="px-2.5 py-1 bg-white hover:bg-brand-50 hover:text-brand-700 rounded-lg border border-slate-200 font-semibold text-slate-700 transition-colors">4인 식탁(800x1400)</button>
-                <button type="button" onclick="setQuickSize(850, 1600)" class="px-2.5 py-1 bg-white hover:bg-brand-50 hover:text-brand-700 rounded-lg border border-slate-200 font-semibold text-slate-700 transition-colors">6인 식탁(850x1600)</button>
-                <button type="button" onclick="setQuickSize(600, 1200)" class="px-2.5 py-1 bg-white hover:bg-brand-50 hover:text-brand-700 rounded-lg border border-slate-200 font-semibold text-slate-700 transition-colors">책상(600x1200)</button>
+            <div class="mt-5 pt-4 border-t border-slate-200 flex flex-wrap items-center justify-between gap-3">
+              <div class="flex items-center gap-2 text-xs sm:text-sm flex-wrap">
+                <span class="text-slate-600 font-bold">자주 찾는 규격:</span>
+                <button type="button" onclick="setQuickSize(800, 1400)" class="px-3 py-1.5 bg-white hover:bg-brand-50 hover:text-brand-700 rounded-xl border border-slate-300 font-semibold text-slate-700 transition-colors">4인 식탁(800x1400)</button>
+                <button type="button" onclick="setQuickSize(850, 1600)" class="px-3 py-1.5 bg-white hover:bg-brand-50 hover:text-brand-700 rounded-xl border border-slate-300 font-semibold text-slate-700 transition-colors">6인 식탁(850x1600)</button>
+                <button type="button" onclick="setQuickSize(600, 1200)" class="px-3 py-1.5 bg-white hover:bg-brand-50 hover:text-brand-700 rounded-xl border border-slate-300 font-semibold text-slate-700 transition-colors">책상(600x1200)</button>
               </div>
 
-              <div class="flex items-center gap-2">
-                <span class="text-xs font-bold text-slate-700">수량</span>
-                <button type="button" onclick="changeQuantity(-1)" class="w-8 h-8 rounded-lg bg-white border border-slate-300 hover:bg-slate-100 flex items-center justify-center font-bold">-</button>
-                <input type="number" id="inputQuantity" value="1" min="1" max="100" onchange="calculateEstimate()" class="w-12 text-center py-1 bg-white border border-slate-300 rounded-lg text-sm font-bold text-slate-900">
-                <button type="button" onclick="changeQuantity(1)" class="w-8 h-8 rounded-lg bg-white border border-slate-300 hover:bg-slate-100 flex items-center justify-center font-bold">+</button>
+              <div class="flex items-center gap-2.5">
+                <span class="text-sm font-bold text-slate-800">수량</span>
+                <button type="button" onclick="changeQuantity(-1)" class="w-9 h-9 rounded-xl bg-white border border-slate-300 hover:bg-slate-100 flex items-center justify-center font-bold text-base">-</button>
+                <input type="number" id="inputQuantity" value="1" min="1" max="100" onchange="calculateEstimate()" class="w-14 text-center py-1.5 bg-white border border-slate-300 rounded-xl text-base font-bold text-slate-900">
+                <button type="button" onclick="changeQuantity(1)" class="w-9 h-9 rounded-xl bg-white border border-slate-300 hover:bg-slate-100 flex items-center justify-center font-bold text-base">+</button>
               </div>
             </div>
           </div>
 
-          <!-- Step 3. 유리 종류 및 색상 (실물 인테리어 사진 카드) -->
-          <div class="bg-warm-50/80 p-5 sm:p-6 rounded-3xl border border-slate-200 shadow-xs">
+          <!-- Step 3. 유리 종류 및 색상 (실물 인테리어 사진 카드 - 2열 와이드 고도화) -->
+          <div class="bg-warm-50/90 p-6 rounded-3xl border border-slate-200 shadow-xs">
             <div class="flex items-center justify-between mb-4">
-              <h3 class="text-sm font-bold text-slate-900 flex items-center gap-2">
-                <span class="w-6 h-6 rounded-full bg-brand-600 text-white flex items-center justify-center text-xs">3</span>
+              <h3 class="text-base sm:text-lg font-bold text-slate-900 flex items-center gap-2.5">
+                <span class="w-7 h-7 rounded-full bg-brand-600 text-white flex items-center justify-center text-xs font-black">3</span>
                 <span>유리 종류 및 색상 선택 (Texture)</span>
               </h3>
-              <a href="guide.html#ch3" class="text-xs text-brand-600 font-semibold hover:underline flex items-center gap-1">
-                <i data-lucide="help-circle" class="w-3.5 h-3.5"></i> 백유리 vs 일반유리 차이점
+              <a href="guide.html#ch3" class="text-xs sm:text-sm text-brand-600 font-bold hover:underline flex items-center gap-1">
+                <i data-lucide="help-circle" class="w-4 h-4"></i> 백유리 vs 일반유리 차이점
               </a>
             </div>
-            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3" id="glassCardsContainer">
+            <!-- 가독성을 위해 2열 와이드 그리드로 전면 개편 -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4" id="glassCardsContainer">
               <!-- JS 동적 렌더링 -->
             </div>
           </div>
 
           <!-- Step 4. 유리 두께 (Thickness) -->
-          <div class="bg-warm-50/80 p-5 sm:p-6 rounded-3xl border border-slate-200 shadow-xs">
+          <div class="bg-warm-50/90 p-6 rounded-3xl border border-slate-200 shadow-xs">
             <div class="flex items-center justify-between mb-4">
-              <h3 class="text-sm font-bold text-slate-900 flex items-center gap-2">
-                <span class="w-6 h-6 rounded-full bg-brand-600 text-white flex items-center justify-center text-xs">4</span>
+              <h3 class="text-base sm:text-lg font-bold text-slate-900 flex items-center gap-2.5">
+                <span class="w-7 h-7 rounded-full bg-brand-600 text-white flex items-center justify-center text-xs font-black">4</span>
                 <span>유리 두께 선택 (Thickness)</span>
               </h3>
-              <span class="text-xs text-brand-600 font-bold">식탁·책상용 5T 표준 권장</span>
+              <span class="text-xs sm:text-sm text-brand-600 font-bold">식탁·책상용 5T 표준 권장</span>
             </div>
-            <div class="grid grid-cols-2 sm:grid-cols-5 gap-2.5" id="thicknessCardsContainer">
+            <div class="grid grid-cols-2 sm:grid-cols-5 gap-3" id="thicknessCardsContainer">
               <!-- JS 동적 렌더링 -->
             </div>
           </div>
 
-          <!-- Step 5. 모서리 가공 형태 (지능형 인터랙티브 모서리 맵 & 직관적 R값 가이드) -->
-          <div class="bg-warm-50/80 p-5 sm:p-6 rounded-3xl border border-slate-200 shadow-xs space-y-4" id="cornerWorkSection">
+          <!-- Step 5. 모서리 가공 형태 -->
+          <div class="bg-warm-50/90 p-6 rounded-3xl border border-slate-200 shadow-xs space-y-4" id="cornerWorkSection">
             <div class="flex items-center justify-between">
-              <h3 class="text-sm font-bold text-slate-900 flex items-center gap-2">
-                <span class="w-6 h-6 rounded-full bg-brand-600 text-white flex items-center justify-center text-xs">5</span>
+              <h3 class="text-base sm:text-lg font-bold text-slate-900 flex items-center gap-2.5">
+                <span class="w-7 h-7 rounded-full bg-brand-600 text-white flex items-center justify-center text-xs font-black">5</span>
                 <span>모서리 형태 및 가공 위치 (Corner R / C컷)</span>
               </h3>
-              <a href="#r-guide" class="text-xs text-brand-600 font-semibold hover:underline flex items-center gap-1">
-                <i data-lucide="help-circle" class="w-3.5 h-3.5"></i> 동전 실측 가이드
+              <a href="#r-guide" class="text-xs sm:text-sm text-brand-600 font-bold hover:underline flex items-center gap-1">
+                <i data-lucide="help-circle" class="w-4 h-4"></i> 동전 실측 가이드
               </a>
             </div>
 
-            <!-- 원형/타원형일 때 노출되는 지능형 안내 박스 -->
-            <div id="cornerShapeNotice" class="hidden p-4 bg-sky-50 rounded-2xl border border-sky-200 text-xs text-sky-900 flex items-center gap-3">
+            <!-- 원형/타원형일 때 안내 -->
+            <div id="cornerShapeNotice" class="hidden p-4 bg-sky-50 rounded-2xl border border-sky-200 text-sm text-sky-900 flex items-center gap-3">
               <i data-lucide="info" class="w-5 h-5 text-brand-600 flex-shrink-0"></i>
               <span><strong>선택하신 형태(원형/타원형)는 외곽 전체가 매끄러운 곡선으로 자동 가공</strong>되므로 별도의 모서리 R 가공비가 발생하지 않습니다. (0원 자동 처리)</span>
             </div>
 
             <!-- (1) 모서리 R값 크기 선택 카드 -->
-            <div class="grid grid-cols-2 sm:grid-cols-5 gap-2.5" id="cornerCardsContainer">
+            <div class="grid grid-cols-2 sm:grid-cols-5 gap-3" id="cornerCardsContainer">
               <!-- JS 동적 렌더링 -->
             </div>
 
             <!-- (2) 모서리 적용 위치 인터랙티브 맵 & 직관적 프리뷰 위젯 -->
-            <div id="cornerInteractiveBox" class="bg-white p-4 rounded-2xl border border-slate-200/90 space-y-3.5">
+            <div id="cornerInteractiveBox" class="bg-white p-5 rounded-2xl border border-slate-200 space-y-4">
               
-              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 pb-2.5">
-                <div class="text-xs font-bold text-slate-800 flex items-center gap-1.5">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 pb-3">
+                <div class="text-sm font-bold text-slate-800 flex items-center gap-1.5">
                   <i data-lucide="mouse-pointer-click" class="w-4 h-4 text-brand-600"></i>
                   <span>가공할 모서리 위치 선택 (클릭하여 켜고 끄기)</span>
                 </div>
-                <div class="flex gap-1.5 text-[11px] font-semibold">
-                  <button type="button" onclick="setCornerPreset('all')" class="px-2.5 py-1 bg-slate-100 hover:bg-brand-50 hover:text-brand-700 rounded-lg transition-colors border border-slate-200">4면 전체</button>
-                  <button type="button" onclick="setCornerPreset('top2')" class="px-2.5 py-1 bg-slate-100 hover:bg-brand-50 hover:text-brand-700 rounded-lg transition-colors border border-slate-200">바깥 2면(벽밀착)</button>
-                  <button type="button" onclick="setCornerPreset('none')" class="px-2.5 py-1 bg-slate-100 hover:bg-brand-50 hover:text-brand-700 rounded-lg transition-colors border border-slate-200">직각 (0면)</button>
+                <div class="flex gap-1.5 text-xs font-bold">
+                  <button type="button" onclick="setCornerPreset('all')" class="px-3 py-1.5 bg-slate-100 hover:bg-brand-50 hover:text-brand-700 rounded-lg transition-colors border border-slate-200">4면 전체</button>
+                  <button type="button" onclick="setCornerPreset('top2')" class="px-3 py-1.5 bg-slate-100 hover:bg-brand-50 hover:text-brand-700 rounded-lg transition-colors border border-slate-200">바깥 2면(벽밀착)</button>
+                  <button type="button" onclick="setCornerPreset('none')" class="px-3 py-1.5 bg-slate-100 hover:bg-brand-50 hover:text-brand-700 rounded-lg transition-colors border border-slate-200">직각 (0면)</button>
                 </div>
               </div>
 
               <!-- 인터랙티브 4모서리 다이어그램 맵 -->
-              <div class="grid sm:grid-cols-12 gap-4 items-center">
+              <div class="grid sm:grid-cols-12 gap-5 items-center">
                 
                 <!-- 미니 가구 평면도 UI -->
                 <div class="sm:col-span-5 flex justify-center">
-                  <div class="relative w-48 h-32 bg-slate-100 border-2 border-dashed border-slate-300 rounded-xl p-2 flex items-center justify-center shadow-inner">
-                    <span class="text-[11px] font-bold text-slate-400">가구 상판</span>
+                  <div class="relative w-52 h-36 bg-slate-100 border-2 border-dashed border-slate-300 rounded-2xl p-2 flex items-center justify-center shadow-inner">
+                    <span class="text-xs font-bold text-slate-500">가구 상판</span>
 
                     <!-- 좌상 TL -->
-                    <button type="button" onclick="toggleCorner('TL')" id="btnCornerTL" class="absolute -top-3 -left-3 w-8 h-8 rounded-full bg-brand-600 text-white font-bold text-xs flex items-center justify-center shadow-md hover:scale-110 transition-transform">
+                    <button type="button" onclick="toggleCorner('TL')" id="btnCornerTL" class="absolute -top-3.5 -left-3.5 w-9 h-9 rounded-full bg-brand-600 text-white font-black text-xs flex items-center justify-center shadow-md hover:scale-110 transition-transform">
                       TL
                     </button>
                     <!-- 우상 TR -->
-                    <button type="button" onclick="toggleCorner('TR')" id="btnCornerTR" class="absolute -top-3 -right-3 w-8 h-8 rounded-full bg-brand-600 text-white font-bold text-xs flex items-center justify-center shadow-md hover:scale-110 transition-transform">
+                    <button type="button" onclick="toggleCorner('TR')" id="btnCornerTR" class="absolute -top-3.5 -right-3.5 w-9 h-9 rounded-full bg-brand-600 text-white font-black text-xs flex items-center justify-center shadow-md hover:scale-110 transition-transform">
                       TR
                     </button>
                     <!-- 우하 BR -->
-                    <button type="button" onclick="toggleCorner('BR')" id="btnCornerBR" class="absolute -bottom-3 -right-3 w-8 h-8 rounded-full bg-brand-600 text-white font-bold text-xs flex items-center justify-center shadow-md hover:scale-110 transition-transform">
+                    <button type="button" onclick="toggleCorner('BR')" id="btnCornerBR" class="absolute -bottom-3.5 -right-3.5 w-9 h-9 rounded-full bg-brand-600 text-white font-black text-xs flex items-center justify-center shadow-md hover:scale-110 transition-transform">
                       BR
                     </button>
                     <!-- 좌하 BL -->
-                    <button type="button" onclick="toggleCorner('BL')" id="btnCornerBL" class="absolute -bottom-3 -left-3 w-8 h-8 rounded-full bg-brand-600 text-white font-bold text-xs flex items-center justify-center shadow-md hover:scale-110 transition-transform">
+                    <button type="button" onclick="toggleCorner('BL')" id="btnCornerBL" class="absolute -bottom-3.5 -left-3.5 w-9 h-9 rounded-full bg-brand-600 text-white font-black text-xs flex items-center justify-center shadow-md hover:scale-110 transition-transform">
                       BL
                     </button>
                   </div>
                 </div>
 
                 <!-- 실시간 모서리 적용 설명 & 깎이는 치수 안내 -->
-                <div class="sm:col-span-7 space-y-2 text-xs">
-                  <div class="p-3 bg-brand-50 rounded-xl border border-brand-200/80 text-brand-900 space-y-1">
-                    <div class="font-extrabold flex items-center gap-1.5">
+                <div class="sm:col-span-7 space-y-2.5 text-sm">
+                  <div class="p-3.5 bg-brand-50 rounded-xl border border-brand-200 text-brand-950 space-y-1">
+                    <div class="font-extrabold flex items-center gap-1.5 text-sm">
                       <i data-lucide="check-circle" class="w-4 h-4 text-brand-600"></i>
                       <span id="cornerStatusText">4개 모서리 전체 가공 (R20)</span>
                     </div>
-                    <p class="text-[11px] text-slate-600 leading-tight" id="cornerCutDepthText">
+                    <p class="text-xs sm:text-sm text-slate-700 leading-relaxed" id="cornerCutDepthText">
                       원래 직각 꼭짓점에서 가로 20mm, 세로 20mm 곡면으로 깎아냅니다. (500원 동전 크기)
                     </p>
                   </div>
-                  <div class="text-[10px] text-slate-400 leading-tight">
+                  <div class="text-xs text-slate-500 leading-relaxed">
                     💡 <strong>벽에 붙이는 책상/식탁 팁</strong>: 벽 쪽 모서리 2개(BL, BR)를 끄시면 벽면에 틈 없이 칼같이 밀착됩니다.
                   </div>
                 </div>
@@ -456,61 +456,61 @@
           </div>
 
           <!-- Step 6. 단면 엣지 가공 -->
-          <div class="bg-warm-50/80 p-5 sm:p-6 rounded-3xl border border-slate-200 shadow-xs">
+          <div class="bg-warm-50/90 p-6 rounded-3xl border border-slate-200 shadow-xs">
             <div class="flex items-center justify-between mb-4">
-              <h3 class="text-sm font-bold text-slate-900 flex items-center gap-2">
-                <span class="w-6 h-6 rounded-full bg-brand-600 text-white flex items-center justify-center text-xs">6</span>
+              <h3 class="text-base sm:text-lg font-bold text-slate-900 flex items-center gap-2.5">
+                <span class="w-7 h-7 rounded-full bg-brand-600 text-white flex items-center justify-center text-xs font-black">6</span>
                 <span>단면 테두리 엣지 가공 (Edge Work)</span>
               </h3>
-              <span class="text-xs text-brand-600 font-medium">손 베임 방지 마감</span>
+              <span class="text-xs sm:text-sm text-brand-600 font-bold">손 베임 방지 마감</span>
             </div>
-            <div class="grid sm:grid-cols-3 gap-3" id="edgeCardsContainer">
+            <div class="grid sm:grid-cols-3 gap-3.5" id="edgeCardsContainer">
               <!-- JS 동적 렌더링 -->
             </div>
           </div>
 
           <!-- Step 7. 추가 옵션 & 부속품 -->
-          <div class="bg-warm-50/80 p-5 sm:p-6 rounded-3xl border border-slate-200 shadow-xs space-y-3.5">
+          <div class="bg-warm-50/90 p-6 rounded-3xl border border-slate-200 shadow-xs space-y-4">
             <div class="flex items-center justify-between mb-2">
-              <h3 class="text-sm font-bold text-slate-900 flex items-center gap-2">
-                <span class="w-6 h-6 rounded-full bg-brand-600 text-white flex items-center justify-center text-xs">7</span>
+              <h3 class="text-base sm:text-lg font-bold text-slate-900 flex items-center gap-2.5">
+                <span class="w-7 h-7 rounded-full bg-brand-600 text-white flex items-center justify-center text-xs font-black">7</span>
                 <span>추가 가공 & 부속품 (Add-ons)</span>
               </h3>
-              <span class="text-xs text-slate-400">안전 가공 및 부속품</span>
+              <span class="text-xs sm:text-sm text-slate-500">안전 가공 및 부속품</span>
             </div>
 
             <!-- 열강화 안전 가공 -->
-            <div class="p-3.5 bg-white rounded-2xl border border-slate-200 flex items-center justify-between">
-              <div class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-xl bg-red-100 text-red-600 flex items-center justify-center flex-shrink-0 font-bold">
-                  <i data-lucide="flame" class="w-5 h-5"></i>
+            <div class="p-4 bg-white rounded-2xl border border-slate-200 flex items-center justify-between">
+              <div class="flex items-center gap-3.5">
+                <div class="w-11 h-11 rounded-xl bg-red-100 text-red-600 flex items-center justify-center flex-shrink-0 font-bold">
+                  <i data-lucide="flame" class="w-6 h-6"></i>
                 </div>
                 <div>
-                  <div class="text-xs font-bold text-slate-900 flex items-center gap-1.5">
+                  <div class="text-sm font-extrabold text-slate-900 flex items-center gap-2">
                     <span>700℃ 열강화 안전 가공</span>
-                    <span class="text-[10px] bg-red-100 text-red-700 px-2 py-0.5 rounded-full font-bold">강력추천</span>
+                    <span class="text-xs bg-red-100 text-red-700 px-2 py-0.5 rounded-full font-bold">강력추천</span>
                   </div>
-                  <div class="text-[11px] text-slate-500 mt-0.5">일반 유리 대비 5배 높은 내열/내충격 강도</div>
+                  <div class="text-xs sm:text-sm text-slate-600 mt-0.5">일반 유리 대비 5배 높은 내열/내충격 강도</div>
                 </div>
               </div>
               <label class="relative inline-flex items-center cursor-pointer">
                 <input type="checkbox" id="optTempered" checked onchange="calculateEstimate()" class="sr-only peer">
-                <div class="w-11 h-6 bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-brand-600"></div>
+                <div class="w-12 h-6 bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-brand-600"></div>
               </label>
             </div>
 
             <!-- 전선캡 타공 -->
-            <div class="p-3.5 bg-white rounded-2xl border border-slate-200 flex items-center justify-between">
-              <div class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-xl bg-indigo-100 text-indigo-600 flex items-center justify-center flex-shrink-0 font-bold">
-                  <i data-lucide="circle-dot" class="w-5 h-5"></i>
+            <div class="p-4 bg-white rounded-2xl border border-slate-200 flex items-center justify-between">
+              <div class="flex items-center gap-3.5">
+                <div class="w-11 h-11 rounded-xl bg-indigo-100 text-indigo-600 flex items-center justify-center flex-shrink-0 font-bold">
+                  <i data-lucide="circle-dot" class="w-6 h-6"></i>
                 </div>
                 <div>
-                  <div class="text-xs font-bold text-slate-900">컴퓨터 책상 전선캡 타공 (지름 60mm)</div>
-                  <div class="text-[11px] text-slate-500 mt-0.5">전선 정리용 원형 홀 가공 (+8,000원)</div>
+                  <div class="text-sm font-extrabold text-slate-900">컴퓨터 책상 전선캡 타공 (지름 60mm)</div>
+                  <div class="text-xs sm:text-sm text-slate-600 mt-0.5">전선 정리용 원형 홀 가공 (+8,000원)</div>
                 </div>
               </div>
-              <select id="optCableHole" onchange="calculateEstimate()" class="bg-slate-50 border border-slate-300 rounded-xl px-2.5 py-1.5 text-xs font-bold text-slate-800">
+              <select id="optCableHole" onchange="calculateEstimate()" class="bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-xs sm:text-sm font-bold text-slate-800">
                 <option value="none">타공 없음</option>
                 <option value="top_right">우측 상단 1개</option>
                 <option value="top_left">좌측 상단 1개</option>
@@ -520,17 +520,17 @@
             </div>
 
             <!-- 미끄럼 방지 눈물 범폰 -->
-            <div class="p-3.5 bg-white rounded-2xl border border-slate-200 flex items-center justify-between">
-              <div class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center flex-shrink-0 font-bold">
-                  <i data-lucide="grip" class="w-5 h-5"></i>
+            <div class="p-4 bg-white rounded-2xl border border-slate-200 flex items-center justify-between">
+              <div class="flex items-center gap-3.5">
+                <div class="w-11 h-11 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center flex-shrink-0 font-bold">
+                  <i data-lucide="grip" class="w-6 h-6"></i>
                 </div>
                 <div>
-                  <div class="text-xs font-bold text-slate-900">미끄럼 방지 투명 실리콘 눈물 범폰</div>
-                  <div class="text-[11px] text-slate-500 mt-0.5">가구 밀림 및 스크래치 방지 패드 (+2,000원)</div>
+                  <div class="text-sm font-extrabold text-slate-900">미끄럼 방지 투명 실리콘 눈물 범폰</div>
+                  <div class="text-xs sm:text-sm text-slate-600 mt-0.5">가구 밀림 및 스크래치 방지 패드 (+2,000원)</div>
                 </div>
               </div>
-              <select id="optBumpons" onchange="calculateEstimate()" class="bg-slate-50 border border-slate-300 rounded-xl px-2.5 py-1.5 text-xs font-bold text-slate-800">
+              <select id="optBumpons" onchange="calculateEstimate()" class="bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-xs sm:text-sm font-bold text-slate-800">
                 <option value="4" selected>4개 1세트 (+2,000원)</option>
                 <option value="8">8개 2세트 (+4,000원)</option>
                 <option value="0">선택 안 함 (0원)</option>
@@ -538,17 +538,17 @@
             </div>
 
             <!-- 배송 방식 -->
-            <div class="p-3.5 bg-white rounded-2xl border border-slate-200 flex items-center justify-between">
-              <div class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center flex-shrink-0 font-bold">
-                  <i data-lucide="truck" class="w-5 h-5"></i>
+            <div class="p-4 bg-white rounded-2xl border border-slate-200 flex items-center justify-between">
+              <div class="flex items-center gap-3.5">
+                <div class="w-11 h-11 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center flex-shrink-0 font-bold">
+                  <i data-lucide="truck" class="w-6 h-6"></i>
                 </div>
                 <div>
-                  <div class="text-xs font-bold text-slate-900">배송 수령 방식</div>
-                  <div class="text-[11px] text-slate-500 mt-0.5">3중 특수 완충 포장 전국 안전 직배송</div>
+                  <div class="text-sm font-extrabold text-slate-900">배송 수령 방식</div>
+                  <div class="text-xs sm:text-sm text-slate-600 mt-0.5">3중 특수 완충 포장 전국 안전 직배송</div>
                 </div>
               </div>
-              <select id="optDeliveryMethod" onchange="calculateEstimate()" class="bg-slate-50 border border-slate-300 rounded-xl px-2.5 py-1.5 text-xs font-bold text-slate-800">
+              <select id="optDeliveryMethod" onchange="calculateEstimate()" class="bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-xs sm:text-sm font-bold text-slate-800">
                 <option value="delivery" selected>택배 / 특수화물 안전배송</option>
                 <option value="pickup">공장 직접 방문 수령 (배송비 0원)</option>
                 <option value="quick">당일 퀵 / 화물용달 (착불)</option>
@@ -569,29 +569,29 @@
             <!-- 탭 전환 -->
             <div class="flex items-center justify-between border-b border-slate-100 pb-3">
               <div class="flex gap-1 bg-slate-100 p-1 rounded-xl">
-                <button type="button" onclick="switchPreviewTab('room')" id="tabBtnRoom" class="px-3 py-1.5 rounded-lg text-xs font-bold bg-white text-brand-700 shadow-xs flex items-center gap-1.5 transition-all">
-                  <i data-lucide="home" class="w-3.5 h-3.5"></i>
+                <button type="button" onclick="switchPreviewTab('room')" id="tabBtnRoom" class="px-3.5 py-2 rounded-lg text-xs sm:text-sm font-bold bg-white text-brand-700 shadow-xs flex items-center gap-1.5 transition-all">
+                  <i data-lucide="home" class="w-4 h-4"></i>
                   <span>우리집 룸 뷰 (Room)</span>
                 </button>
-                <button type="button" onclick="switchPreviewTab('cad')" id="tabBtnCad" class="px-3 py-1.5 rounded-lg text-xs font-bold text-slate-600 hover:text-slate-900 flex items-center gap-1.5 transition-all">
-                  <i data-lucide="drafting-compass" class="w-3.5 h-3.5"></i>
+                <button type="button" onclick="switchPreviewTab('cad')" id="tabBtnCad" class="px-3.5 py-2 rounded-lg text-xs sm:text-sm font-bold text-slate-600 hover:text-slate-900 flex items-center gap-1.5 transition-all">
+                  <i data-lucide="drafting-compass" class="w-4 h-4"></i>
                   <span>2D 정밀 도면 뷰</span>
                 </button>
               </div>
-              <span class="text-[10px] text-emerald-600 font-bold bg-emerald-50 px-2 py-0.5 rounded-md">실시간 연동</span>
+              <span class="text-xs text-emerald-600 font-bold bg-emerald-50 px-2.5 py-1 rounded-md">실시간 연동</span>
             </div>
 
-            <!-- (1) 룸 포토 뷰 (친근한 인테리어 사진 연동) -->
+            <!-- (1) 룸 포토 뷰 -->
             <div id="viewModeRoom" class="space-y-3">
               <div class="w-full h-64 rounded-2xl relative overflow-hidden border border-slate-200 shadow-inner group">
                 <img id="roomPreviewImg" src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80" alt="식탁 인테리어 룸 뷰" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent flex items-end p-4">
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/25 to-transparent flex items-end p-4">
                   <div class="text-white space-y-1">
-                    <div class="text-xs font-bold flex items-center gap-1.5" id="roomPreviewTitle">
+                    <div class="text-sm font-extrabold flex items-center gap-2" id="roomPreviewTitle">
                       <span>5T 저철분 울트라백유리</span>
-                      <span class="text-[10px] bg-brand-500 px-1.5 py-0.2 rounded font-normal">선택중</span>
+                      <span class="text-xs bg-brand-500 px-2 py-0.5 rounded font-normal">선택중</span>
                     </div>
-                    <div class="text-[11px] text-slate-300 leading-tight" id="roomPreviewDesc">
+                    <div class="text-xs sm:text-sm text-slate-200 leading-relaxed" id="roomPreviewDesc">
                       초록빛이 전혀 없어 화이트 세라믹 식탁 고유의 색상을 완벽하게 유지합니다.
                     </div>
                   </div>
@@ -599,130 +599,130 @@
               </div>
             </div>
 
-            <!-- (2) 2D 정밀 도면 뷰: 깔끔한 라이트 배경 + 모서리 5배 확대 인스펙터 탑재 -->
-            <div id="viewModeCad" class="hidden space-y-3">
+            <!-- (2) 2D 정밀 도면 뷰: 깔끔한 라이트 배경 + 모서리 5배 확대 인스펙터 -->
+            <div id="viewModeCad" class="hidden space-y-3.5">
               
-              <!-- 상단: 전체 상판 정밀 치수 도면 캔버스 (Light Theme) -->
+              <!-- 상단: 전체 상판 정밀 치수 도면 캔버스 -->
               <div class="w-full h-64 clean-cad-bg rounded-2xl border border-slate-300 relative flex items-center justify-center p-2 overflow-hidden shadow-inner">
                 <canvas id="previewCanvas" class="w-full h-full"></canvas>
               </div>
 
               <!-- 하단: [모서리 5배 정밀 확대 돋보기 뷰] -->
-              <div id="cornerZoomInspector" class="p-3.5 bg-brand-50/70 rounded-2xl border border-brand-200 flex items-center justify-between gap-3">
-                <div class="flex items-center gap-3">
+              <div id="cornerZoomInspector" class="p-4 bg-brand-50/80 rounded-2xl border border-brand-200 flex items-center justify-between gap-3">
+                <div class="flex items-center gap-3.5">
                   <div class="w-14 h-14 bg-white rounded-xl border border-slate-300 shadow-xs relative flex items-center justify-center overflow-hidden flex-shrink-0">
                     <canvas id="cornerZoomCanvas" class="w-full h-full"></canvas>
                   </div>
                   <div>
-                    <div class="text-xs font-extrabold text-slate-900 flex items-center gap-1.5">
+                    <div class="text-sm font-extrabold text-slate-900 flex items-center gap-2">
                       <span id="zoomTitle">모서리 R20 곡면 확대도</span>
-                      <span class="text-[9px] bg-brand-600 text-white px-1.5 py-0.2 rounded-md font-bold">5X ZOOM</span>
+                      <span class="text-[10px] bg-brand-600 text-white px-2 py-0.5 rounded-md font-bold">5X ZOOM</span>
                     </div>
-                    <p class="text-[11px] text-slate-600 mt-0.5 leading-tight" id="zoomDesc">
+                    <p class="text-xs sm:text-sm text-slate-700 mt-0.5 leading-relaxed" id="zoomDesc">
                       직각 꼭짓점에서 가로/세로 20mm 절삭 (500원 동전 일치)
                     </p>
                   </div>
                 </div>
                 <div class="text-right flex-shrink-0">
-                  <span class="text-[10px] text-slate-400 block">가공 방식</span>
-                  <span class="text-xs font-bold text-brand-700" id="zoomProcessTag">CNC 정밀 라운딩</span>
+                  <span class="text-xs text-slate-500 block">가공 방식</span>
+                  <span class="text-xs sm:text-sm font-bold text-brand-700" id="zoomProcessTag">CNC 정밀 라운딩</span>
                 </div>
               </div>
 
             </div>
 
             <!-- 도면 메타 정보 바 -->
-            <div class="grid grid-cols-3 gap-2 pt-2 border-t border-slate-100 text-center text-xs">
-              <div class="bg-warm-50 p-2.5 rounded-2xl">
-                <div class="text-[10px] text-slate-400 font-medium">면적</div>
-                <div class="text-xs font-bold text-slate-800" id="metaArea">1.12 ㎡</div>
+            <div class="grid grid-cols-3 gap-2 pt-2 border-t border-slate-100 text-center">
+              <div class="bg-warm-50 p-3 rounded-2xl">
+                <div class="text-xs text-slate-500 font-medium">면적</div>
+                <div class="text-sm font-bold text-slate-900" id="metaArea">1.12 ㎡</div>
               </div>
-              <div class="bg-warm-50 p-2.5 rounded-2xl">
-                <div class="text-[10px] text-slate-400 font-medium">예상 무게</div>
-                <div class="text-xs font-bold text-slate-800" id="metaWeight">14.0 kg</div>
+              <div class="bg-warm-50 p-3 rounded-2xl">
+                <div class="text-xs text-slate-500 font-medium">예상 무게</div>
+                <div class="text-sm font-bold text-slate-900" id="metaWeight">14.0 kg</div>
               </div>
-              <div class="bg-warm-50 p-2.5 rounded-2xl">
-                <div class="text-[10px] text-slate-400 font-medium">배송 분류</div>
-                <div class="text-xs font-bold text-brand-600" id="metaDelivery">완충특수택배</div>
+              <div class="bg-warm-50 p-3 rounded-2xl">
+                <div class="text-xs text-slate-500 font-medium">배송 분류</div>
+                <div class="text-sm font-bold text-brand-600" id="metaDelivery">완충특수택배</div>
               </div>
             </div>
 
           </div>
 
           <!-- 최종 견적 내역서 카드 -->
-          <div class="bg-slate-900 text-white p-6 rounded-3xl shadow-xl border border-slate-800 space-y-4">
-            <div class="flex items-center justify-between border-b border-slate-800 pb-3">
-              <div class="text-sm font-bold text-slate-200">실시간 견적 내역서</div>
-              <div class="text-[11px] font-semibold text-emerald-400 bg-emerald-950/80 border border-emerald-800 px-2 py-0.5 rounded-md">
+          <div class="bg-slate-900 text-white p-6 sm:p-7 rounded-3xl shadow-xl border border-slate-800 space-y-4">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-3.5">
+              <div class="text-base font-bold text-slate-200">실시간 견적 내역서</div>
+              <div class="text-xs font-semibold text-emerald-400 bg-emerald-950/80 border border-emerald-800 px-2.5 py-1 rounded-md">
                 공장 직영 출고가
               </div>
             </div>
 
             <!-- 세부 내역 -->
-            <div class="space-y-2 text-xs text-slate-300">
+            <div class="space-y-2.5 text-sm text-slate-300">
               <div class="flex justify-between">
                 <span class="text-slate-400">유리 원판 (<span id="summaryGlassName">5T 투명</span>)</span>
-                <span class="font-medium" id="costGlassBase">25,000원</span>
+                <span class="font-semibold text-white" id="costGlassBase">25,000원</span>
               </div>
               <div class="flex justify-between">
                 <span class="text-slate-400">700℃ 열강화 열처리</span>
-                <span class="font-medium" id="costTempered">6,000원</span>
+                <span class="font-semibold text-white" id="costTempered">6,000원</span>
               </div>
               <div class="flex justify-between">
                 <span class="text-slate-400">모서리 가공 (<span id="summaryCornerR">R20 x 4개</span>)</span>
-                <span class="font-medium" id="costCornerR">4,000원</span>
+                <span class="font-semibold text-white" id="costCornerR">4,000원</span>
               </div>
               <div class="flex justify-between">
                 <span class="text-slate-400">단면 테두리 엣지 가공</span>
-                <span class="font-medium" id="costEdge">3,500원</span>
+                <span class="font-semibold text-white" id="costEdge">3,500원</span>
               </div>
               <div class="flex justify-between" id="rowCableCost">
                 <span class="text-slate-400">전선캡 타공비</span>
-                <span class="font-medium" id="costCable">0원</span>
+                <span class="font-semibold text-white" id="costCable">0원</span>
               </div>
               <div class="flex justify-between" id="rowBumponCost">
                 <span class="text-slate-400">미끄럼 방지 범폰</span>
-                <span class="font-medium" id="costBumpon">2,000원</span>
+                <span class="font-semibold text-white" id="costBumpon">2,000원</span>
               </div>
-              <div class="flex justify-between border-t border-slate-800/80 pt-1.5">
+              <div class="flex justify-between border-t border-slate-800/80 pt-2">
                 <span class="text-slate-400">특수 3중 완충 배송비</span>
-                <span class="font-medium text-amber-400" id="costDelivery">6,000원</span>
+                <span class="font-bold text-amber-400" id="costDelivery">6,000원</span>
               </div>
             </div>
 
             <!-- 최종 금액 -->
             <div class="pt-4 border-t border-slate-800 flex items-end justify-between">
               <div>
-                <div class="text-[11px] text-slate-400">총 견적 금액 (부가세 포함)</div>
-                <div class="text-xs text-slate-400 font-light">수량: <span id="summaryQty">1</span>장</div>
+                <div class="text-xs text-slate-400 font-medium">총 견적 금액 (부가세 포함)</div>
+                <div class="text-sm text-slate-300 font-semibold mt-0.5">수량: <span id="summaryQty" class="text-amber-400 font-bold">1</span>장</div>
               </div>
               <div class="text-right">
-                <div class="text-2xl sm:text-3xl font-black text-amber-400 tracking-tight" id="totalEstimatePrice">
-                  46,500<span class="text-base font-normal text-white">원</span>
+                <div class="text-3xl sm:text-4xl font-black text-amber-400 tracking-tight" id="totalEstimatePrice">
+                  46,500<span class="text-lg font-normal text-white">원</span>
                 </div>
               </div>
             </div>
 
             <!-- 주문 및 인쇄 버튼 -->
-            <div class="pt-2 space-y-2">
-              <button type="button" onclick="openOrderModal()" class="w-full py-4 bg-brand-500 hover:bg-brand-600 text-white font-bold text-sm rounded-2xl shadow-lg shadow-brand-500/30 transition-all flex items-center justify-center gap-2">
-                <i data-lucide="shopping-cart" class="w-4 h-4"></i>
+            <div class="pt-2 space-y-2.5">
+              <button type="button" onclick="openOrderModal()" class="w-full py-4 bg-brand-500 hover:bg-brand-600 text-white font-extrabold text-base rounded-2xl shadow-lg shadow-brand-500/30 transition-all flex items-center justify-center gap-2">
+                <i data-lucide="shopping-cart" class="w-5 h-5"></i>
                 <span>이 견적으로 주문 신청하기</span>
               </button>
 
-              <div class="grid grid-cols-2 gap-2">
-                <button type="button" onclick="printEstimateSheet()" class="py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold rounded-xl transition-all flex items-center justify-center gap-1.5 border border-slate-700">
-                  <i data-lucide="printer" class="w-3.5 h-3.5"></i>
+              <div class="grid grid-cols-2 gap-2.5">
+                <button type="button" onclick="printEstimateSheet()" class="py-3 bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs sm:text-sm font-bold rounded-xl transition-all flex items-center justify-center gap-1.5 border border-slate-700">
+                  <i data-lucide="printer" class="w-4 h-4"></i>
                   <span>견적서 출력/저장</span>
                 </button>
-                <button type="button" onclick="contactKakao()" class="py-2.5 bg-[#FEE500] hover:bg-[#FDD800] text-slate-900 text-xs font-bold rounded-xl transition-all flex items-center justify-center gap-1.5">
-                  <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
+                <button type="button" onclick="contactKakao()" class="py-3 bg-[#FEE500] hover:bg-[#FDD800] text-slate-900 text-xs sm:text-sm font-extrabold rounded-xl transition-all flex items-center justify-center gap-1.5">
+                  <i data-lucide="message-circle" class="w-4 h-4"></i>
                   <span>카톡 사진 상담</span>
                 </button>
               </div>
             </div>
 
-            <div class="p-3 bg-slate-800/80 rounded-2xl border border-slate-700 text-[11px] text-slate-300 text-center leading-relaxed">
+            <div class="p-3.5 bg-slate-800/90 rounded-2xl border border-slate-700 text-xs sm:text-sm text-slate-300 text-center leading-relaxed">
               🛡️ <strong>실측 실수 걱정 ZERO</strong>: 주문 접수 후 전문 엔지니어가 1:1 도면과 사진을 무료로 사전 검수해 드립니다.
             </div>
           </div>
@@ -746,7 +746,7 @@
         <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1">
           마린글래스(MarinGlass) 실제 맞춤 시공 갤러리
         </h2>
-        <p class="mt-2 text-slate-600 text-xs sm:text-sm">
+        <p class="mt-2 text-slate-600 text-sm sm:text-base">
           우리집 가구에 꼭 맞는 유리를 시공한 고객님들의 실제 공간을 확인해 보세요.
         </p>
       </div>
@@ -756,11 +756,11 @@
         <div class="bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-sm group">
           <div class="h-48 overflow-hidden relative">
             <img src="https://images.unsplash.com/photo-1577140917170-285929fb55b7?auto=format&fit=crop&w=600&q=80" alt="원목 식탁 유리 시공" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-            <span class="absolute top-3 left-3 bg-slate-900/80 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">원목 식탁</span>
+            <span class="absolute top-3 left-3 bg-slate-900/80 text-white text-xs font-bold px-2.5 py-0.5 rounded-full">원목 식탁</span>
           </div>
           <div class="p-4 space-y-1">
-            <div class="text-xs font-bold text-slate-900">5T 강화 투명유리 (R12 모서리)</div>
-            <p class="text-[11px] text-slate-500">원목 결을 그대로 살리며 김칫국물 이염 완벽 방지</p>
+            <div class="text-sm font-bold text-slate-900">5T 강화 투명유리 (R12 모서리)</div>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">원목 결을 그대로 살리며 김칫국물 이염 완벽 방지</p>
           </div>
         </div>
 
@@ -768,11 +768,11 @@
         <div class="bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-sm group">
           <div class="h-48 overflow-hidden relative">
             <img src="https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?auto=format&fit=crop&w=600&q=80" alt="화이트 세라믹 식탁 백유리" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-            <span class="absolute top-3 left-3 bg-brand-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">인기 1위</span>
+            <span class="absolute top-3 left-3 bg-brand-600 text-white text-xs font-bold px-2.5 py-0.5 rounded-full">인기 1위</span>
           </div>
           <div class="p-4 space-y-1">
-            <div class="text-xs font-bold text-slate-900">5T 저철분 울트라백유리 (R20)</div>
-            <p class="text-[11px] text-slate-500">초록빛 없는 순수 투명으로 화이트 식탁 고유 색상 유지</p>
+            <div class="text-sm font-bold text-slate-900">5T 저철분 울트라백유리 (R20)</div>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">초록빛 없는 순수 투명으로 화이트 식탁 고유 색상 유지</p>
           </div>
         </div>
 
@@ -780,11 +780,11 @@
         <div class="bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-sm group">
           <div class="h-48 overflow-hidden relative">
             <img src="https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=600&q=80" alt="원형 카페 테이블 유리" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-            <span class="absolute top-3 left-3 bg-slate-900/80 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">원형 테이블</span>
+            <span class="absolute top-3 left-3 bg-slate-900/80 text-white text-xs font-bold px-2.5 py-0.5 rounded-full">원형 테이블</span>
           </div>
           <div class="p-4 space-y-1">
-            <div class="text-xs font-bold text-slate-900">8T 정원형 강화유리 (Ø 900mm)</div>
-            <p class="text-[11px] text-slate-500">외곽 전체 CNC 유광 연마로 매끄럽고 고급스러운 마감</p>
+            <div class="text-sm font-bold text-slate-900">8T 정원형 강화유리 (Ø 900mm)</div>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">외곽 전체 CNC 유광 연마로 매끄럽고 고급스러운 마감</p>
           </div>
         </div>
 
@@ -792,11 +792,11 @@
         <div class="bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-sm group">
           <div class="h-48 overflow-hidden relative">
             <img src="https://images.unsplash.com/photo-1533090161767-e6ffed986b88?auto=format&fit=crop&w=600&q=80" alt="컴퓨터 데스크 전선타공 유리" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-            <span class="absolute top-3 left-3 bg-slate-900/80 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">서재/오피스</span>
+            <span class="absolute top-3 left-3 bg-slate-900/80 text-white text-xs font-bold px-2.5 py-0.5 rounded-full">서재/오피스</span>
           </div>
           <div class="p-4 space-y-1">
-            <div class="text-xs font-bold text-slate-900">5T 투명유리 + 전선캡 타공</div>
-            <p class="text-[11px] text-slate-500">모니터 암 및 멀티탭 전선 정리를 위한 60mm 정밀 타공</p>
+            <div class="text-sm font-bold text-slate-900">5T 투명유리 + 전선캡 타공</div>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">모니터 암 및 멀티탭 전선 정리를 위한 60mm 정밀 타공</p>
           </div>
         </div>
       </div>
@@ -816,7 +816,7 @@
         <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1">
           동전 하나로 10초 만에 끝내는 모서리 R값 측정법
         </h2>
-        <p class="mt-2 text-slate-600 text-xs sm:text-sm">
+        <p class="mt-2 text-slate-600 text-sm sm:text-base">
           식탁이나 책상 모서리에 동전을 대어보시면 곡면이 정확히 일치하는 R값을 바로 찾을 수 있습니다.
         </p>
       </div>
@@ -824,72 +824,72 @@
       <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
         
         <!-- R0 직각 -->
-        <div class="bg-warm-50 p-5 rounded-3xl border border-slate-200 text-center hover:border-brand-300 transition-all">
+        <div class="bg-warm-50 p-6 rounded-3xl border border-slate-200 text-center hover:border-brand-300 transition-all">
           <div class="w-24 h-24 mx-auto bg-white border-2 border-slate-300 rounded-none mb-4 flex items-center justify-center shadow-inner relative">
-            <span class="text-xs font-bold text-slate-600">직각 (R0)</span>
+            <span class="text-sm font-bold text-slate-700">직각 (R0)</span>
           </div>
-          <div class="text-sm font-bold text-slate-900">R 0 (직각 사각형)</div>
-          <div class="text-xs text-brand-600 font-semibold mt-0.5">일반 사각 모서리</div>
-          <p class="text-xs text-slate-500 mt-2 leading-relaxed">
+          <div class="text-base font-bold text-slate-900">R 0 (직각 사각형)</div>
+          <div class="text-xs sm:text-sm text-brand-600 font-bold mt-1">일반 사각 모서리</div>
+          <p class="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed">
             모서리에 곡선이 전혀 없는 일반적인 직각 가구입니다.
           </p>
         </div>
 
         <!-- R12 100원 동전 -->
-        <div class="bg-warm-50 p-5 rounded-3xl border-2 border-brand-300 text-center relative shadow-sm hover:border-brand-500 transition-all">
-          <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-brand-600 text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full">
+        <div class="bg-warm-50 p-6 rounded-3xl border-2 border-brand-300 text-center relative shadow-sm hover:border-brand-500 transition-all">
+          <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-brand-600 text-white text-xs font-bold px-3 py-0.5 rounded-full">
             가장 흔한 식탁 모서리
           </div>
           <div class="w-24 h-24 mx-auto bg-white border-2 border-brand-500 rounded-tl-2xl mb-4 flex items-center justify-center shadow-inner relative">
-            <div class="w-10 h-10 rounded-full bg-amber-100 border-2 border-amber-400 text-xs font-bold text-amber-800 flex items-center justify-center shadow-xs">
+            <div class="w-12 h-12 rounded-full bg-amber-100 border-2 border-amber-400 text-xs font-black text-amber-800 flex items-center justify-center shadow-xs">
               100원
             </div>
           </div>
-          <div class="text-sm font-bold text-slate-900">R 10 ~ R 12 (100원 동전)</div>
-          <div class="text-xs text-brand-600 font-semibold mt-0.5">반경 약 12mm</div>
-          <p class="text-xs text-slate-500 mt-2 leading-relaxed">
+          <div class="text-base font-bold text-slate-900">R 10 ~ R 12 (100원 동전)</div>
+          <div class="text-xs sm:text-sm text-brand-600 font-bold mt-1">반경 약 12mm</div>
+          <p class="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed">
             100원 동전의 모서리 곡면과 가구 모서리가 정확히 맞아떨어집니다.
           </p>
         </div>
 
         <!-- R20 500원 동전 -->
-        <div class="bg-warm-50 p-5 rounded-3xl border border-slate-200 text-center hover:border-brand-300 transition-all">
+        <div class="bg-warm-50 p-6 rounded-3xl border border-slate-200 text-center hover:border-brand-300 transition-all">
           <div class="w-24 h-24 mx-auto bg-white border-2 border-slate-300 rounded-tl-3xl mb-4 flex items-center justify-center shadow-inner relative">
-            <div class="w-12 h-12 rounded-full bg-slate-200 border-2 border-slate-400 text-xs font-bold text-slate-700 flex items-center justify-center shadow-xs">
+            <div class="w-14 h-14 rounded-full bg-slate-200 border-2 border-slate-400 text-xs font-black text-slate-700 flex items-center justify-center shadow-xs">
               500원
             </div>
           </div>
-          <div class="text-sm font-bold text-slate-900">R 15 ~ R 20 (500원 동전)</div>
-          <div class="text-xs text-brand-600 font-semibold mt-0.5">반경 약 15~20mm</div>
-          <p class="text-xs text-slate-500 mt-2 leading-relaxed">
+          <div class="text-base font-bold text-slate-900">R 15 ~ R 20 (500원 동전)</div>
+          <div class="text-xs sm:text-sm text-brand-600 font-bold mt-1">반경 약 15~20mm</div>
+          <p class="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed">
             500원 동전과 곡선이 일치하는 완만한 라운딩 식탁 및 원목 데스크입니다.
           </p>
         </div>
 
         <!-- R35 종이컵 -->
-        <div class="bg-warm-50 p-5 rounded-3xl border border-slate-200 text-center hover:border-brand-300 transition-all">
+        <div class="bg-warm-50 p-6 rounded-3xl border border-slate-200 text-center hover:border-brand-300 transition-all">
           <div class="w-24 h-24 mx-auto bg-white border-2 border-slate-300 rounded-tl-[36px] mb-4 flex items-center justify-center shadow-inner relative">
-            <div class="w-14 h-14 rounded-full bg-sky-100 border-2 border-sky-300 text-xs font-bold text-sky-800 flex items-center justify-center shadow-xs">
+            <div class="w-16 h-16 rounded-full bg-sky-100 border-2 border-sky-300 text-xs font-black text-sky-800 flex items-center justify-center shadow-xs">
               종이컵
             </div>
           </div>
-          <div class="text-sm font-bold text-slate-900">R 30 ~ R 50 (종이컵 바닥)</div>
-          <div class="text-xs text-brand-600 font-semibold mt-0.5">반경 약 35mm</div>
-          <p class="text-xs text-slate-500 mt-2 leading-relaxed">
+          <div class="text-base font-bold text-slate-900">R 30 ~ R 50 (종이컵 바닥)</div>
+          <div class="text-xs sm:text-sm text-brand-600 font-bold mt-1">반경 약 35mm</div>
+          <p class="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed">
             곡률이 큰 라운드 식탁이나 카페용 타원형 테이블입니다.
           </p>
         </div>
 
       </div>
 
-      <div class="mt-8 p-4 bg-brand-50 rounded-2xl border border-brand-100 flex flex-col sm:flex-row items-center justify-between gap-4">
-        <div class="flex items-center gap-3">
-          <i data-lucide="camera" class="w-6 h-6 text-brand-600 flex-shrink-0"></i>
-          <span class="text-xs sm:text-sm text-slate-700">
+      <div class="mt-8 p-5 bg-brand-50 rounded-2xl border border-brand-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-3.5">
+          <i data-lucide="camera" class="w-7 h-7 text-brand-600 flex-shrink-0"></i>
+          <span class="text-sm sm:text-base text-slate-800 leading-relaxed">
             <strong>"그래도 곡률을 잘 모르겠다면?"</strong> 가구 모서리 위에 동전을 올리고 사진을 찍어 카톡으로 보내주시면 전문 엔지니어가 무료로 판독해 드립니다!
           </span>
         </div>
-        <button onclick="contactKakao()" class="px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white text-xs font-bold rounded-xl shadow-xs whitespace-nowrap">
+        <button onclick="contactKakao()" class="px-6 py-3 bg-brand-600 hover:bg-brand-700 text-white text-sm font-bold rounded-xl shadow-xs whitespace-nowrap">
           카톡으로 사진 보내기 &rarr;
         </button>
       </div>
@@ -906,10 +906,10 @@
       
       <div class="grid lg:grid-cols-12 gap-12 items-center">
         <div class="lg:col-span-6 space-y-6">
-          <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-emerald-950 border border-emerald-700 text-emerald-400 text-xs font-bold">
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-950 border border-emerald-700 text-emerald-400 text-xs sm:text-sm font-bold">
             <i data-lucide="shield-check" class="w-4 h-4"></i> 100% NO-RISK GUARANTEE
           </div>
-          <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">
+          <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight leading-snug">
             "배송 중 유리가 깨져서 도착하면<br>
             <span class="text-amber-400">100% 당일 무상 재제작</span> 해드립니다."
           </h2>
@@ -918,26 +918,26 @@
             배송 중 충격으로 작은 흠집이나 파손이 발생하더라도 사진 한 장만 보내주시면 고객님께 비용을 묻지 않고 당일 새 상품으로 다시 제작하여 발송합니다.
           </p>
 
-          <div class="space-y-3 pt-2">
-            <div class="flex items-start gap-3">
-              <div class="w-6 h-6 rounded-full bg-brand-600 text-white flex items-center justify-center flex-shrink-0 text-xs font-bold mt-0.5">1</div>
+          <div class="space-y-4 pt-2">
+            <div class="flex items-start gap-3.5">
+              <div class="w-7 h-7 rounded-full bg-brand-600 text-white flex items-center justify-center flex-shrink-0 text-xs font-bold mt-0.5">1</div>
               <div>
-                <div class="text-sm font-bold text-white">1단계: 고탄성 모서리 보호대(코너가드) 4면 밀착</div>
-                <div class="text-xs text-slate-400">취약한 모서리를 충격 흡수 패드로 1차 완벽 차단</div>
+                <div class="text-sm sm:text-base font-bold text-white">1단계: 고탄성 모서리 보호대(코너가드) 4면 밀착</div>
+                <div class="text-xs sm:text-sm text-slate-400 mt-0.5">취약한 모서리를 충격 흡수 패드로 1차 완벽 차단</div>
               </div>
             </div>
-            <div class="flex items-start gap-3">
-              <div class="w-6 h-6 rounded-full bg-brand-600 text-white flex items-center justify-center flex-shrink-0 text-xs font-bold mt-0.5">2</div>
+            <div class="flex items-start gap-3.5">
+              <div class="w-7 h-7 rounded-full bg-brand-600 text-white flex items-center justify-center flex-shrink-0 text-xs font-bold mt-0.5">2</div>
               <div>
-                <div class="text-sm font-bold text-white">2단계: 5중 에어캡 전면 래핑 & 방습 포장</div>
-                <div class="text-xs text-slate-400">스크래치와 미세 진동을 흡수하는 고밀도 에어 완충재</div>
+                <div class="text-sm sm:text-base font-bold text-white">2단계: 5중 에어캡 전면 래핑 & 방습 포장</div>
+                <div class="text-xs sm:text-sm text-slate-400 mt-0.5">스크래치와 미세 진동을 흡수하는 고밀도 에어 완충재</div>
               </div>
             </div>
-            <div class="flex items-start gap-3">
-              <div class="w-6 h-6 rounded-full bg-brand-600 text-white flex items-center justify-center flex-shrink-0 text-xs font-bold mt-0.5">3</div>
+            <div class="flex items-start gap-3.5">
+              <div class="w-7 h-7 rounded-full bg-brand-600 text-white flex items-center justify-center flex-shrink-0 text-xs font-bold mt-0.5">3</div>
               <div>
-                <div class="text-sm font-bold text-white">3단계: 고강도 특수 크라프트 하드보드 & 합판 포장</div>
-                <div class="text-xs text-slate-400">외부 압력에도 휘어지지 않는 전용 하드 박스 패키지</div>
+                <div class="text-sm sm:text-base font-bold text-white">3단계: 고강도 특수 크라프트 하드보드 & 합판 포장</div>
+                <div class="text-xs sm:text-sm text-slate-400 mt-0.5">외부 압력에도 휘어지지 않는 전용 하드 박스 패키지</div>
               </div>
             </div>
           </div>
@@ -949,21 +949,21 @@
               <i data-lucide="award" class="w-9 h-9"></i>
             </div>
             <h3 class="text-xl font-bold text-white">마린글래스 안심 보증 서약</h3>
-            <p class="text-xs text-slate-300 leading-relaxed max-w-md mx-auto">
+            <p class="text-sm text-slate-300 leading-relaxed max-w-md mx-auto">
               "배송 완료 후 7일 이내 파손 확인 시 100% 무상 재출고를 약속합니다."
             </p>
             <div class="pt-4 border-t border-slate-700 flex justify-around text-center">
               <div>
-                <div class="text-2xl font-black text-amber-400">99.4%</div>
-                <div class="text-[11px] text-slate-400">배송 무파손률</div>
+                <div class="text-2xl sm:text-3xl font-black text-amber-400">99.4%</div>
+                <div class="text-xs text-slate-400 mt-1">배송 무파손률</div>
               </div>
               <div>
-                <div class="text-2xl font-black text-amber-400">0원</div>
-                <div class="text-[11px] text-slate-400">파손 시 재제작비</div>
+                <div class="text-2xl sm:text-3xl font-black text-amber-400">0원</div>
+                <div class="text-xs text-slate-400 mt-1">파손 시 재제작비</div>
               </div>
               <div>
-                <div class="text-2xl font-black text-amber-400">당일</div>
-                <div class="text-[11px] text-slate-400">재제작 착수 속도</div>
+                <div class="text-2xl sm:text-3xl font-black text-amber-400">당일</div>
+                <div class="text-xs text-slate-400 mt-1">재제작 착수 속도</div>
               </div>
             </div>
           </div>
@@ -995,8 +995,8 @@
             <i data-lucide="star" class="w-5 h-5 fill-current"></i>
             <i data-lucide="star" class="w-5 h-5 fill-current"></i>
           </div>
-          <span class="text-sm font-bold text-slate-800">평점 4.98 / 5.0</span>
-          <span class="text-xs text-slate-400">(누적 시공 18,400건)</span>
+          <span class="text-sm sm:text-base font-bold text-slate-800">평점 4.98 / 5.0</span>
+          <span class="text-xs text-slate-500">(누적 시공 18,400건)</span>
         </div>
       </div>
 
@@ -1010,13 +1010,13 @@
               <i data-lucide="star" class="w-4 h-4 fill-current"></i>
               <i data-lucide="star" class="w-4 h-4 fill-current"></i>
             </div>
-            <span class="text-[11px] text-slate-400">김*진 님 (경기 하남)</span>
+            <span class="text-xs text-slate-400">김*진 님 (경기 하남)</span>
           </div>
-          <h4 class="text-sm font-bold text-slate-900">"100원 동전 사진 보고 주문했는데 모서리가 칼같이 맞습니다!"</h4>
-          <p class="text-xs text-slate-600 leading-relaxed">
+          <h4 class="text-sm sm:text-base font-bold text-slate-900 leading-snug">"100원 동전 사진 보고 주문했는데 모서리가 칼같이 맞습니다!"</h4>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
             원목 식탁 모서리가 둥글어서 동네 유리 가게에서는 직접 와서 본떠야 한다고 출장비까지 달랬는데, 사이트에서 100원 동전 사진 보고 R12로 주문했더니 오차 없이 완벽하게 딱 맞습니다.
           </p>
-          <div class="text-[11px] text-brand-600 font-medium pt-2 border-t border-slate-100">
+          <div class="text-xs sm:text-sm text-brand-600 font-bold pt-2 border-t border-slate-100">
             [옵션] 5T 강화 투명유리 850x1600mm / R12 4면
           </div>
         </div>
@@ -1030,13 +1030,13 @@
               <i data-lucide="star" class="w-4 h-4 fill-current"></i>
               <i data-lucide="star" class="w-4 h-4 fill-current"></i>
             </div>
-            <span class="text-[11px] text-slate-400">박*현 님 (서울 강남)</span>
+            <span class="text-xs text-slate-400">박*현 님 (서울 강남)</span>
           </div>
-          <h4 class="text-sm font-bold text-slate-900">"화이트 세라믹 식탁엔 무조건 백유리 하세요"</h4>
-          <p class="text-xs text-slate-600 leading-relaxed">
+          <h4 class="text-sm sm:text-base font-bold text-slate-900 leading-snug">"화이트 세라믹 식탁엔 무조건 백유리 하세요"</h4>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
             하얀 식탁이라 일반 유리 깔면 초록색 빛 돌아서 망칠까 봐 저철분 백유리로 주문했는데 대만족입니다. 식탁 본래 하얀색이 그대로 살아나고 강화처리되어서 뜨거운 냄비 바로 올려도 끄떡없네요.
           </p>
-          <div class="text-[11px] text-brand-600 font-medium pt-2 border-t border-slate-100">
+          <div class="text-xs sm:text-sm text-brand-600 font-bold pt-2 border-t border-slate-100">
             [옵션] 5T 저철분 울트라백유리 900x1800mm / R20 4면
           </div>
         </div>
@@ -1050,13 +1050,13 @@
               <i data-lucide="star" class="w-4 h-4 fill-current"></i>
               <i data-lucide="star" class="w-4 h-4 fill-current"></i>
             </div>
-            <span class="text-[11px] text-slate-400">이*우 님 (인테리어 실장)</span>
+            <span class="text-xs text-slate-400">이*우 님 (인테리어 실장)</span>
           </div>
-          <h4 class="text-sm font-bold text-slate-900">"단가 뽑고 공장 도면 견적서 바로 인쇄되니 너무 편합니다"</h4>
-          <p class="text-xs text-slate-600 leading-relaxed">
+          <h4 class="text-sm sm:text-base font-bold text-slate-900 leading-snug">"단가 뽑고 공장 도면 견적서 바로 인쇄되니 너무 편합니다"</h4>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
             현장마다 사이즈가 제각각이라 매번 공장에 전화하기 번거로웠는데, 모바일로 바로 단가 확인하고 공정 지시서 도면까지 출력되어서 결재받기 수월합니다.
           </p>
-          <div class="text-[11px] text-brand-600 font-medium pt-2 border-t border-slate-100">
+          <div class="text-xs sm:text-sm text-brand-600 font-bold pt-2 border-t border-slate-100">
             [옵션] 8T 브론즈 강화유리 외 다수 발주
           </div>
         </div>
@@ -1069,7 +1069,7 @@
   <!-- ================================================================= -->
   <!-- S12. 푸터 (Footer) -->
   <!-- ================================================================= -->
-  <footer class="bg-slate-950 text-slate-400 py-12 text-xs border-t border-slate-900">
+  <footer class="bg-slate-950 text-slate-400 py-12 text-sm border-t border-slate-900">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
       
       <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -1078,15 +1078,15 @@
             <i data-lucide="sparkles" class="w-5 h-5 text-brand-500"></i>
             <span>마린글래스 (MarinGlass)</span>
           </div>
-          <p class="text-slate-400 leading-relaxed text-[11px]">
+          <p class="text-slate-400 leading-relaxed text-xs sm:text-sm">
             25년 전통의 맞춤 유리 전문 공장 직영 원스톱 시스템. 최신 CNC 자동화 가공과 3중 특수 완충 포장으로 전국 안전 직배송을 보증합니다.
           </p>
         </div>
 
         <div>
-          <div class="text-white font-bold text-xs mb-3">고객센터 & 도면상담</div>
-          <div class="text-lg font-black text-amber-400 mb-1">1588-0000</div>
-          <p class="text-[11px] leading-relaxed">
+          <div class="text-white font-bold text-sm mb-3">고객센터 & 도면상담</div>
+          <div class="text-xl font-black text-amber-400 mb-1">1588-0000</div>
+          <p class="text-xs sm:text-sm leading-relaxed">
             평일 08:30 ~ 18:00 (점심 12:00 ~ 13:00)<br>
             토요일 09:00 ~ 13:00 (일/공휴일 휴무)<br>
             이메일: estimate@maringlass.co.kr
@@ -1094,9 +1094,9 @@
         </div>
 
         <div>
-          <div class="text-white font-bold text-xs mb-3">가이드 & 바로가기</div>
-          <ul class="space-y-1.5 text-[11px]">
-            <li><a href="guide.html" class="hover:text-brand-400 font-bold text-white flex items-center gap-1"><i data-lucide="book-open" class="w-3 h-3"></i> 초보자 맞춤 유리 가이드북</a></li>
+          <div class="text-white font-bold text-sm mb-3">가이드 & 바로가기</div>
+          <ul class="space-y-2 text-xs sm:text-sm">
+            <li><a href="guide.html" class="hover:text-brand-400 font-bold text-white flex items-center gap-1"><i data-lucide="book-open" class="w-3.5 h-3.5"></i> 초보자 맞춤 유리 가이드북</a></li>
             <li><a href="guide.html#ch1" class="hover:text-slate-300">줄자 1mm 정밀 실측법</a></li>
             <li><a href="guide.html#ch2" class="hover:text-slate-300">동전 모서리 R값 가이드</a></li>
             <li><a href="guide.html#ch3" class="hover:text-slate-300">저철분 백유리 vs 일반유리 비교</a></li>
@@ -1104,18 +1104,18 @@
         </div>
 
         <div>
-          <div class="text-white font-bold text-xs mb-3">관리자 마스터 메뉴</div>
-          <p class="text-[11px] leading-relaxed mb-3">
+          <div class="text-white font-bold text-sm mb-3">관리자 마스터 메뉴</div>
+          <p class="text-xs sm:text-sm leading-relaxed mb-3">
             유리 품종의 추가/수정/삭제 및 단가, 옵션 상태를 실시간 제어할 수 있습니다.
           </p>
-          <button onclick="openAdminModal()" class="px-3.5 py-2 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-xl text-xs font-semibold flex items-center gap-1.5 border border-slate-700 transition-colors">
-            <i data-lucide="lock" class="w-3.5 h-3.5 text-brand-400"></i>
+          <button onclick="openAdminModal()" class="px-4 py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-xl text-xs sm:text-sm font-semibold flex items-center gap-2 border border-slate-700 transition-colors">
+            <i data-lucide="lock" class="w-4 h-4 text-brand-400"></i>
             <span>관리자 마스터 설정 열기</span>
           </button>
         </div>
       </div>
 
-      <div class="pt-6 border-t border-slate-900 flex flex-col sm:flex-row items-center justify-between text-[11px] text-slate-500">
+      <div class="pt-6 border-t border-slate-900 flex flex-col sm:flex-row items-center justify-between text-xs sm:text-sm text-slate-500">
         <div>© 2026 MarinGlass. All Rights Reserved.</div>
         <div class="flex gap-4 mt-2 sm:mt-0">
           <a href="guide.html" class="hover:text-slate-400">초보자 가이드</a>
@@ -1135,82 +1135,82 @@
   <div id="wizardModal" class="fixed inset-0 z-50 bg-black/75 backdrop-blur-sm hidden items-center justify-center p-4">
     <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl border border-slate-200 relative max-h-[90vh] overflow-y-auto">
       <button onclick="closeWizardModal()" class="absolute right-5 top-5 text-slate-400 hover:text-slate-600 p-1">
-        <i data-lucide="x" class="w-5 h-5"></i>
+        <i data-lucide="x" class="w-6 h-6"></i>
       </button>
 
       <div class="text-center mb-6">
-        <div class="w-12 h-12 rounded-2xl bg-brand-100 text-brand-600 flex items-center justify-center mx-auto mb-2">
-          <i data-lucide="wand-2" class="w-6 h-6"></i>
+        <div class="w-14 h-14 rounded-2xl bg-brand-100 text-brand-600 flex items-center justify-center mx-auto mb-3">
+          <i data-lucide="wand-2" class="w-7 h-7"></i>
         </div>
-        <h3 class="text-xl font-bold text-slate-900">10초 맞춤 유리 스마트 도우미</h3>
-        <p class="text-xs text-slate-500">3가지 질문에 답변하시면 우리집 가구에 꼭 맞는 최적 옵션을 자동 세팅합니다.</p>
+        <h3 class="text-xl font-extrabold text-slate-900">10초 맞춤 유리 스마트 도우미</h3>
+        <p class="text-sm text-slate-500 mt-1">3가지 질문에 답변하시면 우리집 가구에 꼭 맞는 최적 옵션을 자동 세팅합니다.</p>
       </div>
 
-      <div class="space-y-5 text-xs">
+      <div class="space-y-6 text-sm">
         
         <!-- 질문 1 -->
-        <div class="space-y-2">
-          <label class="block font-extrabold text-slate-900 text-sm">Q1. 어디에 올려 사용하실 건가요?</label>
-          <div class="grid grid-cols-2 gap-2">
-            <label class="p-3 bg-warm-50 border border-slate-200 rounded-2xl cursor-pointer hover:border-brand-500 flex items-center gap-2 font-bold text-slate-800">
-              <input type="radio" name="wizUsage" value="dining" checked class="text-brand-600">
-              <span>식탁 / 다이닝 테이블</span>
+        <div class="space-y-2.5">
+          <label class="block font-extrabold text-slate-900 text-base">Q1. 어디에 올려 사용하실 건가요?</label>
+          <div class="grid grid-cols-2 gap-2.5">
+            <label class="p-3.5 bg-warm-50 border border-slate-200 rounded-2xl cursor-pointer hover:border-brand-500 flex items-center gap-2.5 font-bold text-slate-800">
+              <input type="radio" name="wizUsage" value="dining" checked class="w-4 h-4 text-brand-600">
+              <span>식탁 / 다이닝</span>
             </label>
-            <label class="p-3 bg-warm-50 border border-slate-200 rounded-2xl cursor-pointer hover:border-brand-500 flex items-center gap-2 font-bold text-slate-800">
-              <input type="radio" name="wizUsage" value="desk" class="text-brand-600">
+            <label class="p-3.5 bg-warm-50 border border-slate-200 rounded-2xl cursor-pointer hover:border-brand-500 flex items-center gap-2.5 font-bold text-slate-800">
+              <input type="radio" name="wizUsage" value="desk" class="w-4 h-4 text-brand-600">
               <span>컴퓨터 책상 / 서재</span>
             </label>
-            <label class="p-3 bg-warm-50 border border-slate-200 rounded-2xl cursor-pointer hover:border-brand-500 flex items-center gap-2 font-bold text-slate-800">
-              <input type="radio" name="wizUsage" value="dresser" class="text-brand-600">
-              <span>화장대 / 서랍장 상판</span>
+            <label class="p-3.5 bg-warm-50 border border-slate-200 rounded-2xl cursor-pointer hover:border-brand-500 flex items-center gap-2.5 font-bold text-slate-800">
+              <input type="radio" name="wizUsage" value="dresser" class="w-4 h-4 text-brand-600">
+              <span>화장대 / 서랍장</span>
             </label>
-            <label class="p-3 bg-warm-50 border border-slate-200 rounded-2xl cursor-pointer hover:border-brand-500 flex items-center gap-2 font-bold text-slate-800">
-              <input type="radio" name="wizUsage" value="round_cafe" class="text-brand-600">
+            <label class="p-3.5 bg-warm-50 border border-slate-200 rounded-2xl cursor-pointer hover:border-brand-500 flex items-center gap-2.5 font-bold text-slate-800">
+              <input type="radio" name="wizUsage" value="round_cafe" class="w-4 h-4 text-brand-600">
               <span>카페 원형 테이블</span>
             </label>
           </div>
         </div>
 
         <!-- 질문 2 -->
-        <div class="space-y-2">
-          <label class="block font-extrabold text-slate-900 text-sm">Q2. 가구 상판의 색상/재질은 무엇인가요?</label>
-          <div class="grid grid-cols-3 gap-2">
-            <label class="p-3 bg-warm-50 border border-slate-200 rounded-2xl cursor-pointer hover:border-brand-500 flex flex-col items-center text-center gap-1 font-bold text-slate-800">
-              <input type="radio" name="wizColor" value="white" checked class="text-brand-600">
-              <span>화이트 / 세라믹</span>
-              <span class="text-[10px] text-brand-600 font-normal">백유리 필수</span>
+        <div class="space-y-2.5">
+          <label class="block font-extrabold text-slate-900 text-base">Q2. 가구 상판의 색상/재질은 무엇인가요?</label>
+          <div class="grid grid-cols-3 gap-2.5">
+            <label class="p-3.5 bg-warm-50 border border-slate-200 rounded-2xl cursor-pointer hover:border-brand-500 flex flex-col items-center text-center gap-1.5 font-bold text-slate-800">
+              <input type="radio" name="wizColor" value="white" checked class="w-4 h-4 text-brand-600">
+              <span class="text-sm">화이트/세라믹</span>
+              <span class="text-xs text-brand-600 font-extrabold">백유리 필수</span>
             </label>
-            <label class="p-3 bg-warm-50 border border-slate-200 rounded-2xl cursor-pointer hover:border-brand-500 flex flex-col items-center text-center gap-1 font-bold text-slate-800">
-              <input type="radio" name="wizColor" value="wood" class="text-brand-600">
-              <span>원목 / 내추럴</span>
-              <span class="text-[10px] text-slate-400 font-normal">투명/브론즈</span>
+            <label class="p-3.5 bg-warm-50 border border-slate-200 rounded-2xl cursor-pointer hover:border-brand-500 flex flex-col items-center text-center gap-1.5 font-bold text-slate-800">
+              <input type="radio" name="wizColor" value="wood" class="w-4 h-4 text-brand-600">
+              <span class="text-sm">원목 / 내추럴</span>
+              <span class="text-xs text-slate-500 font-normal">투명/브론즈</span>
             </label>
-            <label class="p-3 bg-warm-50 border border-slate-200 rounded-2xl cursor-pointer hover:border-brand-500 flex flex-col items-center text-center gap-1 font-bold text-slate-800">
-              <input type="radio" name="wizColor" value="dark" class="text-brand-600">
-              <span>블랙 / 다크그레이</span>
-              <span class="text-[10px] text-slate-400 font-normal">그레이/사틴</span>
+            <label class="p-3.5 bg-warm-50 border border-slate-200 rounded-2xl cursor-pointer hover:border-brand-500 flex flex-col items-center text-center gap-1.5 font-bold text-slate-800">
+              <input type="radio" name="wizColor" value="dark" class="w-4 h-4 text-brand-600">
+              <span class="text-sm">블랙 / 그레이</span>
+              <span class="text-xs text-slate-500 font-normal">그레이/사틴</span>
             </label>
           </div>
         </div>
 
         <!-- 질문 3 -->
-        <div class="space-y-2">
-          <label class="block font-extrabold text-slate-900 text-sm">Q3. 어린이나 반려동물이 함께 생활하나요?</label>
-          <div class="grid grid-cols-2 gap-2">
-            <label class="p-3 bg-warm-50 border border-slate-200 rounded-2xl cursor-pointer hover:border-brand-500 flex items-center gap-2 font-bold text-slate-800">
-              <input type="radio" name="wizChild" value="yes" checked class="text-brand-600">
-              <span>네 (안전 강화 & 둥근 모서리)</span>
+        <div class="space-y-2.5">
+          <label class="block font-extrabold text-slate-900 text-base">Q3. 어린이나 반려동물이 함께 생활하나요?</label>
+          <div class="grid grid-cols-2 gap-2.5">
+            <label class="p-3.5 bg-warm-50 border border-slate-200 rounded-2xl cursor-pointer hover:border-brand-500 flex items-center gap-2.5 font-bold text-slate-800">
+              <input type="radio" name="wizChild" value="yes" checked class="w-4 h-4 text-brand-600">
+              <span>네 (강화 & 라운딩)</span>
             </label>
-            <label class="p-3 bg-warm-50 border border-slate-200 rounded-2xl cursor-pointer hover:border-brand-500 flex items-center gap-2 font-bold text-slate-800">
-              <input type="radio" name="wizChild" value="no" class="text-brand-600">
-              <span>성인 전용 (표준 세팅)</span>
+            <label class="p-3.5 bg-warm-50 border border-slate-200 rounded-2xl cursor-pointer hover:border-brand-500 flex items-center gap-2.5 font-bold text-slate-800">
+              <input type="radio" name="wizChild" value="no" class="w-4 h-4 text-brand-600">
+              <span>성인 전용 (표준)</span>
             </label>
           </div>
         </div>
 
         <div class="pt-3">
-          <button type="button" onclick="applySmartRecommendation()" class="w-full py-4 bg-brand-600 hover:bg-brand-700 text-white font-black text-sm rounded-2xl shadow-lg transition-all flex items-center justify-center gap-2">
-            <i data-lucide="check" class="w-4 h-4"></i>
+          <button type="button" onclick="applySmartRecommendation()" class="w-full py-4 bg-brand-600 hover:bg-brand-700 text-white font-black text-base rounded-2xl shadow-lg transition-all flex items-center justify-center gap-2">
+            <i data-lucide="check" class="w-5 h-5"></i>
             <span>내 가구 맞춤 옵션 자동 적용하기</span>
           </button>
         </div>
@@ -1224,52 +1224,52 @@
   <div id="orderModal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden items-center justify-center p-4">
     <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl border border-slate-200 relative max-h-[90vh] overflow-y-auto">
       <button onclick="closeOrderModal()" class="absolute right-5 top-5 text-slate-400 hover:text-slate-600 p-1">
-        <i data-lucide="x" class="w-5 h-5"></i>
+        <i data-lucide="x" class="w-6 h-6"></i>
       </button>
 
       <div class="text-center mb-6">
-        <div class="w-12 h-12 rounded-2xl bg-brand-100 text-brand-600 flex items-center justify-center mx-auto mb-2">
-          <i data-lucide="check-circle" class="w-6 h-6"></i>
+        <div class="w-14 h-14 rounded-2xl bg-brand-100 text-brand-600 flex items-center justify-center mx-auto mb-2">
+          <i data-lucide="check-circle" class="w-7 h-7"></i>
         </div>
         <h3 class="text-xl font-bold text-slate-900">맞춤 유리 주문 신청</h3>
-        <p class="text-xs text-slate-500">주문 접수 후 담당 엔지니어가 1:1 도면 최종 확인 후 연락드립니다.</p>
+        <p class="text-sm text-slate-500 mt-1">주문 접수 후 담당 엔지니어가 1:1 도면 최종 확인 후 연락드립니다.</p>
       </div>
 
-      <div class="p-4 bg-warm-50 rounded-2xl border border-slate-200 mb-6 space-y-1.5 text-xs">
+      <div class="p-4 bg-warm-50 rounded-2xl border border-slate-200 mb-6 space-y-2 text-sm">
         <div class="flex justify-between">
-          <span class="text-slate-500">규격 / 두께:</span>
-          <span class="font-bold text-slate-800" id="orderModalSpec">800 x 1400 mm / 5T 투명</span>
+          <span class="text-slate-500 font-medium">규격 / 두께:</span>
+          <span class="font-bold text-slate-900" id="orderModalSpec">800 x 1400 mm / 5T 투명</span>
         </div>
         <div class="flex justify-between">
-          <span class="text-slate-500">가공 옵션:</span>
-          <span class="font-bold text-slate-800" id="orderModalProcess">열강화 / R20 (4면)</span>
+          <span class="text-slate-500 font-medium">가공 옵션:</span>
+          <span class="font-bold text-slate-900" id="orderModalProcess">열강화 / R20 (4면)</span>
         </div>
-        <div class="flex justify-between border-t border-slate-200 pt-1.5">
+        <div class="flex justify-between border-t border-slate-200 pt-2">
           <span class="font-bold text-slate-700">최종 결제 예정 금액:</span>
-          <span class="font-extrabold text-brand-600 text-sm" id="orderModalPrice">46,500원</span>
+          <span class="font-black text-brand-600 text-base" id="orderModalPrice">46,500원</span>
         </div>
       </div>
 
-      <form onsubmit="handleOrderSubmit(event)" class="space-y-3.5">
+      <form onsubmit="handleOrderSubmit(event)" class="space-y-4 text-sm">
         <div>
-          <label class="block text-xs font-bold text-slate-700 mb-1">받는 분 성함 *</label>
-          <input type="text" required placeholder="홍길동" class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs focus:bg-white focus:ring-2 focus:ring-brand-500">
+          <label class="block font-bold text-slate-800 mb-1.5">받는 분 성함 *</label>
+          <input type="text" required placeholder="홍길동" class="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-xl text-sm focus:bg-white focus:ring-2 focus:ring-brand-500 font-bold">
         </div>
         <div>
-          <label class="block text-xs font-bold text-slate-700 mb-1">연락처 *</label>
-          <input type="tel" required placeholder="010-0000-0000" class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs focus:bg-white focus:ring-2 focus:ring-brand-500">
+          <label class="block font-bold text-slate-800 mb-1.5">연락처 *</label>
+          <input type="tel" required placeholder="010-0000-0000" class="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-xl text-sm focus:bg-white focus:ring-2 focus:ring-brand-500 font-bold">
         </div>
         <div>
-          <label class="block text-xs font-bold text-slate-700 mb-1">배송지 주소 *</label>
-          <input type="text" required placeholder="상세 주소를 입력해 주세요" class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs focus:bg-white focus:ring-2 focus:ring-brand-500">
+          <label class="block font-bold text-slate-800 mb-1.5">배송지 주소 *</label>
+          <input type="text" required placeholder="상세 주소를 입력해 주세요" class="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-xl text-sm focus:bg-white focus:ring-2 focus:ring-brand-500 font-bold">
         </div>
         <div>
-          <label class="block text-xs font-bold text-slate-700 mb-1">배송 및 제작 요청사항</label>
-          <input type="text" placeholder="예: 부재 시 문 앞 보관 / 모서리 R값 확인 전화 부탁드립니다." class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs focus:bg-white focus:ring-2 focus:ring-brand-500">
+          <label class="block font-bold text-slate-800 mb-1.5">배송 및 제작 요청사항</label>
+          <input type="text" placeholder="예: 부재 시 문 앞 보관 / 모서리 R값 확인 전화 부탁드립니다." class="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-xl text-sm focus:bg-white focus:ring-2 focus:ring-brand-500">
         </div>
 
         <div class="pt-3">
-          <button type="submit" class="w-full py-4 bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm rounded-2xl shadow-lg transition-all flex items-center justify-center gap-2">
+          <button type="submit" class="w-full py-4 bg-brand-600 hover:bg-brand-700 text-white font-black text-base rounded-2xl shadow-lg transition-all flex items-center justify-center gap-2">
             <span>주문 접수 완료하기</span>
           </button>
         </div>
@@ -1283,7 +1283,7 @@
     <div class="bg-white rounded-3xl max-w-3xl w-full p-6 sm:p-8 shadow-2xl border border-slate-200 relative max-h-[90vh] overflow-y-auto">
       
       <button onclick="closeAdminModal()" class="absolute right-5 top-5 text-slate-400 hover:text-slate-600 p-1">
-        <i data-lucide="x" class="w-5 h-5"></i>
+        <i data-lucide="x" class="w-6 h-6"></i>
       </button>
 
       <!-- 관리자 로그인 폼 -->
@@ -1292,11 +1292,11 @@
           <i data-lucide="lock" class="w-7 h-7"></i>
         </div>
         <h3 class="text-xl font-bold text-slate-900">관리자 마스터 인증</h3>
-        <p class="text-xs text-slate-500 mt-1 mb-6">유리 품종 추가/수정/삭제 및 단가 관리를 위해 비밀번호를 입력하세요. (초기값: 1234)</p>
+        <p class="text-sm text-slate-500 mt-1 mb-6">유리 품종 추가/수정/삭제 및 단가 관리를 위해 비밀번호를 입력하세요. (초기값: 1234)</p>
         
         <form onsubmit="handleAdminAuth(event)" class="max-w-xs mx-auto space-y-3">
-          <input type="password" id="adminPassword" placeholder="비밀번호 입력" class="w-full px-4 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-center text-sm font-bold focus:ring-2 focus:ring-brand-500">
-          <button type="submit" class="w-full py-2.5 bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs rounded-xl transition-colors">
+          <input type="password" id="adminPassword" placeholder="비밀번호 입력" class="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-xl text-center text-sm font-bold focus:ring-2 focus:ring-brand-500">
+          <button type="submit" class="w-full py-3 bg-slate-900 hover:bg-slate-800 text-white font-bold text-sm rounded-xl transition-colors">
             인증 및 마스터 대시보드 열기
           </button>
         </form>
@@ -1314,29 +1314,29 @@
             <p class="text-xs text-slate-500">유리 품종 추가/수정/삭제 및 단가가 고객 화면에 실시간 동기화됩니다.</p>
           </div>
           <div class="flex items-center gap-2">
-            <button onclick="exportConfigJson()" class="px-2.5 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold rounded-lg">JSON 백업</button>
-            <button onclick="resetAdminConfigToDefault()" class="text-xs font-semibold text-red-600 hover:underline">기본값 복원</button>
+            <button onclick="exportConfigJson()" class="px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold rounded-lg">JSON 백업</button>
+            <button onclick="resetAdminConfigToDefault()" class="text-xs font-bold text-red-600 hover:underline">기본값 복원</button>
           </div>
         </div>
 
         <!-- 탭 네비게이션 -->
         <div class="flex border-b border-slate-200 gap-2 overflow-x-auto">
-          <button type="button" onclick="switchAdminTab('glasses')" id="admTabBtnGlasses" class="px-4 py-2 border-b-2 border-brand-600 text-brand-700 font-bold text-xs whitespace-nowrap">1. 유리 품종 마스터 (추가/수정/삭제/품절)</button>
-          <button type="button" onclick="switchAdminTab('prices')" id="admTabBtnPrices" class="px-4 py-2 border-b-2 border-transparent text-slate-500 hover:text-slate-800 font-semibold text-xs whitespace-nowrap">2. 두께 계수 & 가공비/배송비</button>
+          <button type="button" onclick="switchAdminTab('glasses')" id="admTabBtnGlasses" class="px-4 py-2 border-b-2 border-brand-600 text-brand-700 font-bold text-sm whitespace-nowrap">1. 유리 품종 마스터</button>
+          <button type="button" onclick="switchAdminTab('prices')" id="admTabBtnPrices" class="px-4 py-2 border-b-2 border-transparent text-slate-500 hover:text-slate-800 font-semibold text-sm whitespace-nowrap">2. 두께 계수 & 가공비/배송비</button>
         </div>
 
         <!-- 탭 1: 유리 품종 동적 CRUD 관리 -->
         <div id="admTabGlasses" class="space-y-4">
           <div class="flex items-center justify-between">
-            <span class="text-xs font-bold text-slate-800">현재 등록된 유리 품종 (<span id="admGlassCount">8</span>종)</span>
-            <button type="button" onclick="openAddGlassModal()" class="px-3 py-1.5 bg-brand-600 hover:bg-brand-700 text-white text-xs font-bold rounded-xl shadow-xs flex items-center gap-1">
-              <i data-lucide="plus" class="w-3.5 h-3.5"></i>
+            <span class="text-sm font-bold text-slate-800">현재 등록된 유리 품종 (<span id="admGlassCount">8</span>종)</span>
+            <button type="button" onclick="openAddGlassModal()" class="px-4 py-2 bg-brand-600 hover:bg-brand-700 text-white text-xs sm:text-sm font-bold rounded-xl shadow-xs flex items-center gap-1.5">
+              <i data-lucide="plus" class="w-4 h-4"></i>
               <span>새 유리 품종 추가</span>
             </button>
           </div>
 
           <!-- 유리 목록 리스트 -->
-          <div class="space-y-2.5 max-h-96 overflow-y-auto pr-1" id="admGlassListContainer">
+          <div class="space-y-3 max-h-96 overflow-y-auto pr-1" id="admGlassListContainer">
             <!-- JS 동적 렌더링 -->
           </div>
         </div>
@@ -1346,55 +1346,55 @@
           <form onsubmit="saveAdminPrices(event)" class="space-y-4">
             
             <div class="bg-warm-50 p-4 rounded-2xl border border-slate-200 space-y-3">
-              <h4 class="text-xs font-bold text-slate-800">두께별 가격 배율 계수</h4>
-              <div class="grid grid-cols-5 gap-2 text-xs text-center">
+              <h4 class="text-sm font-bold text-slate-800">두께별 가격 배율 계수</h4>
+              <div class="grid grid-cols-5 gap-2 text-xs sm:text-sm text-center">
                 <div>
-                  <span class="block text-[11px] text-slate-500 mb-1">3T</span>
-                  <input type="number" step="0.1" id="adm_ratio_3t" class="w-full p-1.5 bg-white border border-slate-300 rounded text-center font-bold">
+                  <span class="block text-xs text-slate-500 mb-1 font-bold">3T</span>
+                  <input type="number" step="0.1" id="adm_ratio_3t" class="w-full p-2 bg-white border border-slate-300 rounded-lg text-center font-bold">
                 </div>
                 <div>
-                  <span class="block text-[11px] text-slate-500 mb-1">5T (기본)</span>
-                  <input type="number" step="0.1" id="adm_ratio_5t" class="w-full p-1.5 bg-white border border-slate-300 rounded text-center font-bold">
+                  <span class="block text-xs text-slate-500 mb-1 font-bold">5T (기본)</span>
+                  <input type="number" step="0.1" id="adm_ratio_5t" class="w-full p-2 bg-white border border-slate-300 rounded-lg text-center font-bold">
                 </div>
                 <div>
-                  <span class="block text-[11px] text-slate-500 mb-1">8T</span>
-                  <input type="number" step="0.1" id="adm_ratio_8t" class="w-full p-1.5 bg-white border border-slate-300 rounded text-center font-bold">
+                  <span class="block text-xs text-slate-500 mb-1 font-bold">8T</span>
+                  <input type="number" step="0.1" id="adm_ratio_8t" class="w-full p-2 bg-white border border-slate-300 rounded-lg text-center font-bold">
                 </div>
                 <div>
-                  <span class="block text-[11px] text-slate-500 mb-1">10T</span>
-                  <input type="number" step="0.1" id="adm_ratio_10t" class="w-full p-1.5 bg-white border border-slate-300 rounded text-center font-bold">
+                  <span class="block text-xs text-slate-500 mb-1 font-bold">10T</span>
+                  <input type="number" step="0.1" id="adm_ratio_10t" class="w-full p-2 bg-white border border-slate-300 rounded-lg text-center font-bold">
                 </div>
                 <div>
-                  <span class="block text-[11px] text-slate-500 mb-1">12T</span>
-                  <input type="number" step="0.1" id="adm_ratio_12t" class="w-full p-1.5 bg-white border border-slate-300 rounded text-center font-bold">
+                  <span class="block text-xs text-slate-500 mb-1 font-bold">12T</span>
+                  <input type="number" step="0.1" id="adm_ratio_12t" class="w-full p-2 bg-white border border-slate-300 rounded-lg text-center font-bold">
                 </div>
               </div>
             </div>
 
             <div class="bg-warm-50 p-4 rounded-2xl border border-slate-200 space-y-3">
-              <h4 class="text-xs font-bold text-slate-800">가공 공임비 및 배송비 설정</h4>
-              <div class="grid sm:grid-cols-3 gap-3 text-xs">
+              <h4 class="text-sm font-bold text-slate-800">가공 공임비 및 배송비 설정</h4>
+              <div class="grid sm:grid-cols-2 gap-3 text-xs sm:text-sm">
                 <div>
-                  <label class="block text-slate-600 mb-1">강화 가공비 (㎡당 원)</label>
+                  <label class="block text-slate-700 font-bold mb-1">강화 가공비 (㎡당 원)</label>
                   <input type="number" id="adm_price_temper" class="w-full px-3 py-2 bg-white border border-slate-300 rounded-lg font-bold">
                 </div>
                 <div>
-                  <label class="block text-slate-600 mb-1">모서리 R가공 (개당 원)</label>
+                  <label class="block text-slate-700 font-bold mb-1">모서리 R가공 (개당 원)</label>
                   <input type="number" id="adm_price_corner_r" class="w-full px-3 py-2 bg-white border border-slate-300 rounded-lg font-bold">
                 </div>
                 <div>
-                  <label class="block text-slate-600 mb-1">전선캡 타공비 (개당 원)</label>
+                  <label class="block text-slate-700 font-bold mb-1">전선캡 타공비 (개당 원)</label>
                   <input type="number" id="adm_price_cable" class="w-full px-3 py-2 bg-white border border-slate-300 rounded-lg font-bold">
                 </div>
                 <div>
-                  <label class="block text-slate-600 mb-1">기본 안전배송비 (원)</label>
+                  <label class="block text-slate-700 font-bold mb-1">기본 안전배송비 (원)</label>
                   <input type="number" id="adm_price_delivery_base" class="w-full px-3 py-2 bg-white border border-slate-300 rounded-lg font-bold">
                 </div>
               </div>
             </div>
 
             <div class="flex justify-end gap-2 pt-2">
-              <button type="submit" class="px-5 py-2 bg-brand-600 hover:bg-brand-700 text-white text-xs font-bold rounded-xl shadow-xs">
+              <button type="submit" class="px-6 py-2.5 bg-brand-600 hover:bg-brand-700 text-white text-sm font-bold rounded-xl shadow-xs">
                 단가 설정 저장
               </button>
             </div>
@@ -1417,33 +1417,33 @@
 
       <h3 class="text-base font-bold text-slate-900 mb-4" id="glassEditModalTitle">새 유리 품종 등록</h3>
       
-      <form onsubmit="saveGlassItem(event)" class="space-y-3 text-xs">
+      <form onsubmit="saveGlassItem(event)" class="space-y-3.5 text-xs sm:text-sm">
         <input type="hidden" id="editGlassId">
         
         <div>
           <label class="block font-bold text-slate-700 mb-1">유리 이름 *</label>
-          <input type="text" id="editGlassName" required placeholder="예: 브론즈 사틴 유리" class="w-full px-3 py-2 border border-slate-300 rounded-xl font-bold">
+          <input type="text" id="editGlassName" required placeholder="예: 브론즈 사틴 유리" class="w-full px-3.5 py-2.5 border border-slate-300 rounded-xl font-bold">
         </div>
 
         <div class="grid grid-cols-2 gap-3">
           <div>
             <label class="block font-bold text-slate-700 mb-1">㎡(헤베)당 단가 (원) *</label>
-            <input type="number" id="editGlassPrice" required placeholder="28000" class="w-full px-3 py-2 border border-slate-300 rounded-xl font-bold">
+            <input type="number" id="editGlassPrice" required placeholder="28000" class="w-full px-3.5 py-2.5 border border-slate-300 rounded-xl font-bold">
           </div>
           <div>
             <label class="block font-bold text-slate-700 mb-1">추천 뱃지 텍스트</label>
-            <input type="text" id="editGlassTag" placeholder="예: 신상품" class="w-full px-3 py-2 border border-slate-300 rounded-xl">
+            <input type="text" id="editGlassTag" placeholder="예: 신상품" class="w-full px-3.5 py-2.5 border border-slate-300 rounded-xl">
           </div>
         </div>
 
         <div>
           <label class="block font-bold text-slate-700 mb-1">고객 안내 요약 설명 *</label>
-          <input type="text" id="editGlassDesc" required placeholder="예: 은은한 브라운 톤의 지문방지 무광 유리" class="w-full px-3 py-2 border border-slate-300 rounded-xl">
+          <input type="text" id="editGlassDesc" required placeholder="예: 은은한 브라운 톤의 지문방지 무광 유리" class="w-full px-3.5 py-2.5 border border-slate-300 rounded-xl">
         </div>
 
         <div>
           <label class="block font-bold text-slate-700 mb-1">실물 사진 URL (인테리어 예시 이미지)</label>
-          <input type="url" id="editGlassImg" placeholder="https://images.unsplash.com/..." class="w-full px-3 py-2 border border-slate-300 rounded-xl">
+          <input type="url" id="editGlassImg" placeholder="https://images.unsplash.com/..." class="w-full px-3.5 py-2.5 border border-slate-300 rounded-xl">
         </div>
 
         <div class="pt-3 flex justify-end gap-2 border-t border-slate-200">
@@ -1456,20 +1456,20 @@
 
 
   <!-- ================================================================= -->
-  <!-- JavaScript: 깔끔한 2D CAD 렌더러 & 5배 줌 인스펙터 & 인터랙티브 맵 -->
+  <!-- JavaScript: 전문 타이포그래피 & 와이드 카드 렌더링 & 2D CAD -->
   <!-- ================================================================= -->
   <script>
     // 1. 기본 마스터 데이터
     const DEFAULT_MASTER_DATA = {
       glasses: [
-        { id: 'clear', name: '일반 투명유리', tag: '표준', price: 22000, desc: '가장 대중적인 표준 플로트 판유리 (원목/어두운 가구 추천)', img: 'https://images.unsplash.com/photo-1577140917170-285929fb55b7?auto=format&fit=crop&w=800&q=80', color: '#e0f2fe', isSoldOut: false },
-        { id: 'ultra_clear', name: '저철분 울트라백유리', tag: '인기1위', price: 34000, desc: '초록빛 제로 100% 맑은 투과 (화이트/세라믹 식탁 필수)', img: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80', color: '#f8fafc', isSoldOut: false },
-        { id: 'bronze', name: '브론즈 (브라운)', tag: '고급형', price: 26000, desc: '은은하고 따뜻한 고급 브라운 틴트 컬러', img: 'https://images.unsplash.com/photo-1533090161767-e6ffed986b88?auto=format&fit=crop&w=800&q=80', color: '#78350f', isSoldOut: false },
-        { id: 'gray', name: '그레이 (다크)', tag: '모던', price: 26000, desc: '세련된 모던 차콜 다크 틴트 컬러', img: 'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=800&q=80', color: '#1e293b', isSoldOut: false },
-        { id: 'satin', name: '사틴 무광 지문방지', tag: '지문방지', price: 33000, desc: '지문과 스크래치가 묻지 않는 부드러운 고급 무광 에칭', img: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=800&q=80', color: '#f1f5f9', isSoldOut: false },
-        { id: 'fluted', name: '모루 무늬유리 (세로줄)', tag: '인테리어', price: 32000, desc: '세로 결 무늬로 내부가 은은히 가려지는 감성 유리', img: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80', color: '#e2e8f0', isSoldOut: false },
-        { id: 'aqua', name: '아쿠아 무늬유리', tag: '파티션용', price: 31000, desc: '시원한 물결 패턴의 인테리어 파티션용 유리', img: 'https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=800&q=80', color: '#38bdf8', isSoldOut: false },
-        { id: 'mirror', name: '은경 거울', tag: '거울가공', price: 29000, desc: '왜곡 없는 선명한 고반사 프리미엄 은경', img: 'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=800&q=80', color: '#cbd5e1', isSoldOut: false }
+        { id: 'clear', name: '일반 투명유리', tag: '표준', price: 22000, desc: '가장 대중적인 표준 플로트 판유리 (원목 및 어두운 톤 가구 추천)', img: 'https://images.unsplash.com/photo-1577140917170-285929fb55b7?auto=format&fit=crop&w=800&q=80', color: '#e0f2fe', isSoldOut: false },
+        { id: 'ultra_clear', name: '저철분 울트라백유리', tag: '인기 1위', price: 34000, desc: '초록빛 제로 100% 맑은 투과 (화이트/세라믹 식탁 고유 색상 완벽 유지)', img: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80', color: '#f8fafc', isSoldOut: false },
+        { id: 'bronze', name: '브론즈 (브라운)', tag: '고급형', price: 26000, desc: '은은하고 따뜻한 고급 브라운 틴트 컬러로 아늑한 분위기 연출', img: 'https://images.unsplash.com/photo-1533090161767-e6ffed986b88?auto=format&fit=crop&w=800&q=80', color: '#78350f', isSoldOut: false },
+        { id: 'gray', name: '그레이 (다크)', tag: '모던', price: 26000, desc: '세련되고 모던한 차콜 다크 틴트 컬러로 시크한 인테리어 완성', img: 'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=800&q=80', color: '#1e293b', isSoldOut: false },
+        { id: 'satin', name: '사틴 무광 지문방지', tag: '지문방지', price: 33000, desc: '지문과 스크래치가 묻지 않는 실크 감촉의 최고급 무광 에칭 유리', img: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=800&q=80', color: '#f1f5f9', isSoldOut: false },
+        { id: 'fluted', name: '모루 무늬유리 (세로줄)', tag: '인테리어', price: 32000, desc: '세로 결 무늬로 내부가 은은히 가려져 프라이버시와 감성 동시 확보', img: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80', color: '#e2e8f0', isSoldOut: false },
+        { id: 'aqua', name: '아쿠아 무늬유리', tag: '파티션용', price: 31000, desc: '시원하고 경쾌한 물결 패턴으로 공간을 화사하게 분리하는 인테리어 유리', img: 'https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=800&q=80', color: '#38bdf8', isSoldOut: false },
+        { id: 'mirror', name: '은경 거울', tag: '거울가공', price: 29000, desc: '왜곡 없이 사물을 맑고 선명하게 비추는 고반사 프리미엄 은경', img: 'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=800&q=80', color: '#cbd5e1', isSoldOut: false }
       ],
       thicknessRatios: { '3': 0.8, '5': 1.0, '8': 1.5, '10': 2.0, '12': 2.5 },
       temperingPricePerSqm: 5500,
@@ -1492,16 +1492,16 @@
 
     // 두께 정의
     const THICKNESS_OPTIONS = [
-      { t: '3', label: '3T (3mm)', badge: '소형', desc: '액자 / 소형 장식장문' },
-      { t: '5', label: '5T (5mm)', badge: '표준', desc: '식탁 / 책상 / 화장대' },
-      { t: '8', label: '8T (8mm)', badge: '고급식탁', desc: '대형 테이블 / 선반' },
-      { t: '10', label: '10T (10mm)', badge: '파티션', desc: '통유리 / 중문' },
-      { t: '12', label: '12T (12mm)', badge: '초중량', desc: '난간 / 고급 상업용' }
+      { t: '3', label: '3T (3mm)', badge: '소형액자', desc: '액자 / 소형 장식장문' },
+      { t: '5', label: '5T (5mm)', badge: '가정용 표준', desc: '식탁 / 책상 / 화장대' },
+      { t: '8', label: '8T (8mm)', badge: '대형식탁', desc: '대형 테이블 / 선반' },
+      { t: '10', label: '10T (10mm)', badge: '통유리', desc: '중문 / 파티션' },
+      { t: '12', label: '12T (12mm)', badge: '초중량', desc: '난간 / 상업용 매장' }
     ];
 
     // 모서리 R 정의
     const CORNER_OPTIONS = [
-      { r: 0, type: 'r', label: '직각 (R0)', badge: '기본', desc: '모서리 곡선 없음' },
+      { r: 0, type: 'r', label: '직각 (R0)', badge: '기본 직각', desc: '모서리 곡선 없음' },
       { r: 12, type: 'r', label: 'R 12 mm', badge: '100원 동전', desc: '식탁 표준 라운딩' },
       { r: 20, type: 'r', label: 'R 20 mm', badge: '500원 동전', desc: '완만한 곡면' },
       { r: 35, type: 'r', label: 'R 35 mm', badge: '종이컵 바닥', desc: '큰 라운드 모서리' },
@@ -1569,30 +1569,33 @@
       const container = document.getElementById('shapeCardsContainer');
       if (!container) return;
       container.innerHTML = SHAPES.map(s => `
-        <button type="button" onclick="selectShape('${s.id}')" class="p-3 rounded-2xl border text-left transition-all ${state.shape === s.id ? 'card-selected' : 'border-slate-200 bg-white hover:border-slate-300'}">
-          <div class="w-8 h-8 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center mb-2 shadow-xs">
-            <i data-lucide="${s.icon}" class="w-4 h-4"></i>
+        <button type="button" onclick="selectShape('${s.id}')" class="p-4 rounded-2xl border text-left transition-all ${state.shape === s.id ? 'card-selected' : 'border-slate-200 bg-white hover:border-slate-300'}">
+          <div class="w-10 h-10 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center mb-2.5 shadow-xs">
+            <i data-lucide="${s.icon}" class="w-5 h-5"></i>
           </div>
-          <div class="text-xs font-bold text-slate-900">${s.name}</div>
-          <div class="text-[10px] text-slate-500 mt-0.5 leading-tight">${s.desc}</div>
+          <div class="text-sm sm:text-base font-bold text-slate-900">${s.name}</div>
+          <div class="text-xs text-slate-600 mt-1 leading-snug">${s.desc}</div>
         </button>
       `).join('');
       if (window.lucide) lucide.createIcons();
     }
 
+    // [핵심 개선] 유리 종류 카드: 2열 와이드 배치, 16px 볼드 제목, 13.5px 고명도 설명
     function renderGlassCards() {
       const container = document.getElementById('glassCardsContainer');
       if (!container) return;
       container.innerHTML = masterData.glasses.map(g => {
         const isSelected = state.glassType === g.id;
         return `
-          <button type="button" ${g.isSoldOut ? 'disabled' : `onclick="selectGlassType('${g.id}')"`} class="p-3 rounded-2xl border text-left transition-all relative overflow-hidden ${g.isSoldOut ? 'opacity-40 cursor-not-allowed bg-slate-100 border-slate-200' : (isSelected ? 'card-selected' : 'border-slate-200 bg-white hover:border-slate-300')}">
-            <div class="flex items-center justify-between mb-2">
-              <span class="w-5 h-5 rounded-lg border border-slate-300 shadow-xs flex-shrink-0" style="background-color: ${g.color};"></span>
-              <span class="text-[9px] font-bold px-1.5 py-0.5 rounded-full ${isSelected ? 'bg-brand-600 text-white' : 'bg-slate-200 text-slate-700'}">${g.isSoldOut ? '품절' : g.tag}</span>
+          <button type="button" ${g.isSoldOut ? 'disabled' : `onclick="selectGlassType('${g.id}')"`} class="p-4 sm:p-5 rounded-2xl border text-left transition-all relative ${g.isSoldOut ? 'opacity-40 cursor-not-allowed bg-slate-100 border-slate-200' : (isSelected ? 'card-selected' : 'border-slate-200 bg-white hover:border-slate-300')} shadow-xs">
+            <div class="flex items-center justify-between mb-2.5">
+              <div class="flex items-center gap-2.5">
+                <span class="w-7 h-7 rounded-xl border border-slate-300 shadow-xs flex-shrink-0" style="background-color: ${g.color};"></span>
+                <span class="text-base font-black text-slate-900">${g.name}</span>
+              </div>
+              <span class="text-xs font-extrabold px-2.5 py-1 rounded-full ${isSelected ? 'bg-brand-600 text-white' : 'bg-slate-100 text-slate-700'}">${g.isSoldOut ? '품절' : g.tag}</span>
             </div>
-            <div class="text-xs font-bold text-slate-900">${g.name}</div>
-            <div class="text-[10px] text-slate-500 mt-1 leading-tight line-clamp-2">${g.desc}</div>
+            <p class="text-xs sm:text-sm text-slate-700 font-normal leading-relaxed">${g.desc}</p>
           </button>
         `;
       }).join('');
@@ -1604,10 +1607,10 @@
       container.innerHTML = THICKNESS_OPTIONS.map(opt => {
         const isSelected = state.thickness === opt.t;
         return `
-          <button type="button" onclick="selectThickness('${opt.t}')" class="p-2.5 rounded-2xl border text-center transition-all ${isSelected ? 'card-selected' : 'border-slate-200 bg-white hover:border-slate-300'}">
-            <div class="text-[9px] font-bold px-1 py-0.5 rounded ${isSelected ? 'bg-brand-600 text-white' : 'bg-slate-200 text-slate-600'} mb-1">${opt.badge}</div>
-            <div class="text-sm font-extrabold text-slate-900">${opt.t}T</div>
-            <div class="text-[9px] text-slate-500 mt-0.5 leading-tight">${opt.desc}</div>
+          <button type="button" onclick="selectThickness('${opt.t}')" class="p-3 rounded-2xl border text-center transition-all ${isSelected ? 'card-selected' : 'border-slate-200 bg-white hover:border-slate-300'}">
+            <div class="text-[11px] font-bold px-1.5 py-0.5 rounded ${isSelected ? 'bg-brand-600 text-white' : 'bg-slate-200 text-slate-700'} mb-1.5">${opt.badge}</div>
+            <div class="text-base sm:text-lg font-black text-slate-900">${opt.t}T</div>
+            <div class="text-xs text-slate-600 mt-1 leading-tight">${opt.desc}</div>
           </button>
         `;
       }).join('');
@@ -1621,10 +1624,10 @@
       container.innerHTML = CORNER_OPTIONS.map(opt => {
         const isSelected = (!isCurveShape && state.cornerR === opt.r && state.cornerType === opt.type);
         return `
-          <button type="button" ${isCurveShape ? 'disabled' : `onclick="selectCornerOption(${opt.r}, '${opt.type}')"`} class="p-2.5 rounded-2xl border text-center transition-all ${isCurveShape ? 'opacity-30 cursor-not-allowed bg-slate-100 border-slate-200' : (isSelected ? 'card-selected' : 'border-slate-200 bg-white hover:border-slate-300')}">
-            <div class="text-[9px] font-bold px-1 py-0.5 rounded ${isSelected ? 'bg-brand-600 text-white' : 'bg-slate-200 text-slate-700'} mb-1">${opt.badge}</div>
-            <div class="text-xs font-bold text-slate-900">${opt.label}</div>
-            <div class="text-[9px] text-slate-500 mt-0.5">${opt.desc}</div>
+          <button type="button" ${isCurveShape ? 'disabled' : `onclick="selectCornerOption(${opt.r}, '${opt.type}')"`} class="p-3 rounded-2xl border text-center transition-all ${isCurveShape ? 'opacity-30 cursor-not-allowed bg-slate-100 border-slate-200' : (isSelected ? 'card-selected' : 'border-slate-200 bg-white hover:border-slate-300')}">
+            <div class="text-[11px] font-bold px-1.5 py-0.5 rounded ${isSelected ? 'bg-brand-600 text-white' : 'bg-slate-200 text-slate-700'} mb-1.5">${opt.badge}</div>
+            <div class="text-sm sm:text-base font-black text-slate-900">${opt.label}</div>
+            <div class="text-xs text-slate-600 mt-1">${opt.desc}</div>
           </button>
         `;
       }).join('');
@@ -1636,12 +1639,12 @@
       container.innerHTML = EDGE_OPTIONS.map(e => {
         const isSelected = state.edgeType === e.id;
         return `
-          <button type="button" onclick="selectEdge('${e.id}')" class="p-3.5 rounded-2xl border text-left transition-all ${isSelected ? 'card-selected' : 'border-slate-200 bg-white hover:border-slate-300'}">
+          <button type="button" onclick="selectEdge('${e.id}')" class="p-4 rounded-2xl border text-left transition-all ${isSelected ? 'card-selected' : 'border-slate-200 bg-white hover:border-slate-300'}">
             <div class="flex items-center justify-between mb-1.5">
-              <span class="text-xs font-bold text-slate-900">${e.name}</span>
-              <span class="text-[9px] font-bold px-1.5 py-0.5 rounded ${isSelected ? 'bg-brand-600 text-white' : 'bg-slate-200 text-slate-600'}">${e.badge}</span>
+              <span class="text-sm sm:text-base font-bold text-slate-900">${e.name}</span>
+              <span class="text-xs font-bold px-2 py-0.5 rounded ${isSelected ? 'bg-brand-600 text-white' : 'bg-slate-200 text-slate-600'}">${e.badge}</span>
             </div>
-            <div class="text-[10px] text-slate-500 leading-tight">${e.desc}</div>
+            <div class="text-xs sm:text-sm text-slate-600 leading-relaxed">${e.desc}</div>
           </button>
         `;
       }).join('');
@@ -1694,17 +1697,17 @@
         if (!btn) return;
         const isActive = state.corners[k] && state.cornerR > 0;
         if (isActive) {
-          btn.className = 'absolute w-8 h-8 rounded-full bg-brand-600 text-white font-black text-xs flex items-center justify-center shadow-lg ring-2 ring-brand-300 hover:scale-110 transition-transform';
-          if (k === 'TL') btn.style = 'top:-12px; left:-12px;';
-          if (k === 'TR') btn.style = 'top:-12px; right:-12px;';
-          if (k === 'BR') btn.style = 'bottom:-12px; right:-12px;';
-          if (k === 'BL') btn.style = 'bottom:-12px; left:-12px;';
+          btn.className = 'absolute w-9 h-9 rounded-full bg-brand-600 text-white font-black text-xs flex items-center justify-center shadow-lg ring-2 ring-brand-300 hover:scale-110 transition-transform';
+          if (k === 'TL') btn.style = 'top:-14px; left:-14px;';
+          if (k === 'TR') btn.style = 'top:-14px; right:-14px;';
+          if (k === 'BR') btn.style = 'bottom:-14px; right:-14px;';
+          if (k === 'BL') btn.style = 'bottom:-14px; left:-14px;';
         } else {
-          btn.className = 'absolute w-8 h-8 rounded-full bg-slate-300 text-slate-700 font-bold text-xs flex items-center justify-center shadow-xs hover:bg-slate-400 hover:scale-110 transition-transform';
-          if (k === 'TL') btn.style = 'top:-12px; left:-12px;';
-          if (k === 'TR') btn.style = 'top:-12px; right:-12px;';
-          if (k === 'BR') btn.style = 'bottom:-12px; right:-12px;';
-          if (k === 'BL') btn.style = 'bottom:-12px; left:-12px;';
+          btn.className = 'absolute w-9 h-9 rounded-full bg-slate-300 text-slate-700 font-bold text-xs flex items-center justify-center shadow-xs hover:bg-slate-400 hover:scale-110 transition-transform';
+          if (k === 'TL') btn.style = 'top:-14px; left:-14px;';
+          if (k === 'TR') btn.style = 'top:-14px; right:-14px;';
+          if (k === 'BR') btn.style = 'bottom:-14px; right:-14px;';
+          if (k === 'BL') btn.style = 'bottom:-14px; left:-14px;';
         }
       });
 
@@ -1933,7 +1936,7 @@
       document.getElementById('costDelivery').textContent = deliveryPrice.toLocaleString() + '원';
       
       document.getElementById('summaryQty').textContent = state.quantity;
-      document.getElementById('totalEstimatePrice').innerHTML = `${grandTotal.toLocaleString()}<span class="text-base font-normal text-white">원</span>`;
+      document.getElementById('totalEstimatePrice').innerHTML = `${grandTotal.toLocaleString()}<span class="text-lg font-normal text-white">원</span>`;
 
       updateRoomPreview();
       drawPreviewCanvas();
@@ -1950,7 +1953,7 @@
         imgElem.src = currentGlass.img;
       }
       if (titleElem) {
-        titleElem.innerHTML = `<span>${state.thickness}T ${currentGlass.name}</span><span class="text-[10px] bg-brand-500 px-1.5 py-0.2 rounded font-normal">선택중</span>`;
+        titleElem.innerHTML = `<span>${state.thickness}T ${currentGlass.name}</span><span class="text-xs bg-brand-500 px-2 py-0.5 rounded font-normal">선택중</span>`;
       }
       if (descElem) {
         descElem.textContent = currentGlass.desc;
@@ -1975,7 +1978,7 @@
       const h = rect.height;
       ctx.clearRect(0, 0, w, h);
 
-      const padding = 38;
+      const padding = 42;
       const availW = w - padding * 2;
       const availH = h - padding * 2;
 
@@ -2010,7 +2013,7 @@
       } else {
         // 직사각형 - 모서리별 독립 R값 적용
         const maxR = Math.min(drawW / 2, drawH / 2);
-        const rTL = (state.corners.TL && state.cornerR > 0) ? Math.min(state.cornerR * scale * 2.5, maxR) : 0; // 가시성을 위해 약간 강조
+        const rTL = (state.corners.TL && state.cornerR > 0) ? Math.min(state.cornerR * scale * 2.5, maxR) : 0;
         const rTR = (state.corners.TR && state.cornerR > 0) ? Math.min(state.cornerR * scale * 2.5, maxR) : 0;
         const rBR = (state.corners.BR && state.cornerR > 0) ? Math.min(state.cornerR * scale * 2.5, maxR) : 0;
         const rBL = (state.corners.BL && state.cornerR > 0) ? Math.min(state.cornerR * scale * 2.5, maxR) : 0;
@@ -2046,8 +2049,8 @@
 
       // 2) 정밀 CNC 외곽선
       ctx.save();
-      ctx.strokeStyle = '#0284c7'; // 깔끔한 코발트 블루
-      ctx.lineWidth = 2.0;
+      ctx.strokeStyle = '#0284c7';
+      ctx.lineWidth = 2.2;
       ctx.stroke();
 
       // 전선 타공
@@ -2072,22 +2075,21 @@
       }
       ctx.restore();
 
-      // 3) 외곽 가로/세로 CAD 치수선 (깔끔한 화살표 & mm 수치)
+      // 3) 외곽 가로/세로 CAD 치수선
       ctx.save();
       ctx.strokeStyle = '#64748b';
       ctx.fillStyle = '#1e293b';
       ctx.lineWidth = 1.0;
-      ctx.font = 'bold 11px "Inter", "Noto Sans KR", sans-serif';
+      ctx.font = 'bold 12px "Inter", "Noto Sans KR", sans-serif';
       ctx.textAlign = 'center';
       ctx.textBaseline = 'middle';
 
       // 상단 가로 치수선
-      const dimOffsetY = 16;
+      const dimOffsetY = 18;
       ctx.beginPath();
       ctx.moveTo(startX, startY - dimOffsetY);
       ctx.lineTo(startX + drawW, startY - dimOffsetY);
       ctx.stroke();
-      // 화살표 틱
       ctx.beginPath();
       ctx.moveTo(startX, startY - dimOffsetY - 3);
       ctx.lineTo(startX, startY - dimOffsetY + 3);
@@ -2096,16 +2098,15 @@
       ctx.stroke();
 
       const labelW = state.shape === 'round' ? `지름 Ø ${state.width} mm` : `${state.width} mm`;
-      ctx.fillText(labelW, startX + drawW / 2, startY - dimOffsetY - 8);
+      ctx.fillText(labelW, startX + drawW / 2, startY - dimOffsetY - 9);
 
       // 우측 세로 치수선 (원형 제외)
       if (state.shape !== 'round') {
-        const dimOffsetX = 16;
+        const dimOffsetX = 18;
         ctx.beginPath();
         ctx.moveTo(startX + drawW + dimOffsetX, startY);
         ctx.lineTo(startX + drawW + dimOffsetX, startY + drawH);
         ctx.stroke();
-        // 화살표 틱
         ctx.beginPath();
         ctx.moveTo(startX + drawW + dimOffsetX - 3, startY);
         ctx.lineTo(startX + drawW + dimOffsetX + 3, startY);
@@ -2114,7 +2115,7 @@
         ctx.stroke();
 
         ctx.save();
-        ctx.translate(startX + drawW + dimOffsetX + 12, startY + drawH / 2);
+        ctx.translate(startX + drawW + dimOffsetX + 14, startY + drawH / 2);
         ctx.rotate(Math.PI / 2);
         ctx.fillText(`${state.height} mm`, 0, 0);
         ctx.restore();
@@ -2122,7 +2123,7 @@
 
       // 중앙 간결 스펙 뱃지
       ctx.fillStyle = '#0369a1';
-      ctx.font = 'bold 11px "Noto Sans KR", sans-serif';
+      ctx.font = 'bold 12px "Noto Sans KR", sans-serif';
       ctx.fillText(`${state.thickness}T ${currentGlass.name}`, startX + drawW / 2, startY + drawH / 2);
       ctx.restore();
     }
@@ -2163,8 +2164,8 @@
         ctx.lineWidth = 2;
         ctx.strokeRect(8, 8, w - 8, h - 8);
         ctx.fillStyle = '#64748b';
-        ctx.font = 'bold 9px sans-serif';
-        ctx.fillText('90°', 16, 20);
+        ctx.font = 'bold 10px sans-serif';
+        ctx.fillText('90°', 16, 22);
         ctx.restore();
         return;
       }
@@ -2177,7 +2178,7 @@
       if (zoomDesc) zoomDesc.textContent = `직각 꼭짓점에서 가로/세로 ${r}mm 절삭 (${coinName})`;
       if (zoomTag) zoomTag.textContent = state.cornerType === 'c' ? 'CNC C컷 모따기' : 'CNC R 곡면 라운딩';
 
-      // 5배 확대 모서리 그리기 (좌상단 모서리 기준)
+      // 5배 확대 모서리 그리기
       ctx.save();
       const margin = 10;
       const cutSize = Math.min(r * 1.2, 32);
@@ -2216,7 +2217,7 @@
 
       // 치수 표기
       ctx.fillStyle = '#0369a1';
-      ctx.font = 'bold 9px "Inter", sans-serif';
+      ctx.font = 'bold 10px "Inter", sans-serif';
       ctx.fillText(`${r}mm`, margin + 4, margin + cutSize / 2 + 3);
       ctx.restore();
     }
@@ -2259,7 +2260,7 @@
         state.tempered = true;
         state.cornerR = 12;
         state.cornerType = 'r';
-        state.corners = { TL: true, TR: true, BR: false, BL: false }; // 벽 밀착 2면
+        state.corners = { TL: true, TR: true, BR: false, BL: false };
         state.edgeType = 'cnc_flat';
         state.cableHole = 'top_right';
         state.bumpons = 4;
@@ -2373,8 +2374,8 @@
       document.getElementById('admTabGlasses').classList.toggle('hidden', tab !== 'glasses');
       document.getElementById('admTabPrices').classList.toggle('hidden', tab !== 'prices');
 
-      document.getElementById('admTabBtnGlasses').className = tab === 'glasses' ? 'px-4 py-2 border-b-2 border-brand-600 text-brand-700 font-bold text-xs whitespace-nowrap' : 'px-4 py-2 border-b-2 border-transparent text-slate-500 hover:text-slate-800 font-semibold text-xs whitespace-nowrap';
-      document.getElementById('admTabBtnPrices').className = tab === 'prices' ? 'px-4 py-2 border-b-2 border-brand-600 text-brand-700 font-bold text-xs whitespace-nowrap' : 'px-4 py-2 border-b-2 border-transparent text-slate-500 hover:text-slate-800 font-semibold text-xs whitespace-nowrap';
+      document.getElementById('admTabBtnGlasses').className = tab === 'glasses' ? 'px-4 py-2 border-b-2 border-brand-600 text-brand-700 font-bold text-sm whitespace-nowrap' : 'px-4 py-2 border-b-2 border-transparent text-slate-500 hover:text-slate-800 font-semibold text-sm whitespace-nowrap';
+      document.getElementById('admTabBtnPrices').className = tab === 'prices' ? 'px-4 py-2 border-b-2 border-brand-600 text-brand-700 font-bold text-sm whitespace-nowrap' : 'px-4 py-2 border-b-2 border-transparent text-slate-500 hover:text-slate-800 font-semibold text-sm whitespace-nowrap';
     }
 
     function renderAdminGlassList() {
@@ -2382,28 +2383,28 @@
       document.getElementById('admGlassCount').textContent = masterData.glasses.length;
 
       container.innerHTML = masterData.glasses.map((g, idx) => `
-        <div class="p-3.5 bg-warm-50 border border-slate-200 rounded-2xl flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-          <div class="flex items-center gap-3">
-            <span class="w-7 h-7 rounded-xl border border-slate-300 shadow-xs flex-shrink-0" style="background-color: ${g.color};"></span>
+        <div class="p-4 bg-warm-50 border border-slate-200 rounded-2xl flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div class="flex items-center gap-3.5">
+            <span class="w-8 h-8 rounded-xl border border-slate-300 shadow-xs flex-shrink-0" style="background-color: ${g.color};"></span>
             <div>
-              <div class="text-xs font-bold text-slate-900 flex items-center gap-1.5">
+              <div class="text-sm font-bold text-slate-900 flex items-center gap-2">
                 <span>${g.name}</span>
-                <span class="text-[9px] font-semibold bg-brand-100 text-brand-700 px-1.5 py-0.2 rounded-md">${g.tag || '일반'}</span>
-                <span class="text-xs text-brand-600 font-extrabold">${g.price.toLocaleString()}원/㎡</span>
+                <span class="text-xs font-semibold bg-brand-100 text-brand-700 px-2 py-0.5 rounded-md">${g.tag || '일반'}</span>
+                <span class="text-sm text-brand-600 font-extrabold">${g.price.toLocaleString()}원/㎡</span>
               </div>
-              <div class="text-[11px] text-slate-500 mt-0.5 line-clamp-1">${g.desc}</div>
+              <div class="text-xs text-slate-600 mt-1 line-clamp-1">${g.desc}</div>
             </div>
           </div>
 
           <div class="flex items-center gap-2 justify-end">
-            <button type="button" onclick="toggleSoldOut('${g.id}')" class="px-2.5 py-1 rounded-lg text-xs font-bold ${g.isSoldOut ? 'bg-red-100 text-red-700' : 'bg-emerald-100 text-emerald-700'}">
+            <button type="button" onclick="toggleSoldOut('${g.id}')" class="px-3 py-1.5 rounded-lg text-xs font-bold ${g.isSoldOut ? 'bg-red-100 text-red-700' : 'bg-emerald-100 text-emerald-700'}">
               ${g.isSoldOut ? '품절중' : '판매중'}
             </button>
-            <button type="button" onclick="openEditGlassModal('${g.id}')" class="p-1.5 bg-white border border-slate-200 hover:bg-slate-100 rounded-lg text-slate-700" title="수정">
-              <i data-lucide="edit-2" class="w-3.5 h-3.5"></i>
+            <button type="button" onclick="openEditGlassModal('${g.id}')" class="p-2 bg-white border border-slate-200 hover:bg-slate-100 rounded-lg text-slate-700" title="수정">
+              <i data-lucide="edit-2" class="w-4 h-4"></i>
             </button>
-            <button type="button" onclick="deleteGlassItem('${g.id}')" class="p-1.5 bg-white border border-slate-200 hover:bg-red-50 text-red-600 rounded-lg" title="삭제">
-              <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
+            <button type="button" onclick="deleteGlassItem('${g.id}')" class="p-2 bg-white border border-slate-200 hover:bg-red-50 text-red-600 rounded-lg" title="삭제">
+              <i data-lucide="trash-2" class="w-4 h-4"></i>
             </button>
           </div>
         </div>
