@@ -1414,11 +1414,19 @@
     // -------------------------------------------------------------
     // 2. 초기 렌더링 & UI 생성
     // -------------------------------------------------------------
-    document.addEventListener('DOMContentLoaded', () => {
-      lucide.createIcons();
+    function initApp() {
+      if (window.lucide) {
+        lucide.createIcons();
+      }
       renderAllCards();
       calculateEstimate();
-    });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initApp);
+    } else {
+      initApp();
+    }
 
     function renderAllCards() {
       renderShapeCards();
@@ -1430,6 +1438,7 @@
 
     function renderShapeCards() {
       const container = document.getElementById('shapeCardsContainer');
+      if (!container) return;
       container.innerHTML = SHAPES.map(s => `
         <button type="button" onclick="selectShape('${s.id}')" class="p-3 rounded-2xl border text-left transition-all ${state.shape === s.id ? 'card-selected' : 'border-slate-200 bg-white hover:border-slate-300'}">
           <div class="w-8 h-8 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center mb-2 shadow-xs">
@@ -1439,11 +1448,12 @@
           <div class="text-[10px] text-slate-500 mt-0.5 leading-tight">${s.desc}</div>
         </button>
       `).join('');
-      lucide.createIcons();
+      if (window.lucide) lucide.createIcons();
     }
 
     function renderGlassCards() {
       const container = document.getElementById('glassCardsContainer');
+      if (!container) return;
       container.innerHTML = masterData.glasses.map(g => {
         const isSelected = state.glassType === g.id;
         return `
@@ -1461,6 +1471,7 @@
 
     function renderThicknessCards() {
       const container = document.getElementById('thicknessCardsContainer');
+      if (!container) return;
       container.innerHTML = THICKNESS_OPTIONS.map(opt => {
         const isSelected = state.thickness === opt.t;
         return `
@@ -1475,6 +1486,7 @@
 
     function renderCornerCards() {
       const container = document.getElementById('cornerCardsContainer');
+      if (!container) return;
       const isCurveShape = (state.shape === 'round' || state.shape === 'oval' || state.shape === 'stadium');
 
       container.innerHTML = CORNER_OPTIONS.map(opt => {
@@ -1491,6 +1503,7 @@
 
     function renderEdgeCards() {
       const container = document.getElementById('edgeCardsContainer');
+      if (!container) return;
       container.innerHTML = EDGE_OPTIONS.map(e => {
         const isSelected = state.edgeType === e.id;
         return `
@@ -1517,22 +1530,22 @@
       const cornerCountRow = document.getElementById('cornerCountRow');
 
       if (shapeId === 'round') {
-        colHeight.style.display = 'none';
+        if (colHeight) colHeight.style.display = 'none';
         document.getElementById('labelDimWidth').textContent = '원형 지름 (Diameter mm)';
-        cornerNotice.classList.remove('hidden');
-        cornerCountRow.style.display = 'none';
+        if (cornerNotice) cornerNotice.classList.remove('hidden');
+        if (cornerCountRow) cornerCountRow.style.display = 'none';
         state.cornerR = 0;
       } else if (shapeId === 'oval' || shapeId === 'stadium') {
-        colHeight.style.display = 'block';
+        if (colHeight) colHeight.style.display = 'block';
         document.getElementById('labelDimWidth').textContent = '가로 너비 (W mm)';
-        cornerNotice.classList.remove('hidden');
-        cornerCountRow.style.display = 'none';
+        if (cornerNotice) cornerNotice.classList.remove('hidden');
+        if (cornerCountRow) cornerCountRow.style.display = 'none';
         state.cornerR = 0;
       } else {
-        colHeight.style.display = 'block';
+        if (colHeight) colHeight.style.display = 'block';
         document.getElementById('labelDimWidth').textContent = '가로 너비 (W mm)';
-        cornerNotice.classList.add('hidden');
-        cornerCountRow.style.display = 'flex';
+        if (cornerNotice) cornerNotice.classList.add('hidden');
+        if (cornerCountRow) cornerCountRow.style.display = 'flex';
         state.cornerR = 20;
       }
 
@@ -1558,7 +1571,8 @@
       state.cornerR = r;
       state.cornerType = type;
       renderCornerCards();
-      document.getElementById('cornerCountRow').style.display = r === 0 ? 'none' : 'flex';
+      const countRow = document.getElementById('cornerCountRow');
+      if (countRow) countRow.style.display = r === 0 ? 'none' : 'flex';
       calculateEstimate();
     }
 
@@ -1592,20 +1606,28 @@
       const tabCad = document.getElementById('tabBtnCad');
 
       if (tab === 'room') {
-        roomView.classList.remove('hidden');
-        cadView.classList.add('hidden');
-        tabRoom.classList.add('bg-white', 'text-brand-700', 'shadow-xs');
-        tabRoom.classList.remove('text-slate-600');
-        tabCad.classList.remove('bg-white', 'text-brand-700', 'shadow-xs');
-        tabCad.classList.add('text-slate-600');
+        if (roomView) roomView.classList.remove('hidden');
+        if (cadView) cadView.classList.add('hidden');
+        if (tabRoom) {
+          tabRoom.classList.add('bg-white', 'text-brand-700', 'shadow-xs');
+          tabRoom.classList.remove('text-slate-600');
+        }
+        if (tabCad) {
+          tabCad.classList.remove('bg-white', 'text-brand-700', 'shadow-xs');
+          tabCad.classList.add('text-slate-600');
+        }
         updateRoomPreview();
       } else {
-        roomView.classList.add('hidden');
-        cadView.classList.remove('hidden');
-        tabCad.classList.add('bg-white', 'text-brand-700', 'shadow-xs');
-        tabCad.classList.remove('text-slate-600');
-        tabRoom.classList.remove('bg-white', 'text-brand-700', 'shadow-xs');
-        tabRoom.classList.add('text-slate-600');
+        if (roomView) roomView.classList.add('hidden');
+        if (cadView) cadView.classList.remove('hidden');
+        if (tabCad) {
+          tabCad.classList.add('bg-white', 'text-brand-700', 'shadow-xs');
+          tabCad.classList.remove('text-slate-600');
+        }
+        if (tabRoom) {
+          tabRoom.classList.remove('bg-white', 'text-brand-700', 'shadow-xs');
+          tabRoom.classList.add('text-slate-600');
+        }
         drawPreviewCanvas();
       }
     }
@@ -1626,7 +1648,9 @@
       state.height = h;
       state.quantity = parseInt(document.getElementById('inputQuantity').value) || 1;
       state.tempered = document.getElementById('optTempered').checked;
-      state.cornerCount = (state.cornerR === 0 || state.shape !== 'rectangle') ? 0 : parseInt(document.getElementById('cornerCount').value);
+      
+      const cornerCountElem = document.getElementById('cornerCount');
+      state.cornerCount = (state.cornerR === 0 || state.shape !== 'rectangle' || !cornerCountElem) ? 0 : parseInt(cornerCountElem.value);
       state.cableHole = document.getElementById('optCableHole').value;
       state.bumpons = parseInt(document.getElementById('optBumpons').value);
       state.deliveryMethod = document.getElementById('optDeliveryMethod').value;
@@ -1738,6 +1762,7 @@
       const ctx = canvas.getContext('2d');
 
       const rect = canvas.getBoundingClientRect();
+      if (!rect.width || !rect.height) return;
       canvas.width = rect.width * 2;
       canvas.height = rect.height * 2;
       ctx.scale(2, 2);
@@ -1867,14 +1892,13 @@
 
     function handleOrderSubmit(e) {
       e.preventDefault();
-      alert('🎉 주문 신청이 정상 접수되었습니다!
-영업일 기준 1시간 내로 담당 엔지니어가 1:1 도면 최종 검수 후 연락드립니다.');
+      alert('주문 신청이 정상 접수되었습니다! 담당 엔지니어가 1:1 도면 최종 검수 후 연락드립니다.');
       closeOrderModal();
     }
 
     function handleB2BSubmit(e) {
       e.preventDefault();
-      alert('🏢 B2B 도면 견적 문의가 접수되었습니다. 당일 내로 정식 견적서를 발송해 드리겠습니다.');
+      alert('B2B 도면 견적 문의가 접수되었습니다. 당일 내로 정식 견적서를 발송해 드리겠습니다.');
       e.target.reset();
       document.getElementById('fileNameDisplay').textContent = '';
     }
@@ -1890,8 +1914,7 @@
     }
 
     function contactKakao() {
-      alert('💬 카카오톡 상담 채널(@글래스팩토리)로 연결됩니다.
-가구 사진이나 실측 치수를 남겨주시면 실시간 상담이 가능합니다.');
+      alert('카카오톡 상담 채널(@글래스팩토리)로 연결됩니다. 가구 사진이나 실측 치수를 남겨주시면 실시간 상담이 가능합니다.');
     }
 
     // -------------------------------------------------------------
@@ -1921,7 +1944,7 @@
         renderAdminGlassList();
         populateAdminPrices();
       } else {
-        alert('❌ 비밀번호가 올바르지 않습니다. (초기 비밀번호: 1234)');
+        alert('비밀번호가 올바르지 않습니다. (초기 비밀번호: 1234)');
       }
     }
 
@@ -1968,7 +1991,7 @@
           </div>
         </div>
       `).join('');
-      lucide.createIcons();
+      if (window.lucide) lucide.createIcons();
     }
 
     // 유리 추가/수정 모달 핸들러
@@ -2041,7 +2064,7 @@
       saveMasterDataAndSync();
       closeGlassEditModal();
       renderAdminGlassList();
-      alert('✅ 유리 품종 정보가 저장되었습니다.');
+      alert('유리 품종 정보가 저장되었습니다.');
     }
 
     function deleteGlassItem(id) {
@@ -2095,7 +2118,7 @@
       masterData.delivery.baseSmall = parseInt(document.getElementById('adm_price_delivery_base').value) || 4500;
 
       saveMasterDataAndSync();
-      alert('✅ 단가 및 공임비 설정이 저장되었습니다.');
+      alert('단가 및 공임비 설정이 저장되었습니다.');
     }
 
     function saveMasterDataAndSync() {
