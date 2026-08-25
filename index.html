@@ -82,12 +82,9 @@
 </head>
 <body class="bg-warm-50 text-slate-800 font-sans antialiased selection:bg-brand-500 selection:text-white">
 
-  <!-- ================================================================= -->
-  <!-- 1. GNB 헤더 (네비게이션 & 초보자 가이드 & 관리자 모드) -->
-  <!-- ================================================================= -->
+  <!-- 1. GNB 헤더 -->
   <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-xs transition-all">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-      <!-- 로고 -->
       <a href="index.html" class="flex items-center gap-3 group">
         <div class="w-10 h-10 rounded-2xl bg-gradient-to-br from-brand-500 to-sky-700 flex items-center justify-center text-white shadow-md group-hover:scale-105 transition-transform">
           <i data-lucide="sparkles" class="w-5 h-5"></i>
@@ -101,7 +98,6 @@
         </div>
       </a>
 
-      <!-- 네비게이션 메뉴 -->
       <nav class="hidden lg:flex items-center gap-7 text-sm font-semibold text-slate-600">
         <a href="#calculator" class="hover:text-brand-600 transition-colors flex items-center gap-1.5 font-bold text-brand-600">
           <i data-lucide="calculator" class="w-4 h-4"></i> 사진 견적내기
@@ -117,7 +113,6 @@
         <a href="#reviews" class="hover:text-brand-600 transition-colors">고객 후기</a>
       </nav>
 
-      <!-- 우측 버튼 -->
       <div class="flex items-center gap-2.5">
         <button onclick="openAdminModal()" class="px-3.5 py-2 text-slate-700 hover:text-brand-600 hover:bg-slate-100 rounded-xl transition-colors flex items-center gap-1.5 text-xs font-bold border border-slate-300 shadow-xs">
           <i data-lucide="settings-2" class="w-4 h-4 text-slate-500"></i>
@@ -133,9 +128,7 @@
   </header>
 
 
-  <!-- ================================================================= -->
   <!-- S1. 히어로 섹션 -->
-  <!-- ================================================================= -->
   <section class="relative pt-10 pb-16 overflow-hidden bg-gradient-to-b from-brand-50/60 via-white to-warm-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid lg:grid-cols-12 gap-10 items-center">
@@ -157,7 +150,6 @@
             <strong>실제 가구 사진과 동전 실측 가이드</strong>로 누구나 실패 없이 완벽하게 맞는 유리를 공장 직영 가격으로 제작해 드립니다.
           </p>
 
-          <!-- 3대 안심 특장점 -->
           <div class="grid grid-cols-3 gap-3.5 pt-2 max-w-lg mx-auto lg:mx-0">
             <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm text-center">
               <div class="w-9 h-9 rounded-xl bg-sky-100 text-brand-600 flex items-center justify-center mx-auto mb-2">
@@ -194,7 +186,6 @@
           </div>
         </div>
 
-        <!-- 우측 인테리어 룸 뷰 카드 -->
         <div class="lg:col-span-5 relative">
           <div class="relative mx-auto max-w-md bg-white p-4 rounded-3xl border border-slate-200 shadow-xl space-y-3.5">
             <div class="relative h-64 rounded-2xl overflow-hidden shadow-inner group">
@@ -225,13 +216,10 @@
   </section>
 
 
-  <!-- ================================================================= -->
   <!-- S5. [핵심 엔진] 사진 보고 고르는 실시간 자동 견적기 -->
-  <!-- ================================================================= -->
   <section id="calculator" class="py-16 bg-white scroll-mt-10 border-y border-slate-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <!-- 섹션 타이틀 -->
       <div class="text-center max-w-3xl mx-auto mb-8">
         <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-brand-600 text-white text-xs font-bold mb-2.5 shadow-xs">
           <i data-lucide="image" class="w-4 h-4"></i> VISUAL ESTIMATOR
@@ -244,7 +232,7 @@
         </p>
       </div>
 
-      <!-- 초보자 전용 스마트 10초 맞춤 추천 위저드 배너 -->
+      <!-- 초보자 전용 10초 맞춤 추천 배너 -->
       <div class="max-w-5xl mx-auto mb-10 p-5 sm:p-6 bg-gradient-to-r from-brand-600 via-sky-600 to-indigo-600 rounded-3xl text-white shadow-lg flex flex-col sm:flex-row items-center justify-between gap-4">
         <div class="flex items-center gap-4 text-center sm:text-left">
           <div class="w-12 h-12 rounded-2xl bg-white/20 backdrop-blur-sm flex items-center justify-center flex-shrink-0 text-amber-300">
@@ -337,7 +325,7 @@
             </div>
           </div>
 
-          <!-- Step 3. 유리 종류 및 색상 (실물 인테리어 사진 카드 - 2열 와이드) -->
+          <!-- Step 3. 유리 종류 및 색상 (2열 와이드) -->
           <div class="bg-warm-50/90 p-6 rounded-3xl border border-slate-200 shadow-xs">
             <div class="flex items-center justify-between mb-4">
               <h3 class="text-base sm:text-lg font-bold text-slate-900 flex items-center gap-2.5">
@@ -379,7 +367,6 @@
               </a>
             </div>
 
-            <!-- 원형/타원형일 때 안내 -->
             <div id="cornerShapeNotice" class="hidden p-4 bg-sky-50 rounded-2xl border border-sky-200 text-sm text-sky-900 flex items-center gap-3">
               <i data-lucide="info" class="w-5 h-5 text-brand-600 flex-shrink-0"></i>
               <span><strong>선택하신 형태(원형/타원형)는 외곽 전체가 매끄러운 곡선으로 자동 가공</strong>되므로 별도의 모서리 R 가공비가 발생하지 않습니다. (0원 자동 처리)</span>
@@ -390,7 +377,7 @@
               <!-- JS 동적 렌더링 -->
             </div>
 
-            <!-- (2) 모서리 적용 위치 인터랙티브 맵 & 직관적 프리뷰 위젯 -->
+            <!-- (2) 모서리 적용 위치 인터랙티브 맵 -->
             <div id="cornerInteractiveBox" class="bg-white p-5 rounded-2xl border border-slate-200 space-y-4">
               
               <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 pb-3">
@@ -407,32 +394,25 @@
 
               <!-- 인터랙티브 4모서리 다이어그램 맵 -->
               <div class="grid sm:grid-cols-12 gap-5 items-center">
-                
-                <!-- 미니 가구 평면도 UI -->
                 <div class="sm:col-span-5 flex justify-center">
                   <div class="relative w-52 h-36 bg-slate-100 border-2 border-dashed border-slate-300 rounded-2xl p-2 flex items-center justify-center shadow-inner">
                     <span class="text-xs font-bold text-slate-500">가구 상판</span>
 
-                    <!-- 좌상 TL -->
                     <button type="button" onclick="toggleCorner('TL')" id="btnCornerTL" class="absolute -top-3.5 -left-3.5 w-9 h-9 rounded-full bg-brand-600 text-white font-black text-xs flex items-center justify-center shadow-md hover:scale-110 transition-transform">
                       TL
                     </button>
-                    <!-- 우상 TR -->
                     <button type="button" onclick="toggleCorner('TR')" id="btnCornerTR" class="absolute -top-3.5 -right-3.5 w-9 h-9 rounded-full bg-brand-600 text-white font-black text-xs flex items-center justify-center shadow-md hover:scale-110 transition-transform">
                       TR
                     </button>
-                    <!-- 우하 BR -->
                     <button type="button" onclick="toggleCorner('BR')" id="btnCornerBR" class="absolute -bottom-3.5 -right-3.5 w-9 h-9 rounded-full bg-brand-600 text-white font-black text-xs flex items-center justify-center shadow-md hover:scale-110 transition-transform">
                       BR
                     </button>
-                    <!-- 좌하 BL -->
                     <button type="button" onclick="toggleCorner('BL')" id="btnCornerBL" class="absolute -bottom-3.5 -left-3.5 w-9 h-9 rounded-full bg-brand-600 text-white font-black text-xs flex items-center justify-center shadow-md hover:scale-110 transition-transform">
                       BL
                     </button>
                   </div>
                 </div>
 
-                <!-- 실시간 모서리 적용 설명 & 깎이는 치수 안내 -->
                 <div class="sm:col-span-7 space-y-2.5 text-sm">
                   <div class="p-3.5 bg-brand-50 rounded-xl border border-brand-200 text-brand-950 space-y-1">
                     <div class="font-extrabold flex items-center gap-1.5 text-sm">
@@ -447,7 +427,6 @@
                     💡 <strong>벽에 붙이는 책상/식탁 팁</strong>: 벽 쪽 모서리 2개(BL, BR)를 끄시면 벽면에 틈 없이 칼같이 밀착됩니다.
                   </div>
                 </div>
-
               </div>
 
             </div>
@@ -598,7 +577,7 @@
               </div>
             </div>
 
-            <!-- (2) 2D 정밀 도면 뷰: 모서리 R20 뱃지 핀 & 직각 90도 기호 명확화 -->
+            <!-- (2) 2D 정밀 도면 뷰: 기하학적 꼬임 방지 렌더러 -->
             <div id="viewModeCad" class="hidden space-y-3.5">
               
               <!-- 상단: 모서리 가공 상태 요약 안내 바 -->
@@ -612,7 +591,7 @@
                 </div>
               </div>
 
-              <!-- 상단: 전체 상판 정밀 치수 도면 캔버스 -->
+              <!-- 전체 상판 정밀 치수 도면 캔버스 -->
               <div class="w-full h-72 clean-cad-bg rounded-2xl border border-slate-300 relative flex items-center justify-center p-2 overflow-hidden shadow-inner">
                 <canvas id="previewCanvas" class="w-full h-full"></canvas>
               </div>
@@ -745,9 +724,7 @@
   </section>
 
 
-  <!-- ================================================================= -->
-  <!-- 갤러리 섹션: 실제 시공 인테리어 사진 모음 (Visual Gallery) -->
-  <!-- ================================================================= -->
+  <!-- 갤러리 섹션 -->
   <section id="gallery" class="py-16 bg-warm-50 border-b border-slate-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
@@ -762,7 +739,6 @@
       </div>
 
       <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-        <!-- 갤러리 1 -->
         <div class="bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-sm group">
           <div class="h-48 overflow-hidden relative">
             <img src="https://images.unsplash.com/photo-1577140917170-285929fb55b7?auto=format&fit=crop&w=600&q=80" alt="원목 식탁 유리 시공" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
@@ -774,7 +750,6 @@
           </div>
         </div>
 
-        <!-- 갤러리 2 -->
         <div class="bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-sm group">
           <div class="h-48 overflow-hidden relative">
             <img src="https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?auto=format&fit=crop&w=600&q=80" alt="화이트 세라믹 식탁 백유리" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
@@ -786,7 +761,6 @@
           </div>
         </div>
 
-        <!-- 갤러리 3 -->
         <div class="bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-sm group">
           <div class="h-48 overflow-hidden relative">
             <img src="https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=600&q=80" alt="원형 카페 테이블 유리" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
@@ -798,7 +772,6 @@
           </div>
         </div>
 
-        <!-- 갤러리 4 -->
         <div class="bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-sm group">
           <div class="h-48 overflow-hidden relative">
             <img src="https://images.unsplash.com/photo-1533090161767-e6ffed986b88?auto=format&fit=crop&w=600&q=80" alt="컴퓨터 데스크 전선타공 유리" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
@@ -815,9 +788,7 @@
   </section>
 
 
-  <!-- ================================================================= -->
   <!-- S6. 모서리 R값 실물 동전 대조 가이드 -->
-  <!-- ================================================================= -->
   <section id="r-guide" class="py-16 bg-white border-b border-slate-200 scroll-mt-12">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
@@ -832,8 +803,6 @@
       </div>
 
       <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        
-        <!-- R0 직각 -->
         <div class="bg-warm-50 p-6 rounded-3xl border border-slate-200 text-center hover:border-brand-300 transition-all">
           <div class="w-24 h-24 mx-auto bg-white border-2 border-slate-300 rounded-none mb-4 flex items-center justify-center shadow-inner relative">
             <span class="text-sm font-bold text-slate-700">직각 (R0)</span>
@@ -845,7 +814,6 @@
           </p>
         </div>
 
-        <!-- R12 100원 동전 -->
         <div class="bg-warm-50 p-6 rounded-3xl border-2 border-brand-300 text-center relative shadow-sm hover:border-brand-500 transition-all">
           <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-brand-600 text-white text-xs font-bold px-3 py-0.5 rounded-full">
             가장 흔한 식탁 모서리
@@ -862,7 +830,6 @@
           </p>
         </div>
 
-        <!-- R20 500원 동전 -->
         <div class="bg-warm-50 p-6 rounded-3xl border border-slate-200 text-center hover:border-brand-300 transition-all">
           <div class="w-24 h-24 mx-auto bg-white border-2 border-slate-300 rounded-tl-3xl mb-4 flex items-center justify-center shadow-inner relative">
             <div class="w-14 h-14 rounded-full bg-slate-200 border-2 border-slate-400 text-xs font-black text-slate-700 flex items-center justify-center shadow-xs">
@@ -876,7 +843,6 @@
           </p>
         </div>
 
-        <!-- R35 종이컵 -->
         <div class="bg-warm-50 p-6 rounded-3xl border border-slate-200 text-center hover:border-brand-300 transition-all">
           <div class="w-24 h-24 mx-auto bg-white border-2 border-slate-300 rounded-tl-[36px] mb-4 flex items-center justify-center shadow-inner relative">
             <div class="w-16 h-16 rounded-full bg-sky-100 border-2 border-sky-300 text-xs font-black text-sky-800 flex items-center justify-center shadow-xs">
@@ -889,7 +855,6 @@
             곡률이 큰 라운드 식탁이나 카페용 타원형 테이블입니다.
           </p>
         </div>
-
       </div>
 
       <div class="mt-8 p-5 bg-brand-50 rounded-2xl border border-brand-200 flex flex-col sm:flex-row items-center justify-between gap-4">
@@ -908,9 +873,7 @@
   </section>
 
 
-  <!-- ================================================================= -->
-  <!-- S7. 안심 배송 & 100% 파손 보상 시스템 (Guarantee) -->
-  <!-- ================================================================= -->
+  <!-- S7. 안심 배송 & 100% 파손 보상 시스템 -->
   <section id="safety-guarantee" class="py-16 bg-slate-900 text-white scroll-mt-12">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
@@ -984,9 +947,7 @@
   </section>
 
 
-  <!-- ================================================================= -->
-  <!-- S9. 고객 후기 (Social Proof) -->
-  <!-- ================================================================= -->
+  <!-- S9. 고객 후기 -->
   <section id="reviews" class="py-16 bg-warm-50 border-b border-slate-200 scroll-mt-12">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
@@ -1076,12 +1037,9 @@
   </section>
 
 
-  <!-- ================================================================= -->
-  <!-- S12. 푸터 (Footer) -->
-  <!-- ================================================================= -->
+  <!-- S12. 푸터 -->
   <footer class="bg-slate-950 text-slate-400 py-12 text-sm border-t border-slate-900">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-      
       <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
         <div>
           <div class="flex items-center gap-2 text-white font-bold text-base mb-3">
@@ -1134,12 +1092,11 @@
           <a href="#" class="hover:text-slate-400">안심보상규정</a>
         </div>
       </div>
-
     </div>
   </footer>
 
 
-  <!-- 모달 0. [10초 초보자 스마트 추천 위저드 모달] -->
+  <!-- 모달 0. 위저드 모달 -->
   <div id="wizardModal" class="fixed inset-0 z-50 bg-black/75 backdrop-blur-sm hidden items-center justify-center p-4">
     <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl border border-slate-200 relative max-h-[90vh] overflow-y-auto">
       <button onclick="closeWizardModal()" class="absolute right-5 top-5 text-slate-400 hover:text-slate-600 p-1">
@@ -1155,8 +1112,6 @@
       </div>
 
       <div class="space-y-6 text-sm">
-        
-        <!-- 질문 1 -->
         <div class="space-y-2.5">
           <label class="block font-extrabold text-slate-900 text-base">Q1. 어디에 올려 사용하실 건가요?</label>
           <div class="grid grid-cols-2 gap-2.5">
@@ -1179,7 +1134,6 @@
           </div>
         </div>
 
-        <!-- 질문 2 -->
         <div class="space-y-2.5">
           <label class="block font-extrabold text-slate-900 text-base">Q2. 가구 상판의 색상/재질은 무엇인가요?</label>
           <div class="grid grid-cols-3 gap-2.5">
@@ -1201,7 +1155,6 @@
           </div>
         </div>
 
-        <!-- 질문 3 -->
         <div class="space-y-2.5">
           <label class="block font-extrabold text-slate-900 text-base">Q3. 어린이나 반려동물이 함께 생활하나요?</label>
           <div class="grid grid-cols-2 gap-2.5">
@@ -1222,13 +1175,12 @@
             <span>내 가구 맞춤 옵션 자동 적용하기</span>
           </button>
         </div>
-
       </div>
     </div>
   </div>
 
 
-  <!-- 모달 1. 주문 신청 팝업 (Order Modal) -->
+  <!-- 모달 1. 주문 모달 -->
   <div id="orderModal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden items-center justify-center p-4">
     <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl border border-slate-200 relative max-h-[90vh] overflow-y-auto">
       <button onclick="closeOrderModal()" class="absolute right-5 top-5 text-slate-400 hover:text-slate-600 p-1">
@@ -1289,7 +1241,6 @@
   <!-- 모달 2. 관리자 마스터 대시보드 -->
   <div id="adminModal" class="fixed inset-0 z-50 bg-black/75 backdrop-blur-sm hidden items-center justify-center p-4">
     <div class="bg-white rounded-3xl max-w-3xl w-full p-6 sm:p-8 shadow-2xl border border-slate-200 relative max-h-[90vh] overflow-y-auto">
-      
       <button onclick="closeAdminModal()" class="absolute right-5 top-5 text-slate-400 hover:text-slate-600 p-1">
         <i data-lucide="x" class="w-6 h-6"></i>
       </button>
@@ -1336,9 +1287,7 @@
               <span>새 유리 품종 추가</span>
             </button>
           </div>
-          <div class="space-y-3 max-h-96 overflow-y-auto pr-1" id="admGlassListContainer">
-            <!-- JS 동적 렌더링 -->
-          </div>
+          <div class="space-y-3 max-h-96 overflow-y-auto pr-1" id="admGlassListContainer"></div>
         </div>
 
         <div id="admTabPrices" class="hidden space-y-4">
@@ -1451,7 +1400,7 @@
 
 
   <!-- ================================================================= -->
-  <!-- JavaScript -->
+  <!-- JavaScript: 기하학적 꼬임 방지 알고리즘 탑재 CAD 렌더러 -->
   <!-- ================================================================= -->
   <script>
     // 1. 기본 마스터 데이터
@@ -1720,7 +1669,6 @@
         if (cutDepthText) cutDepthText.textContent = `원래 직각 꼭짓점에서 가로 ${state.cornerR}mm, 세로 ${state.cornerR}mm 깎아냅니다. (${coinDesc})`;
       }
 
-      // 도면 상단 상태 뱃지 갱신
       updateCadTopBadges();
     }
 
@@ -1728,7 +1676,8 @@
       const container = document.getElementById('cadCornerStatusBadges');
       if (!container) return;
       if (state.shape !== 'rectangle') {
-        container.innerHTML = `<span class="bg-brand-100 text-brand-800 px-2 py-0.5 rounded-md text-xs font-bold">외곽 곡선 일체형</span>`;
+        const shapeName = state.shape === 'round' ? '원형 곡선 가공' : (state.shape === 'oval' ? '타원 곡선 가공' : '트랙형 양끝반원 가공');
+        container.innerHTML = `<span class="bg-brand-100 text-brand-800 px-2 py-0.5 rounded-md text-xs font-bold">${shapeName} (CNC 일체 가공)</span>`;
         return;
       }
       
@@ -1871,7 +1820,6 @@
 
       const activeCornerCount = getActiveCornerCount();
 
-      // 1) 면적 계산
       let areaSqm = (w * h) / 1000000;
       let perimeterM = (2 * (w + h)) / 1000;
 
@@ -1884,13 +1832,19 @@
         const b = (h / 2) / 1000;
         areaSqm = Math.PI * a * b;
         perimeterM = Math.PI * (3 * (a + b) - Math.sqrt((3 * a + b) * (a + 3 * b)));
+      } else if (state.shape === 'stadium') {
+        const shortDim = Math.min(w, h);
+        const longDim = Math.max(w, h);
+        const rM = (shortDim / 2) / 1000;
+        const rectLenM = (longDim - shortDim) / 1000;
+        areaSqm = Math.PI * rM * rM + (2 * rM * rectLenM);
+        perimeterM = 2 * Math.PI * rM + (2 * rectLenM);
       }
 
       const thickNum = parseFloat(state.thickness);
       const singleWeight = areaSqm * thickNum * 2.5;
       const totalWeight = singleWeight * state.quantity;
 
-      // 2) 단가 조회
       const currentGlass = masterData.glasses.find(g => g.id === state.glassType) || masterData.glasses[0];
       const baseUnitPrice = currentGlass.price || 22000;
       const thickRatio = masterData.thicknessRatios[state.thickness] || 1.0;
@@ -1931,7 +1885,6 @@
       const singlePieceTotal = adjustedGlassPrice + temperPrice + cornerPrice + edgePrice + cableHolePrice + bumponPrice;
       const grandTotal = (singlePieceTotal * state.quantity) + deliveryPrice;
 
-      // 3) UI 갱신
       document.getElementById('metaArea').textContent = (areaSqm * state.quantity).toFixed(2) + ' ㎡';
       document.getElementById('metaWeight').textContent = totalWeight.toFixed(1) + ' kg';
       document.getElementById('metaDelivery').textContent = deliveryLabel;
@@ -1974,8 +1927,7 @@
     }
 
     // -------------------------------------------------------------
-    // [직관적 2D CAD 도면 렌더러]
-    // 4개 모서리에 선명한 [R20] / [직각 90°] 핀 뱃지 & 곡면 하이라이트
+    // [기하학적 꼬임 방지 알고리즘이 적용된 2D CAD 도면 렌더러]
     // -------------------------------------------------------------
     function drawPreviewCanvas() {
       const canvas = document.getElementById('previewCanvas');
@@ -2011,29 +1963,48 @@
       if (state.shape === 'rectangle' && state.cornerR > 0) {
         ctx.save();
         ctx.setLineDash([3, 3]);
-        ctx.strokeStyle = '#f59e0b'; // Amber 500
+        ctx.strokeStyle = '#f59e0b';
         ctx.lineWidth = 1.5;
         ctx.strokeRect(startX, startY, drawW, drawH);
         ctx.restore();
       }
 
-      // 2) 실제 유리 바디 렌더링
+      // 2) 실제 유리 바디 렌더링 (방어적 기하학 패스 알고리즘)
       ctx.save();
       ctx.beginPath();
+      
       if (state.shape === 'round') {
-        const radius = drawW / 2;
+        const radius = Math.min(drawW, drawH) / 2;
         ctx.arc(startX + radius, startY + radius, radius, 0, Math.PI * 2);
       } else if (state.shape === 'oval') {
-        ctx.ellipse(startX + drawW / 2, startY + drawH / 2, drawW / 2, drawH / 2, 0, 0, Math.PI * 2);
+        ctx.ellipse(startX + drawW / 2, startY + drawH / 2, Math.max(drawW / 2, 2), Math.max(drawH / 2, 2), 0, 0, Math.PI * 2);
       } else if (state.shape === 'stadium') {
-        const r = drawH / 2;
-        ctx.arc(startX + drawW - r, startY + r, r, -Math.PI / 2, Math.PI / 2);
-        ctx.arc(startX + r, startY + r, r, Math.PI / 2, -Math.PI / 2);
-        ctx.closePath();
+        // [완벽한 트랙형/스타디움 기하학 렌더러]
+        // 가로가 긴 경우 vs 세로가 긴 경우를 자동으로 판별하여 절대 꼬이지 않게 렌더링
+        if (drawW >= drawH) {
+          // 가로형 트랙 (좌/우 반원)
+          const r = drawH / 2;
+          ctx.moveTo(startX + r, startY);
+          ctx.lineTo(startX + drawW - r, startY);
+          ctx.arc(startX + drawW - r, startY + r, r, -Math.PI / 2, Math.PI / 2);
+          ctx.lineTo(startX + r, startY + drawH);
+          ctx.arc(startX + r, startY + r, r, Math.PI / 2, -Math.PI / 2);
+          ctx.closePath();
+        } else {
+          // 세로형 트랙 (상/하 반원) -> 400x1400 같은 슬림 치수에서도 완벽히 작동!
+          const r = drawW / 2;
+          ctx.moveTo(startX, startY + r);
+          ctx.arc(startX + r, startY + r, r, Math.PI, 0); // 상단 반원
+          ctx.lineTo(startX + drawW, startY + drawH - r);
+          ctx.arc(startX + r, startY + drawH - r, r, 0, Math.PI); // 하단 반원
+          ctx.lineTo(startX, startY + r);
+          ctx.closePath();
+        }
       } else {
-        // 직사각형 - 모서리별 독립 곡률 (도면에서 시인성을 위해 R 스케일 증폭 3.5배)
-        const maxR = Math.min(drawW / 2, drawH / 2);
-        const rVisual = Math.min(state.cornerR * scale * 3.5, maxR);
+        // 직사각형 - 모서리별 안전 클램핑 (두 R의 합이 폭을 넘지 않도록 방어)
+        const maxSafeR = Math.min(drawW / 2 - 1, drawH / 2 - 1);
+        const rVisual = Math.min(state.cornerR * scale * 2.0, maxSafeR);
+        
         const rTL = (state.corners.TL && state.cornerR > 0) ? rVisual : 0;
         const rTR = (state.corners.TR && state.cornerR > 0) ? rVisual : 0;
         const rBR = (state.corners.BR && state.cornerR > 0) ? rVisual : 0;
@@ -2143,7 +2114,7 @@
       }
       ctx.restore();
 
-      // 4) [핵심 혁신] 4개 모서리 직관적 뱃지 핀 오버레이 (R20 vs 직각 90°)
+      // 4) 4개 모서리 직관적 뱃지 핀 오버레이 (직사각형일 때)
       if (state.shape === 'rectangle') {
         const cornerPins = [
           { key: 'TL', x: startX, y: startY, active: state.corners.TL && state.cornerR > 0, offX: -18, offY: -18 },
@@ -2155,17 +2126,14 @@
         cornerPins.forEach(p => {
           ctx.save();
           if (p.active) {
-            // [R 가공된 모서리] : 선명한 블루 캡슐 뱃지
             const typeLabel = state.cornerType === 'c' ? `C${state.cornerR}` : `R${state.cornerR}`;
             
-            // 모서리 원형 하이라이트 링
             ctx.strokeStyle = '#0284c7';
             ctx.lineWidth = 2.5;
             ctx.beginPath();
             ctx.arc(p.x, p.y, 6, 0, Math.PI * 2);
             ctx.stroke();
 
-            // 뱃지 배경
             ctx.fillStyle = '#0284c7';
             ctx.shadowColor = 'rgba(2, 132, 199, 0.35)';
             ctx.shadowBlur = 6;
@@ -2178,7 +2146,6 @@
             ctx.roundRect(bx, by, badgeW, badgeH, 6);
             ctx.fill();
 
-            // 뱃지 텍스트
             ctx.shadowColor = 'transparent';
             ctx.fillStyle = '#ffffff';
             ctx.font = 'bold 10px "Inter", sans-serif';
@@ -2187,7 +2154,6 @@
             ctx.fillText(typeLabel, bx + badgeW / 2, by + badgeH / 2);
 
           } else {
-            // [직각 모서리] : 깔끔한 그레이 직각 90° 뱃지
             const badgeW = 34;
             const badgeH = 18;
             const bx = p.x + p.offX - (p.offX < 0 ? badgeW - 8 : 8);
@@ -2245,7 +2211,7 @@
       const zoomTag = document.getElementById('zoomProcessTag');
 
       if (state.shape !== 'rectangle' || state.cornerR === 0 || activeCount === 0) {
-        if (zoomTitle) zoomTitle.textContent = state.shape !== 'rectangle' ? '원형 곡선 일체 가공' : '모서리 90° 직각 (R0)';
+        if (zoomTitle) zoomTitle.textContent = state.shape !== 'rectangle' ? '외곽 곡선 일체 가공' : '모서리 90° 직각 (R0)';
         if (zoomDesc) zoomDesc.textContent = state.shape !== 'rectangle' ? '외곽 전체가 CNC로 유광 연마됩니다.' : '모서리가 깎이지 않은 표준 직각 사각형입니다.';
         if (zoomTag) zoomTag.textContent = state.shape !== 'rectangle' ? '곡선 연마' : '직각 마감';
 
@@ -2270,18 +2236,15 @@
       if (zoomDesc) zoomDesc.textContent = `직각 꼭짓점에서 가로/세로 ${r}mm 절삭 (${coinName})`;
       if (zoomTag) zoomTag.textContent = state.cornerType === 'c' ? 'CNC C컷 모따기' : 'CNC R 곡면 라운딩';
 
-      // 5배 확대 모서리 그리기
       ctx.save();
       const margin = 10;
       const cutSize = Math.min(r * 1.2, 32);
 
-      // 1) 원래 직각 점선 (주황색)
       ctx.setLineDash([3, 3]);
       ctx.strokeStyle = '#f59e0b';
       ctx.lineWidth = 1.5;
       ctx.strokeRect(margin, margin, w - margin, h - margin);
 
-      // 2) 실제 깎인 유리 단면
       ctx.setLineDash([]);
       ctx.beginPath();
       if (state.cornerType === 'c') {
@@ -2307,7 +2270,6 @@
       ctx.lineWidth = 2.5;
       ctx.stroke();
 
-      // 치수 표기
       ctx.fillStyle = '#0369a1';
       ctx.font = 'bold 10px "Inter", sans-serif';
       ctx.fillText(`${r}mm`, margin + 4, margin + cutSize / 2 + 3);
