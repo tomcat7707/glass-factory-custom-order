@@ -1,0 +1,9 @@
+# Local Editor & Antigravity Config
+.gemini/
+.vscode/
+.idea/
+
+# Lecture & Reference Materials
+*.docx
+*.skill
+실습에 사용된 이미지(로고-매장사진등)/
